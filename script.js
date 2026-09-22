@@ -229,9 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // To make the first card start on the left and the last card stop on the right,
-            // we constrain the progress range. An offset of ~2 cards means the center of the viewport
-            // will start at card index 2 (putting card 0 on the left edge).
-            const edgeOffset = 2.2; 
+            // we constrain the progress range. An offset of ~2.6 cards pushes them closer to the screen edges.
+            const edgeOffset = 2.6; 
             const startProgress = edgeOffset;
             const endProgress = Math.max(startProgress, (cards.length - 1) - edgeOffset);
             
@@ -260,15 +259,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (viewport) viewport.style.perspective = '300px';
                 
                 // Remove the "shadow" (fading) for cards that are on screen.
-                // Cards stay fully bright (opacity 1) until they start wrapping off the edge (absDist > 2.5).
+                // Cards stay fully bright (opacity 1) until they start wrapping off the edge (absDist > 2.8).
                 let opacity = 1;
-                if (absDist > 2.5) {
-                    opacity = Math.max(0, 1 - (absDist - 2.5)); // Fades out completely by 3.5
+                if (absDist > 2.8) {
+                    opacity = Math.max(0, 1 - (absDist - 2.8)); // Fades out completely by 3.8
                 }
                 card.style.opacity = opacity;
                 
                 // Completely hide cards that are far wrapped to prevent ghosting
-                if (absDist > 3.5) {
+                if (absDist > 3.8) {
                     card.style.visibility = 'hidden';
                 } else {
                     card.style.visibility = 'visible';
