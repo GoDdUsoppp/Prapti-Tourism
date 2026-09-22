@@ -239,15 +239,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 // This is the ONLY mathematical way to guarantee the top and bottom edges of the cards
                 // form a flawless, continuous, non-jagged arc. Individual scaling breaks the arc.
                 
-                // 12 degrees per card = exactly 30 cards in a full circle
-                const rotateY = dist * -12; 
+                // 18 degrees per card creates a noticeably "smaller" and tighter circle 
+                // compared to the previous 12 degrees.
+                const rotateY = dist * -18; 
                 
-                // Radius of the cylinder. A larger radius ensures plenty of gap between cards.
-                const radius = -1800; 
+                // A smaller radius (-1200) mathematically matches the tighter angle, maintaining the perfect gap.
+                const radius = -1200; 
                 
-                // We apply a UNIFORM global scale to all cards first, so they are nice and big on screen.
-                // Because it is uniform, it does not break the continuous arc geometry!
-                const globalScale = 1.4;
+                // We scale up the entire projection globally. 
+                // This is required because we are using a very intense perspective lens below.
+                const globalScale = 3.2;
                 
                 // Apply pure 3D transforms
                 // 1. Scale uniformly
@@ -255,10 +256,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 3. Push back to the cylinder wall
                 card.style.transform = `scale(${globalScale}) rotateY(${rotateY}deg) translateZ(${radius}px)`;
                 
-                // Set the container perspective to exaggerate the size of the edge cards naturally
-                // This gives the "bigger on the edges" effect without jagged scaling artifacts.
+                // Set the container perspective to a very intense "wide-angle lens" (500px)
+                // This drastically exaggerates the size of the cards on the edges as they curve towards the camera!
                 const viewport = document.getElementById('sticky-viewport');
-                if (viewport) viewport.style.perspective = '1000px';
+                if (viewport) viewport.style.perspective = '500px';
                 
                 // Smooth opacity fade
                 card.style.opacity = Math.max(0.1, 1 - (absDist * 0.15));
