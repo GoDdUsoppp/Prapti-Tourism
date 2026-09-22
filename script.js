@@ -239,25 +239,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 // This is the ONLY mathematical way to guarantee the top and bottom edges of the cards
                 // form a flawless, continuous, non-jagged arc. Individual scaling breaks the arc.
                 
-                // 28 degrees per card creates a very tight, fast-turning circle
-                const rotateY = dist * -28; 
+                // 20 degrees per card turns a bit slower, allowing more cards to be visible on screen
+                const rotateY = dist * -20; 
                 
-                // Radius of -800 keeps the tight circle compact
-                const radius = -800; 
+                // Radius of -920 creates a tight ~320px arc length. Since cards are 300px wide, 
+                // this leaves a very small, tight gap of exactly 20px!
+                const radius = -920; 
                 
-                // Scale up globally by 3.5 to counter the insane perspective lens
-                const globalScale = 3.5;
+                // Global scale 
+                const globalScale = 3.0;
                 
                 // Apply pure 3D transforms
                 card.style.transform = `scale(${globalScale}) rotateY(${rotateY}deg) translateZ(${radius}px)`;
                 
-                // 200px perspective is an absolute extreme wide-angle lens. 
-                // Cards on the far edges will now appear over 350% larger than the center card!
+                // 300px perspective keeps the extreme size difference while showing more cards
                 const viewport = document.getElementById('sticky-viewport');
-                if (viewport) viewport.style.perspective = '200px';
+                if (viewport) viewport.style.perspective = '300px';
                 
-                // Smooth opacity fade
-                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.15));
+                // Completely hide cards that wrap around to the back of the cylinder 
+                // to prevent the "ghost shadow" effect overlapping the front cards
+                if (absDist > 4) {
+                    card.style.opacity = 0;
+                    card.style.visibility = 'hidden';
+                } else {
+                    card.style.opacity = Math.max(0.2, 1 - (absDist * 0.15));
+                    card.style.visibility = 'visible';
+                }
                 
                 // In a pure cylinder, Z-index is handled natively by the browser's 3D engine!
                 // But we can help it by prioritizing cards closer to the center
