@@ -237,21 +237,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 const sign = Math.sign(dist);
                 
                 // 1. Exact X Positioning (Non-Linear)
-                // Base spacing + exponential expansion for edge cards.
-                // This ensures cards are perfectly spaced, and the gap increases as they move away from center.
-                const x = sign * (absDist * 230 + Math.pow(absDist, 1.5) * 50);
+                // We reduce base spacing to 180px so the smaller center cards sit tightly together.
+                // The exponential expansion pushes the growing edge cards further out to prevent overlap.
+                const x = sign * (absDist * 180 + Math.pow(absDist, 1.5) * 60);
                 
                 // 2. Exact Scaling
-                // Center card is small (e.g. 0.75). Edge cards grow exponentially larger to envelope the viewer.
-                const scale = 0.75 + (absDist * 0.15);
+                // Center card is pushed deep (scale 0.55). Edge cards grow aggressively to wrap the viewer.
+                const scale = 0.55 + (absDist * 0.25);
                 
                 // 3. 3D Rotation
-                // Center card faces front. Edge cards tilt inward.
-                // Because we keep translateZ at 0, perspective does not violently shift their X positions!
-                const rotateY = dist * -12; 
+                // Stronger rotation for a deeper wrapping effect
+                const rotateY = dist * -20; 
                 
-                // Apply transforms! (translate(-50%, -50%) is required because cards are absolute left-1/2 top-1/2)
-                card.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale}) rotateY(${rotateY}deg)`;
+                // Apply transforms
+                // Remove the redundant translate(-50%, -50%) because the HTML already has mt-[-200px] ml-[-150px]
+                card.style.transform = `translateX(${x}px) scale(${scale}) rotateY(${rotateY}deg)`;
                 
                 // Opacity fades out only at extreme edges
                 card.style.opacity = Math.max(0, 1 - (absDist * 0.2));
