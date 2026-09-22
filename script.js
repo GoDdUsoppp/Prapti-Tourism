@@ -243,19 +243,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cardCenter = cardRect.left + (cardRect.width / 2);
                 
                 const distance = cardCenter - viewportCenter;
-                const normalizedDist = Math.max(-1.5, Math.min(1.5, distance / (window.innerWidth / 2))); 
+                // normalizedDist is 0 at center, -1 at left edge, 1 at right edge
+                const normalizedDist = Math.max(-2, Math.min(2, distance / (window.innerWidth / 2.5))); 
                 
-                // Calculate rotation based on distance from center (max 60deg at edges)
-                const angleDeg = normalizedDist * 60;
-                
-                // Calculate push-back (Z) and spread (X) to create a perfect arc
                 const absDist = Math.abs(normalizedDist);
-                const translateZ = -absDist * 600; 
-                // X spread pushes cards further apart on the edges so they don't overlap as they recede
-                const translateX = normalizedDist * absDist * 150;
                 
-                card.style.transform = `translate3d(${translateX}px, 0, ${translateZ}px) rotateY(${-angleDeg}deg)`;
-                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.4));
+                // Rotation: left cards face right (positive rotateY), right cards face left (negative)
+                const rotateY = normalizedDist * -45;
+                
+                // Inverted Arc (Concave): Center is pushed back, edges come forward!
+                // Center (absDist=0) gets -800px. Edges (absDist=1) get +200px.
+                const translateZ = -1000 + (Math.pow(absDist, 1.5) * 1200); 
+                
+                // Spread cards out horizontally so they don't overlap too much in the center
+                const translateX = normalizedDist * 100;
+                
+                card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+                
+                // Opacity: Center is clear, edges might fade slightly if too far, but keep them mostly visible
+                card.style.opacity = Math.max(0.3, 1 - (absDist * 0.2));
             });
         }
 
