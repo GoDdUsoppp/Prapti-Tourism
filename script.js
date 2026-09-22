@@ -234,32 +234,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 // How far is this card from the currently focused index?
                 const dist = i - (progress * (cards.length - 1));
                 const absDist = Math.abs(dist);
-                const sign = Math.sign(dist);
                 
-                // 1. Exact X Positioning (Non-Linear)
-                // Base spacing 200px + strong exponential expansion.
-                // This guarantees the gap increases as cards get wider, preventing any overlap.
-                const x = sign * (absDist * 200 + Math.pow(absDist, 1.5) * 80);
+                // We return to the PURE 3D CYLINDER. 
+                // This is the ONLY mathematical way to guarantee the top and bottom edges of the cards
+                // form a flawless, continuous, non-jagged arc. Individual scaling breaks the arc.
                 
-                // 2. Exact Scaling
-                // Center starts at 0.6. Edges scale up smoothly to ~1.2.
-                // This makes the edges look imposing without becoming grotesquely massive on small screens.
-                const scale = 0.6 + (absDist * 0.15);
+                // 12 degrees per card = exactly 30 cards in a full circle
+                const rotateY = dist * -12; 
                 
-                // 3. 3D Rotation
-                // Smooth rotation to create the curve. 
-                // Using a POSITIVE multiplier ensures that the edge of the card closest to the center is pushed back, 
-                // matching the smaller size of the center cards and creating a perfectly continuous top and bottom arc!
-                const rotateY = dist * 15; 
+                // Radius of the cylinder. A larger radius ensures plenty of gap between cards.
+                const radius = -1800; 
                 
-                // Apply transforms
-                card.style.transform = `translateX(${x}px) scale(${scale}) rotateY(${rotateY}deg)`;
+                // We apply a UNIFORM global scale to all cards first, so they are nice and big on screen.
+                // Because it is uniform, it does not break the continuous arc geometry!
+                const globalScale = 1.4;
                 
-                // Opacity fades out slightly on extreme edges
-                card.style.opacity = Math.max(0, 1 - (absDist * 0.15));
+                // Apply pure 3D transforms
+                // 1. Scale uniformly
+                // 2. Rotate on the circle
+                // 3. Push back to the cylinder wall
+                card.style.transform = `scale(${globalScale}) rotateY(${rotateY}deg) translateZ(${radius}px)`;
                 
-                // CRITICAL FIX: In the reference, the center card actually renders ON TOP of the edge cards,
-                // creating a unique focal illusion even though edge cards are larger!
+                // Set the container perspective to exaggerate the size of the edge cards naturally
+                // This gives the "bigger on the edges" effect without jagged scaling artifacts.
+                const viewport = document.getElementById('sticky-viewport');
+                if (viewport) viewport.style.perspective = '1000px';
+                
+                // Smooth opacity fade
+                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.15));
+                
+                // In a pure cylinder, Z-index is handled natively by the browser's 3D engine!
+                // But we can help it by prioritizing cards closer to the center
                 card.style.zIndex = Math.round(100 - absDist * 10);
             });
         }
