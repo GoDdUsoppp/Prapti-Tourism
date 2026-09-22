@@ -228,22 +228,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            const progress = scrollY / maxScroll;
+            // To make the first card start on the left and the last card stop on the right,
+            // we constrain the progress range. An offset of ~2 cards means the center of the viewport
+            // will start at card index 2 (putting card 0 on the left edge).
+            const edgeOffset = 2.2; 
+            const startProgress = edgeOffset;
+            const endProgress = Math.max(startProgress, (cards.length - 1) - edgeOffset);
+            
+            // Progress scales between startProgress and endProgress
+            const progress = startProgress + (scrollY / maxScroll) * (endProgress - startProgress); 
             
             cards.forEach((card, i) => {
                 // How far is this card from the currently focused index?
-                const dist = i - (progress * (cards.length - 1));
+                const dist = i - progress;
                 const absDist = Math.abs(dist);
-                
-                // We return to the PURE 3D CYLINDER. 
-                // This is the ONLY mathematical way to guarantee the top and bottom edges of the cards
-                // form a flawless, continuous, non-jagged arc. Individual scaling breaks the arc.
                 
                 // 20 degrees per card turns a bit slower, allowing more cards to be visible on screen
                 const rotateY = dist * -20; 
                 
-                // Radius of -920 creates a tight ~320px arc length. Since cards are 300px wide, 
-                // this leaves a very small, tight gap of exactly 20px!
+                // Radius of -920 creates a tight gap
                 const radius = -920; 
                 
                 // Global scale 
@@ -256,18 +259,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 const viewport = document.getElementById('sticky-viewport');
                 if (viewport) viewport.style.perspective = '300px';
                 
-                // Completely hide cards that wrap around to the back of the cylinder 
-                // to prevent the "ghost shadow" effect overlapping the front cards
-                if (absDist > 4) {
-                    card.style.opacity = 0;
+                // Remove the "shadow" (fading) for cards that are on screen.
+                // Cards stay fully bright (opacity 1) until they start wrapping off the edge (absDist > 2.5).
+                let opacity = 1;
+                if (absDist > 2.5) {
+                    opacity = Math.max(0, 1 - (absDist - 2.5)); // Fades out completely by 3.5
+                }
+                card.style.opacity = opacity;
+                
+                // Completely hide cards that are far wrapped to prevent ghosting
+                if (absDist > 3.5) {
                     card.style.visibility = 'hidden';
                 } else {
-                    card.style.opacity = Math.max(0.2, 1 - (absDist * 0.15));
                     card.style.visibility = 'visible';
                 }
                 
-                // In a pure cylinder, Z-index is handled natively by the browser's 3D engine!
-                // But we can help it by prioritizing cards closer to the center
+                // Prioritize center cards
                 card.style.zIndex = Math.round(100 - absDist * 10);
             });
         }
