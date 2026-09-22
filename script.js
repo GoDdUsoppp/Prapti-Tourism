@@ -257,11 +257,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Parabolic Z curve: center is pushed back, edges swoop forward
                 const translateZ = -1000 + (absDist * absDist * 800); 
                 
-                // X adjustment to maintain even spacing and counteract perspective stretching
-                const cardXAdjustment = clampedDist * -60;
+                // EXACT Perspective Compensation: 
+                // When an object is pulled forward in Z, perspective makes its X position visually expand from the center.
+                // When pushed back, it visually contracts.
+                // This formula physically moves the card to exactly cancel out that perspective distortion!
+                const perspective = 1500; 
+                let cardXAdjustment = distance * (-translateZ / perspective);
+                
+                // Because rotating the card makes its visual width shrink, the gaps will still look slightly larger at the edges.
+                // We add an extra 'pinch' to pull the rotated edge cards even tighter together.
+                cardXAdjustment += clampedDist * -80;
                 
                 card.style.transform = `translateX(${cardXAdjustment}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
-                card.style.opacity = Math.max(0.3, 1 - (absDist * 0.4));
+                card.style.opacity = Math.max(0.4, 1 - (absDist * 0.3));
             });
         }
 
