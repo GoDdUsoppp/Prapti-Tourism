@@ -245,9 +245,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Radius of our concave cylinder
                 const radius = -1500; 
                 
+                // Scale up cards as they move away from the center
+                const scale = 1 + (absDist * 0.2); // Adjust the multiplier (0.2) for stronger/weaker growth
+                
                 // The magic of true 3D: Rotate the card to its angle on the circle, 
                 // then push it back along its own Z-axis to the wall of the cylinder!
-                card.style.transform = `rotateY(${rotateY}deg) translateZ(${radius}px)`;
+                // Finally, scale it up to exaggerate the size difference.
+                card.style.transform = `rotateY(${rotateY}deg) translateZ(${radius}px) scale(${scale})`;
                 
                 // Opacity fades out as cards wrap around behind the camera
                 card.style.opacity = Math.max(0.1, 1 - (absDist * 0.15));
