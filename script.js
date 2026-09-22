@@ -236,35 +236,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 const dist = i - (progress * (cards.length - 1));
                 const absDist = Math.abs(dist);
                 
-                // --- 1. Flawless Even Visual X Spacing ---
-                // We want the visual center of each card to be exactly 260px apart.
-                // We add a tiny expansion for edge cards to keep the visual gap identical even as they rotate.
-                let visualX = dist * 280; 
-                visualX += Math.sign(dist) * (absDist * absDist * 15);
+                // A perfect 3D cylinder is achieved by rotating first, THEN translating Z!
+                // This naturally creates the concave circle effect and perfectly even visual spacing.
                 
-                // --- 2. Concave Depth (Z) ---
-                // Center is pushed deep into the background (-800px).
-                // Edges curve sharply forward.
-                const z = -1000 + (absDist * absDist * 180);
-                // Cap Z so it never gets too close to the camera (perspective is 1500)
-                const clampedZ = Math.min(200, z);
+                // 12 degrees per card means exactly 30 cards form a full 360 degree circle
+                const rotateY = dist * -12; 
                 
-                // --- 3. Perspective Distortion Cancellation ---
-                // Because CSS perspective visually stretches objects that are pulled forward
-                // and compresses objects pushed back, we mathematically cancel it out!
-                const perspective = 1500;
-                const physicalX = visualX * (1 - (clampedZ / perspective));
+                // Radius of our concave cylinder
+                const radius = -1500; 
                 
-                // --- 4. 3D Rotation ---
-                // Cards face inwards toward the user
-                const rotateY = dist * -18;
+                // The magic of true 3D: Rotate the card to its angle on the circle, 
+                // then push it back along its own Z-axis to the wall of the cylinder!
+                card.style.transform = `rotateY(${rotateY}deg) translateZ(${radius}px)`;
                 
-                // Apply the flawless transforms
-                card.style.transform = `translateX(${physicalX}px) translateZ(${clampedZ}px) rotateY(${rotateY}deg)`;
-                
-                // Adjust opacity and z-index so closer (edge) cards render on top of center cards
-                card.style.opacity = Math.max(0.15, 1 - (absDist * 0.2));
-                card.style.zIndex = Math.round(absDist * 10);
+                // Opacity fades out as cards wrap around behind the camera
+                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.15));
+                card.style.zIndex = Math.round(100 - absDist * 10);
             });
         }
 
