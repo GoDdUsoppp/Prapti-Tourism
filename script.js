@@ -244,32 +244,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cardUntransformedCenter = containerLeft + card.offsetLeft + (card.offsetWidth / 2);
                 
                 const distance = cardUntransformedCenter - viewportCenter;
-                // normalizedDist is roughly -1 at left edge, 0 at center, 1 at right edge
                 const normalizedDist = distance / (window.innerWidth / 2.5); 
                 
-                // Clamp distance to prevent extreme distortions
                 const clampedDist = Math.max(-1.5, Math.min(1.5, normalizedDist));
                 const absDist = Math.abs(clampedDist);
                 
                 // Rotate inwards to form the circle
                 const rotateY = clampedDist * -45;
                 
-                // Parabolic Z curve: center is pushed back, edges swoop forward
-                const translateZ = -1000 + (absDist * absDist * 800); 
+                // Parabolic Z curve: center is pushed back (-1000px). 
+                // Edges come forward, but NEVER cross 0. This prevents them from scaling > 1x and overlapping!
+                const translateZ = Math.min(0, -1000 + (Math.pow(absDist, 1.5) * 1000)); 
                 
-                // EXACT Perspective Compensation: 
-                // When an object is pulled forward in Z, perspective makes its X position visually expand from the center.
-                // When pushed back, it visually contracts.
-                // This formula physically moves the card to exactly cancel out that perspective distortion!
-                const perspective = 1500; 
-                let cardXAdjustment = distance * (-translateZ / perspective);
-                
-                // Because rotating the card makes its visual width shrink, the gaps will still look slightly larger at the edges.
-                // We add an extra 'pinch' to pull the rotated edge cards even tighter together.
-                cardXAdjustment += clampedDist * -80;
+                // A slight X spread to keep them looking roomy as they curve
+                const cardXAdjustment = clampedDist * 20;
                 
                 card.style.transform = `translateX(${cardXAdjustment}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
-                card.style.opacity = Math.max(0.4, 1 - (absDist * 0.3));
+                card.style.opacity = Math.max(0.3, 1 - (absDist * 0.4));
             });
         }
 
