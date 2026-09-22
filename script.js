@@ -247,8 +247,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const scale = 0.6 + (absDist * 0.15);
                 
                 // 3. 3D Rotation
-                // Smooth rotation to create the curve
-                const rotateY = dist * -15; 
+                // Smooth rotation to create the curve. 
+                // Using a POSITIVE multiplier ensures that the edge of the card closest to the center is pushed back, 
+                // matching the smaller size of the center cards and creating a perfectly continuous top and bottom arc!
+                const rotateY = dist * 15; 
                 
                 // Apply transforms
                 card.style.transform = `translateX(${x}px) scale(${scale}) rotateY(${rotateY}deg)`;
