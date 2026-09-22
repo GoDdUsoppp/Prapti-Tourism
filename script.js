@@ -1,0 +1,209 @@
+// Prapti Tourism Scripts
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Prapti Tourism initialized");
+
+    const cities = ["Kyoto", "Kerala", "the Alps", "Bali", "Santorini", "Tokyo"];
+    let currentIndex = 0;
+    const cityElement = document.getElementById("dynamic-city");
+
+    if (cityElement) {
+        setInterval(() => {
+            // Slide up out of view
+            cityElement.style.transform = "translateY(-100%)";
+            
+            setTimeout(() => {
+                // Instantly move to bottom (hidden)
+                cityElement.style.transition = "none";
+                cityElement.style.transform = "translateY(100%)";
+                
+                // Change text
+                currentIndex = (currentIndex + 1) % cities.length;
+                cityElement.textContent = cities[currentIndex];
+                
+                // Force reflow
+                void cityElement.offsetWidth;
+                
+                // Slide up to center
+                cityElement.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
+                cityElement.style.transform = "translateY(0)";
+            }, 500); // Wait for slide out to complete
+        }, 3000);
+    }
+
+    // Vertical Ticker Logic
+    const ticker = document.getElementById("review-ticker");
+    const wrapper = document.getElementById("ticker-wrapper");
+    
+    if (ticker && wrapper) {
+        const updateHeight = () => {
+            if (ticker.children.length >= 3) {
+                // gap-5 is 20px
+                const gap = 20; 
+                const h1 = ticker.children[0].offsetHeight;
+                const h2 = ticker.children[1].offsetHeight;
+                const h3 = ticker.children[2].offsetHeight;
+                wrapper.style.height = (h1 + h2 + h3 + gap * 2) + "px";
+            }
+        };
+
+        // Initialize height
+        updateHeight();
+        // Update on resize
+        window.addEventListener('resize', updateHeight);
+
+        setInterval(() => {
+            const firstCard = ticker.children[0];
+            const gap = 20; // gap-5 is 20px
+            const cardHeight = firstCard.offsetHeight + gap;
+            
+            // Slide up
+            ticker.style.transition = "transform 0.5s ease-in-out";
+            ticker.style.transform = `translateY(-${cardHeight}px)`;
+            
+            setTimeout(() => {
+                // Move first element to the end to loop
+                ticker.appendChild(firstCard);
+                
+                // Instantly reset transform
+                ticker.style.transition = "none";
+                ticker.style.transform = "translateY(0)";
+                
+                // Update wrapper height for the new set of 3 cards
+                updateHeight();
+            }, 500); // Wait for transition to finish
+        }, 3500); // Slide every 3.5 seconds
+    }
+
+    // Odometer initialization
+    setTimeout(() => {
+        const odometers = document.querySelectorAll('.odometer');
+        odometers.forEach(el => {
+            const val = el.getAttribute('data-val');
+            if(val) el.innerHTML = val;
+        });
+    }, 500); // Slight delay for dramatic effect on load
+
+    // Pill Navigation & Carousel Logic
+    const pillDomestic = document.getElementById('pill-domestic');
+    const pillInternational = document.getElementById('pill-international');
+    const carouselDomestic = document.getElementById('carousel-domestic');
+    const carouselInternational = document.getElementById('carousel-international');
+    const btnLeft = document.getElementById('scroll-left');
+    const btnRight = document.getElementById('scroll-right');
+
+    let activeCarousel = carouselDomestic;
+
+    if (pillDomestic && pillInternational && carouselDomestic && carouselInternational) {
+        
+        const activeStyles = ['bg-blue-600', 'text-white', 'shadow-md'];
+        const inactiveStyles = ['text-gray-600', 'hover:text-gray-900', 'bg-transparent'];
+
+        pillDomestic.addEventListener('click', () => {
+            carouselDomestic.classList.remove('hidden');
+            carouselInternational.classList.add('hidden');
+            activeCarousel = carouselDomestic;
+            
+            pillDomestic.classList.remove(...inactiveStyles);
+            pillDomestic.classList.add(...activeStyles);
+            
+            pillInternational.classList.remove(...activeStyles);
+            pillInternational.classList.add(...inactiveStyles);
+        });
+
+        pillInternational.addEventListener('click', () => {
+            carouselInternational.classList.remove('hidden');
+            carouselDomestic.classList.add('hidden');
+            activeCarousel = carouselInternational;
+            
+            pillInternational.classList.remove(...inactiveStyles);
+            pillInternational.classList.add(...activeStyles);
+            
+            pillDomestic.classList.remove(...activeStyles);
+            pillDomestic.classList.add(...inactiveStyles);
+        });
+
+        if(btnLeft && btnRight) {
+            btnRight.addEventListener('click', () => {
+                if (activeCarousel && activeCarousel.firstElementChild) {
+                    const cardWidth = activeCarousel.firstElementChild.offsetWidth;
+                    const gap = 24; // 1.5rem (gap-6)
+                    activeCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+                }
+            });
+            btnLeft.addEventListener('click', () => {
+                if (activeCarousel && activeCarousel.firstElementChild) {
+                    const cardWidth = activeCarousel.firstElementChild.offsetWidth;
+                    const gap = 24;
+                    activeCarousel.scrollBy({ left: -(cardWidth + gap), behavior: 'smooth' });
+                }
+            });
+        }
+
+        function setupInfiniteCarousel(carousel) {
+            if (!carousel || carousel.children.length === 0) return;
+
+            const originalCardsCount = carousel.children.length;
+            const originalHtml = carousel.innerHTML;
+            // Create 3 identical copies for seamless infinite scrolling
+            carousel.innerHTML = originalHtml + originalHtml + originalHtml;
+
+            const getCopyWidth = () => {
+                if (carousel.children.length === 0) return 0;
+                const cardWidth = carousel.firstElementChild.offsetWidth;
+                const gap = 24; // 1.5rem
+                return originalCardsCount * (cardWidth + gap);
+            };
+
+            const performJump = () => {
+                const copyWidth = getCopyWidth();
+                if (copyWidth === 0) return;
+
+                // If scrolled into the first copy, jump forward to the middle copy
+                if (carousel.scrollLeft < copyWidth) {
+                    carousel.style.scrollSnapType = 'none';
+                    carousel.scrollLeft += copyWidth;
+                    void carousel.offsetWidth; // Force reflow
+                    carousel.style.scrollSnapType = '';
+                } 
+                // If scrolled into the third copy, jump back to the middle copy
+                else if (carousel.scrollLeft >= copyWidth * 2) {
+                    carousel.style.scrollSnapType = 'none';
+                    carousel.scrollLeft -= copyWidth;
+                    void carousel.offsetWidth; // Force reflow
+                    carousel.style.scrollSnapType = '';
+                }
+            };
+
+            // Initial setup: jump to the middle copy
+            setTimeout(() => {
+                const copyWidth = getCopyWidth();
+                carousel.style.scrollSnapType = 'none';
+                carousel.scrollLeft = copyWidth;
+                void carousel.offsetWidth;
+                carousel.style.scrollSnapType = '';
+            }, 150);
+
+            // Debounced scroll listener to perform seamless jumps when scrolling stops
+            let scrollTimeout;
+            carousel.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    performJump();
+                }, 150);
+            });
+        }
+
+        // Initialize infinite carousels
+        setupInfiniteCarousel(carouselDomestic);
+        setupInfiniteCarousel(carouselInternational);
+
+        // Auto scroll every 5 seconds (continuous loop)
+        setInterval(() => {
+            if (activeCarousel && activeCarousel.firstElementChild) {
+                const cardWidth = activeCarousel.firstElementChild.offsetWidth;
+                const gap = 24;
+                activeCarousel.scrollBy({ left: cardWidth + gap, behavior: 'smooth' });
+            }
+        }, 5000);
+    }
+});
