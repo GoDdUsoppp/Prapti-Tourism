@@ -237,30 +237,31 @@ document.addEventListener('DOMContentLoaded', () => {
             container.style.transform = `translate3d(calc(-50% + ${translateX}px), -50%, 0)`;
 
             const viewportCenter = window.innerWidth / 2;
+            const containerLeft = viewportCenter - (container.offsetWidth / 2) + translateX;
             
             cards.forEach((card) => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenter = cardRect.left + (cardRect.width / 2);
+                // Calculate stable, untransformed position of the card's center
+                const cardUntransformedCenter = containerLeft + card.offsetLeft + (card.offsetWidth / 2);
                 
-                const distance = cardCenter - viewportCenter;
-                const normalizedDist = distance / (window.innerWidth / 2); 
+                const distance = cardUntransformedCenter - viewportCenter;
+                // normalizedDist is roughly -1 at left edge, 0 at center, 1 at right edge
+                const normalizedDist = distance / (window.innerWidth / 2.5); 
                 
-                // Clamp distance to prevent crazy values when cards are far off-screen
+                // Clamp distance to prevent extreme distortions
                 const clampedDist = Math.max(-1.5, Math.min(1.5, normalizedDist));
                 const absDist = Math.abs(clampedDist);
                 
-                // Rotation: left cards face right (positive rotateY), right cards face left (negative)
-                const rotateY = clampedDist * -40; // max 60 deg rotation
+                // Rotate inwards to form the circle
+                const rotateY = clampedDist * -45;
                 
-                // Z-translation: Center is -800 (pushed back). Edges come forward linearly.
-                const translateZ = -800 + (absDist * 700); 
+                // Parabolic Z curve: center is pushed back, edges swoop forward
+                const translateZ = -1000 + (absDist * absDist * 800); 
                 
-                // X-translation: Because perspective makes closer objects appear further apart, 
-                // we must pull edge cards *inward* towards the center (negative spread).
-                const translateX = clampedDist * -80;
+                // X adjustment to maintain even spacing and counteract perspective stretching
+                const cardXAdjustment = clampedDist * -60;
                 
-                card.style.transform = `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
-                card.style.opacity = Math.max(0.2, 1 - (absDist * 0.3));
+                card.style.transform = `translateX(${cardXAdjustment}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
+                card.style.opacity = Math.max(0.3, 1 - (absDist * 0.4));
             });
         }
 
