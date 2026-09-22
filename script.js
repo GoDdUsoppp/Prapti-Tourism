@@ -230,37 +230,41 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const progress = scrollY / maxScroll;
             
-            const cardWidthWithGap = cards[0].offsetWidth + 40; // 40px is gap-10
-            const totalWidth = cardWidthWithGap * (cards.length - 1);
-            
-            const translateX = -(progress * totalWidth);
-            container.style.transform = `translate3d(calc(-50% + ${translateX}px), -50%, 0)`;
-
-            const viewportCenter = window.innerWidth / 2;
-            const containerLeft = viewportCenter - (container.offsetWidth / 2) + translateX;
-            
-            cards.forEach((card) => {
-                // Calculate stable, untransformed position of the card's center
-                const cardUntransformedCenter = containerLeft + card.offsetLeft + (card.offsetWidth / 2);
+            // We no longer move the container, we move the cards directly based on their index
+            cards.forEach((card, i) => {
+                // How far is this card from the currently focused index?
+                const dist = i - (progress * (cards.length - 1));
+                const absDist = Math.abs(dist);
                 
-                const distance = cardUntransformedCenter - viewportCenter;
-                const normalizedDist = distance / (window.innerWidth / 2.5); 
+                // --- 1. Flawless Even Visual X Spacing ---
+                // We want the visual center of each card to be exactly 260px apart.
+                // We add a tiny expansion for edge cards to keep the visual gap identical even as they rotate.
+                let visualX = dist * 280; 
+                visualX += Math.sign(dist) * (absDist * absDist * 15);
                 
-                const clampedDist = Math.max(-1.5, Math.min(1.5, normalizedDist));
-                const absDist = Math.abs(clampedDist);
+                // --- 2. Concave Depth (Z) ---
+                // Center is pushed deep into the background (-800px).
+                // Edges curve sharply forward.
+                const z = -1000 + (absDist * absDist * 180);
+                // Cap Z so it never gets too close to the camera (perspective is 1500)
+                const clampedZ = Math.min(200, z);
                 
-                // Rotate inwards to form the circle
-                const rotateY = clampedDist * -45;
+                // --- 3. Perspective Distortion Cancellation ---
+                // Because CSS perspective visually stretches objects that are pulled forward
+                // and compresses objects pushed back, we mathematically cancel it out!
+                const perspective = 1500;
+                const physicalX = visualX * (1 - (clampedZ / perspective));
                 
-                // Parabolic Z curve: center is pushed back (-1000px). 
-                // Edges come forward, but NEVER cross 0. This prevents them from scaling > 1x and overlapping!
-                const translateZ = Math.min(0, -1000 + (Math.pow(absDist, 1.5) * 1000)); 
+                // --- 4. 3D Rotation ---
+                // Cards face inwards toward the user
+                const rotateY = dist * -18;
                 
-                // A slight X spread to keep them looking roomy as they curve
-                const cardXAdjustment = clampedDist * 20;
+                // Apply the flawless transforms
+                card.style.transform = `translateX(${physicalX}px) translateZ(${clampedZ}px) rotateY(${rotateY}deg)`;
                 
-                card.style.transform = `translateX(${cardXAdjustment}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`;
-                card.style.opacity = Math.max(0.3, 1 - (absDist * 0.4));
+                // Adjust opacity and z-index so closer (edge) cards render on top of center cards
+                card.style.opacity = Math.max(0.15, 1 - (absDist * 0.2));
+                card.style.zIndex = Math.round(absDist * 10);
             });
         }
 
