@@ -229,8 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // To make the first card start on the left and the last card stop on the right,
-            // we constrain the progress range. An offset of ~2.6 cards pushes them closer to the screen edges.
-            const edgeOffset = 2.6; 
+            // we constrain the progress range. An offset of ~2.4 cards pushes them closer to the screen edges
+            // without pushing them completely off.
+            const edgeOffset = 2.4; 
             const startProgress = edgeOffset;
             const endProgress = Math.max(startProgress, (cards.length - 1) - edgeOffset);
             
