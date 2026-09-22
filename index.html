@@ -933,76 +933,206 @@
                 }
             </style>
         </div>
-    <!-- Curated Collections Section -->
-    <section class="max-w-7xl mx-auto px-8 py-24">
-        <!-- Header & Filters -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div class="max-w-xl">
-                <h2 class="font-serif text-4xl text-primary font-bold mb-4">Curated Collections</h2>
-                <p class="text-gray-500 text-lg leading-relaxed">
-                    Hand-picked journeys that balance luxury with raw, authentic discovery.
-                </p>
-            </div>
-            <div class="flex items-center gap-3">
-                <button
-                    class="px-6 py-2 border-2 border-gray-200 rounded text-sm font-semibold text-primary hover:border-primary transition-colors">
-                    DOMESTIC
-                </button>
-                <button
-                    class="px-6 py-2 border-2 border-primary bg-primary text-white rounded text-sm font-semibold shadow-md transition-colors">
-                    INTERNATIONAL
-                </button>
-            </div>
-        </div>
-
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- Card 1 -->
-            <div class="group cursor-pointer">
-                <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-5 shadow-lg">
-                    <img src="images/download (2).jpg" alt="Kyoto Room"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div
-                        class="absolute top-4 left-4 bg-white/95 backdrop-blur text-primary text-[10px] font-bold px-3 py-1 uppercase tracking-wider rounded-sm shadow-sm">
-                        International
-                    </div>
+        <!-- 3D Horizontal Scroll Section -->
+    <section id="horizontal-scroll-track" class="relative w-full bg-[#050505] overflow-visible z-10" style="height: 400vh;">
+        <!-- Sticky Viewport -->
+        <div id="sticky-viewport" class="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center" style="perspective: 1500px;">
+            
+            <!-- Header for the section -->
+            <div class="absolute top-20 left-0 w-full text-center z-20">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="w-5 h-5 rounded-full border-2 border-[#b8860b]"></div>
+                    <h2 class="font-serif text-5xl text-white font-bold drop-shadow-xl tracking-wide">Start Your Adventure</h2>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-                    The Silence of Kyoto</h3>
-                <p class="text-gray-400 text-sm italic">7 Nights &middot; Zen Gardens & Tea Rituals</p>
+                <div class="w-64 h-[1px] bg-gradient-to-r from-transparent via-[#b8860b] to-transparent mx-auto"></div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="group cursor-pointer">
-                <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-5 shadow-lg">
-                    <img src="images/download (1).jpg" alt="Kerala Backwaters"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div
-                        class="absolute top-4 left-4 bg-white/95 backdrop-blur text-primary text-[10px] font-bold px-3 py-1 uppercase tracking-wider rounded-sm shadow-sm">
-                        Domestic
-                    </div>
+            <!-- The 3D Carousel Container -->
+            <!-- We will translate this container horizontally using JS -->
+            <div id="cards-container" class="flex items-center gap-10 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2" style="transform-style: preserve-3d; will-change: transform;">
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kashmir/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kashmir">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kashmir</h3>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-                    Emerald Backwaters</h3>
-                <p class="text-gray-400 text-sm italic">5 Nights &middot; Houseboat Living & Spices</p>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="group cursor-pointer">
-                <div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-5 shadow-lg">
-                    <img src="images/download (3).jpg" alt="Alpine Mountain"
-                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div
-                        class="absolute top-4 left-4 bg-white/95 backdrop-blur text-primary text-[10px] font-bold px-3 py-1 uppercase tracking-wider rounded-sm shadow-sm">
-                        International
-                    </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Gulmarg/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Gulmarg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Gulmarg</h3>
                 </div>
-                <h3 class="font-serif text-2xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
-                    Alpine Solitude</h3>
-                <p class="text-gray-400 text-sm italic">6 Nights &middot; Luxury Chalets & Peak Views</p>
-            </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Pahalgam/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Pahalgam">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Pahalgam</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Srinagar/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Srinagar">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Srinagar</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Sonmarg/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Sonmarg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Sonmarg</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Vaishno%20Devi/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Vaishno Devi">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Vaishno Devi</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Amarnath/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Amarnath">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Amarnath</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Himachal%20Pradesh/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Himachal Pradesh">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Himachal Pradesh</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Shimla%20Manali/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Shimla Manali">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Shimla Manali</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kullu/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kullu">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kullu</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Dharamshala/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Dharamshala">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Dharamshala</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Dalhousie/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Dalhousie">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Dalhousie</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kasol/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kasol">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kasol</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Spiti%20Valley/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Spiti Valley">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Spiti Valley</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Rajasthan/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Rajasthan">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Rajasthan</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Jaipur/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Jaipur">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Jaipur</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Udaipur/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Udaipur">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Udaipur</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Jaisalmer/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Jaisalmer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Jaisalmer</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Jodhpur/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Jodhpur">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Jodhpur</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Pushkar/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Pushkar">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Pushkar</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Bikaner/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Bikaner">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Bikaner</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Ranthambore/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Ranthambore">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Ranthambore</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Mount%20Abu/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Mount Abu">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Mount Abu</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Gujarat/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Gujarat">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Gujarat</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kutch/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kutch">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kutch</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Dwarka%20Somnath/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Dwarka Somnath">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Dwarka Somnath</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Gir/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Gir">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Gir</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Statue%20of%20Unity/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Statue of Unity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Statue of Unity</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Saputara/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Saputara">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Saputara</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d relative w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Goa/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Goa">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Goa</h3>
+                </div>
 
+            </div>
+            
         </div>
     </section>
 
@@ -1015,6 +1145,7 @@
 </body>
 
 </html>
+
 
 
 

@@ -207,3 +207,56 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 5000);
     }
 });
+
+// 3D Horizontal Scroll Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('horizontal-scroll-track');
+    const container = document.getElementById('cards-container');
+    const cards = document.querySelectorAll('.card-3d');
+
+    if (track && container && cards.length > 0) {
+        function update3DCarousel() {
+            const trackRect = track.getBoundingClientRect();
+            const maxScroll = trackRect.height - window.innerHeight;
+            let scrollY = -trackRect.top;
+            
+            if (scrollY < 0) scrollY = 0;
+            if (scrollY > maxScroll) scrollY = maxScroll;
+            
+            // If the track is completely out of view, we don't need to do expensive calculations
+            if (-trackRect.top > trackRect.height || trackRect.top > window.innerHeight) {
+                return;
+            }
+            
+            const progress = scrollY / maxScroll;
+            
+            const cardWidthWithGap = cards[0].offsetWidth + 40; // 40px is gap-10
+            const totalWidth = cardWidthWithGap * (cards.length - 1);
+            
+            const translateX = -(progress * totalWidth);
+            container.style.transform = 	ranslate3d(calc(-50% + $`{translateX}px), -50%, 0);
+
+            const viewportCenter = window.innerWidth / 2;
+            
+            cards.forEach((card) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + (cardRect.width / 2);
+                
+                const distance = cardCenter - viewportCenter;
+                const normalizedDist = distance / (window.innerWidth / 1.5); 
+                
+                const absDist = Math.abs(normalizedDist);
+                const translateZ = absDist * -500; 
+                
+                card.style.transform = 	ranslateZ($`{translateZ}px) rotateY($`{normalizedDist * -45}deg);
+                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.5));
+            });
+        }
+
+        window.addEventListener('scroll', update3DCarousel, { passive: true });
+        window.addEventListener('resize', update3DCarousel);
+        
+        // Initial setup
+        requestAnimationFrame(update3DCarousel);
+    }
+});
