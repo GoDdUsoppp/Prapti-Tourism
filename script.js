@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const totalWidth = cardWidthWithGap * (cards.length - 1);
             
             const translateX = -(progress * totalWidth);
-            container.style.transform = 	ranslate3d(calc(-50% + $`{translateX}px), -50%, 0);
+            container.style.transform = `translate3d(calc(-50% + ${translateX}px), -50%, 0)`;
 
             const viewportCenter = window.innerWidth / 2;
             
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const absDist = Math.abs(normalizedDist);
                 const translateZ = absDist * -500; 
                 
-                card.style.transform = 	ranslateZ($`{translateZ}px) rotateY($`{normalizedDist * -45}deg);
+                card.style.transform = `translateZ(${translateZ}px) rotateY(${normalizedDist * -45}deg)`;
                 card.style.opacity = Math.max(0.1, 1 - (absDist * 0.5));
             });
         }
