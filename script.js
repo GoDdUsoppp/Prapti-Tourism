@@ -243,13 +243,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cardCenter = cardRect.left + (cardRect.width / 2);
                 
                 const distance = cardCenter - viewportCenter;
-                const normalizedDist = distance / (window.innerWidth / 1.5); 
+                const normalizedDist = Math.max(-1.5, Math.min(1.5, distance / (window.innerWidth / 2))); 
                 
+                // Calculate rotation based on distance from center (max 60deg at edges)
+                const angleDeg = normalizedDist * 60;
+                
+                // Calculate push-back (Z) and spread (X) to create a perfect arc
                 const absDist = Math.abs(normalizedDist);
-                const translateZ = absDist * -500; 
+                const translateZ = -absDist * 600; 
+                // X spread pushes cards further apart on the edges so they don't overlap as they recede
+                const translateX = normalizedDist * absDist * 150;
                 
-                card.style.transform = `translateZ(${translateZ}px) rotateY(${normalizedDist * -45}deg)`;
-                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.5));
+                card.style.transform = `translate3d(${translateX}px, 0, ${translateZ}px) rotateY(${-angleDeg}deg)`;
+                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.4));
             });
         }
 
