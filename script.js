@@ -230,32 +230,34 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const progress = scrollY / maxScroll;
             
-            // We no longer move the container, we move the cards directly based on their index
             cards.forEach((card, i) => {
                 // How far is this card from the currently focused index?
                 const dist = i - (progress * (cards.length - 1));
                 const absDist = Math.abs(dist);
+                const sign = Math.sign(dist);
                 
-                // A perfect 3D cylinder is achieved by rotating first, THEN translating Z!
-                // This naturally creates the concave circle effect and perfectly even visual spacing.
+                // 1. Exact X Positioning (Non-Linear)
+                // Base spacing + exponential expansion for edge cards.
+                // This ensures cards are perfectly spaced, and the gap increases as they move away from center.
+                const x = sign * (absDist * 230 + Math.pow(absDist, 1.5) * 50);
                 
-                // 12 degrees per card means exactly 30 cards form a full 360 degree circle
+                // 2. Exact Scaling
+                // Center card is small (e.g. 0.75). Edge cards grow exponentially larger to envelope the viewer.
+                const scale = 0.75 + (absDist * 0.15);
+                
+                // 3. 3D Rotation
+                // Center card faces front. Edge cards tilt inward.
+                // Because we keep translateZ at 0, perspective does not violently shift their X positions!
                 const rotateY = dist * -12; 
                 
-                // Radius of our concave cylinder
-                const radius = -1500; 
+                // Apply transforms! (translate(-50%, -50%) is required because cards are absolute left-1/2 top-1/2)
+                card.style.transform = `translate(-50%, -50%) translateX(${x}px) scale(${scale}) rotateY(${rotateY}deg)`;
                 
-                // Scale up cards as they move away from the center
-                const scale = 1 + (absDist * 0.2); // Adjust the multiplier (0.2) for stronger/weaker growth
+                // Opacity fades out only at extreme edges
+                card.style.opacity = Math.max(0, 1 - (absDist * 0.2));
                 
-                // The magic of true 3D: Rotate the card to its angle on the circle, 
-                // then push it back along its own Z-axis to the wall of the cylinder!
-                // Finally, scale it up to exaggerate the size difference.
-                card.style.transform = `rotateY(${rotateY}deg) translateZ(${radius}px) scale(${scale})`;
-                
-                // Opacity fades out as cards wrap around behind the camera
-                card.style.opacity = Math.max(0.1, 1 - (absDist * 0.15));
-                card.style.zIndex = Math.round(100 - absDist * 10);
+                // Closer (edge) cards render on top
+                card.style.zIndex = Math.round(absDist * 10);
             });
         }
 
