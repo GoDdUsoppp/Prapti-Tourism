@@ -237,27 +237,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 const sign = Math.sign(dist);
                 
                 // 1. Exact X Positioning (Non-Linear)
-                // We reduce base spacing to 180px so the smaller center cards sit tightly together.
-                // The exponential expansion pushes the growing edge cards further out to prevent overlap.
-                const x = sign * (absDist * 180 + Math.pow(absDist, 1.5) * 60);
+                // Base spacing 200px + strong exponential expansion.
+                // This guarantees the gap increases as cards get wider, preventing any overlap.
+                const x = sign * (absDist * 200 + Math.pow(absDist, 1.5) * 80);
                 
                 // 2. Exact Scaling
-                // Center card is pushed deep (scale 0.55). Edge cards grow aggressively to wrap the viewer.
-                const scale = 0.55 + (absDist * 0.25);
+                // Center starts at 0.6. Edges scale up smoothly to ~1.2.
+                // This makes the edges look imposing without becoming grotesquely massive on small screens.
+                const scale = 0.6 + (absDist * 0.15);
                 
                 // 3. 3D Rotation
-                // Stronger rotation for a deeper wrapping effect
-                const rotateY = dist * -20; 
+                // Smooth rotation to create the curve
+                const rotateY = dist * -15; 
                 
                 // Apply transforms
-                // Remove the redundant translate(-50%, -50%) because the HTML already has mt-[-200px] ml-[-150px]
                 card.style.transform = `translateX(${x}px) scale(${scale}) rotateY(${rotateY}deg)`;
                 
-                // Opacity fades out only at extreme edges
-                card.style.opacity = Math.max(0, 1 - (absDist * 0.2));
+                // Opacity fades out slightly on extreme edges
+                card.style.opacity = Math.max(0, 1 - (absDist * 0.15));
                 
-                // Closer (edge) cards render on top
-                card.style.zIndex = Math.round(absDist * 10);
+                // CRITICAL FIX: In the reference, the center card actually renders ON TOP of the edge cards,
+                // creating a unique focal illusion even though edge cards are larger!
+                card.style.zIndex = Math.round(100 - absDist * 10);
             });
         }
 
