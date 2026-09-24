@@ -19,7 +19,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1790255715.86657">
     <script>
         tailwind.config = {
             theme: {
@@ -62,254 +62,121 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative w-full flex flex-col bg-gray-900" style="height: calc(100vh - 80px);">
-        <!-- Background Image -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden">
-            <img src="images/download.jpg" alt="Mountain Landscape" class="w-full h-full object-cover object-bottom">
-            <!-- Dark Gradient Overlay -->
-            <div
-                class="absolute inset-0 bg-black/40 sm:bg-gradient-to-r sm:from-black/60 sm:via-black/40 sm:to-transparent">
+    <!-- Hero Slider Section -->
+    <section class="hero-slider-section">
+        <!-- Background Images -->
+        <div id="slider-backgrounds" class="slider-backgrounds">
+            <div class="bg-item active" style="background-image: url('https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="bg-item" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="bg-item" style="background-image: url('https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="bg-item" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2000&auto=format&fit=crop');"></div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="slider-content-container max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
+            <!-- Left Side Content -->
+            <div class="slider-info" id="slider-info-container">
+                <div class="slider-info-inner active">
+                    <p class="location-label"><span class="line"></span> Sahara Desert - Morocco</p>
+                    <h1 class="slider-title">MARRAKECH<br>MERZOUGA</h1>
+                    <p class="slider-desc">The journey from the vibrant souks and palaces of Marrakech to the tranquil, starlit sands of Merzouga showcases the diverse splendor of Morocco. Camel treks and desert camps offer an unforgettable immersion into the nomadic way of life.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
+                <div class="slider-info-inner">
+                    <p class="location-label"><span class="line"></span> Kyoto - Japan</p>
+                    <h1 class="slider-title">ANCIENT<br>TEMPLES</h1>
+                    <p class="slider-desc">Discover the serene beauty of Kyoto's ancient temples and shrines, surrounded by lush gardens and traditional architecture. Experience the essence of Japanese culture in this historic city.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
+                <div class="slider-info-inner">
+                    <p class="location-label"><span class="line"></span> Santorini - Greece</p>
+                    <h1 class="slider-title">AEGEAN<br>BEAUTY</h1>
+                    <p class="slider-desc">Breathtaking sunsets, whitewashed houses, and blue-domed churches perched on cliffs overlooking the caldera. Santorini is a true gem of the Aegean Sea, offering unparalleled romance and charm.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
+                <div class="slider-info-inner">
+                    <p class="location-label"><span class="line"></span> Swiss Alps - Switzerland</p>
+                    <h1 class="slider-title">ALPINE<br>WONDER</h1>
+                    <p class="slider-desc">Majestic snow-capped peaks, pristine lakes, and charming villages. The Swiss Alps are a paradise for nature lovers and adventure seekers, offering world-class skiing and hiking.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <!-- Bottom fade for smooth transition (pushed below the screen) -->
-        <div
-            class="absolute inset-x-0 -bottom-32 h-32 bg-gradient-to-t from-[#FAFAFA] to-transparent pointer-events-none">
-        </div>
-
-        <!-- Hero Content Wrapper (Centers content vertically) -->
-        <div class="relative z-10 flex-grow flex items-center w-full">
-            <!-- Hero Content (2 columns) -->
-            <div
-                class="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 w-full flex flex-col lg:flex-row items-center justify-between gap-12">
-
-                <!-- Left Side: Text and Search -->
-                <div class="w-full lg:w-7/12 flex flex-col items-start text-left text-white">
-                    <h1
-                        class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-none mb-6 tracking-tight flex flex-col items-start gap-2">
-                        <span>
-                            Book Your
-                        </span>
-                        <span class="inline-flex items-center gap-3">
-                            <span>Trip to</span>
-                            <span class="inline-flex overflow-hidden items-center h-[1.2em]">
-                                <span id="dynamic-city"
-                                    class="text-[#0ea5e9] inline-block transition-transform duration-500">Kyoto</span>
-                            </span>
-                        </span>
-                    </h1>
-
-                    <!-- Subtext -->
-                    <div class="mb-8 space-y-2">
-                        <p class="text-lg font-bold">
-                            <span class="text-[#0ea5e9]">Wander</span> | Travel | <span
-                                class="text-[#0ea5e9]">Connect</span> | Repeat
-                        </p>
-                        <p class="text-sm text-gray-300 font-medium">
-                            Where Adventure meets Community<br>
-                            #praptitourism
-                        </p>
-                    </div>
-
-                    <!-- Search Bar -->
-                    <div class="flex items-center bg-white rounded-full shadow-xl p-1.5 w-full max-w-md mt-4 relative">
-                        <input type="text" placeholder="Type Location..."
-                            class="flex-1 bg-transparent border-none outline-none px-6 text-gray-700 placeholder-gray-500 font-medium text-base">
-                        <button
-                            class="bg-[#0ea5e9] hover:bg-[#0c8abf] text-white px-8 py-3 rounded-full font-semibold transition-colors duration-200">
-                            Search
-                        </button>
-                        <!-- Decorative flowing arrow -->
-                        <style>
-                            @keyframes draw-main {
-                                0%, 5% { stroke-dashoffset: 1; opacity: 0; }
-                                5% { opacity: 1; }
-                                50%, 100% { stroke-dashoffset: 0; opacity: 1; }
-                            }
-                            @keyframes draw-tip {
-                                0%, 50% { stroke-dashoffset: 1; opacity: 0; }
-                                50% { opacity: 1; }
-                                60%, 100% { stroke-dashoffset: 0; opacity: 1; }
-                            }
-                            .animate-main {
-                                stroke-dasharray: 1;
-                                animation: draw-main 3s ease-in-out infinite;
-                            }
-                            .animate-tip {
-                                stroke-dasharray: 1;
-                                animation: draw-tip 3s ease-out infinite;
-                            }
-                        </style>
-                        <div class="pointer-events-none absolute bottom-4 left-[calc(100%+1rem)] hidden lg:block z-20">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="122" height="91" fill="none" viewBox="0 0 122 91" aria-hidden="true" class="text-[#0ea5e9]">
-                                <!-- Main Line -->
-                                <path stroke="currentColor" stroke-linecap="round" stroke-width="3" pathLength="1" class="animate-main" d="M112.693 31.139c-9.08 11.81-22.171 23.078-37.78 23.85-9.973.492-20.662-6.038-24.222-15.4-3.361-8.843-3.046-19.207 4.957-25.253 4.171-3.151 9.196-4.07 13.363-.35 6.367 5.68 5.208 17.712 2.259 24.723-9.204 21.883-32.66 39.694-56.427 41.646"></path>
-                                <!-- Arrowhead Tip 1 -->
-                                <path stroke="currentColor" stroke-linecap="round" stroke-width="3" pathLength="1" class="animate-tip" d="M31.345 87.085c-4.007-1.146-13.071-4.045-17.273-6.47"></path>
-                                <!-- Arrowhead Tip 2 -->
-                                <path stroke="currentColor" stroke-linecap="round" stroke-width="3" pathLength="1" class="animate-tip" d="M14.072 80.614c2.897-2.996 9.297-10.038 11.723-14.24"></path>
-                            </svg>
+            <!-- Right Side Carousel -->
+            <div class="slider-carousel">
+                <div class="carousel-track" id="hero-carousel-track">
+                    <!-- Card 1 -->
+                    <div class="carousel-card active" data-index="0">
+                        <img src="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=600&auto=format&fit=crop" alt="Morocco">
+                        <div class="card-info">
+                            <p class="card-location">Sahara Desert - Morocco</p>
+                            <h3 class="card-title">MARRAKECH</h3>
                         </div>
                     </div>
-                </div>
-
-                <!-- Right Side: Testimonials (Vertical Ticker) -->
-                <div class="w-full lg:w-5/12 flex flex-col justify-center">
-                    <div id="ticker-wrapper" class="relative overflow-hidden w-full transition-[height] duration-300">
-                        <div id="review-ticker"
-                            class="flex flex-col gap-5 absolute w-full transition-transform duration-500">
-
-                            <!-- Testimonial 1 -->
-                            <div
-                                class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex gap-5 text-white shadow-xl review-card shrink-0">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gray-500 overflow-hidden shrink-0 border-2 border-white/30">
-                                    <img src="https://i.pravatar.cc/150?img=5" alt="User"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-lg text-white">Sarah Jenkins</h4>
-                                    <div class="flex text-yellow-400 text-sm mb-2">â˜…â˜…â˜…â˜…â˜…</div>
-                                    <p class="text-sm md:text-base text-gray-100 leading-relaxed font-medium">
-                                        "Absolutely breathtaking! Prapti Tourism took care of every little detail. Best
-                                        vacation of my life."
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Testimonial 2 -->
-                            <div
-                                class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex gap-5 text-white shadow-xl review-card shrink-0">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gray-500 overflow-hidden shrink-0 border-2 border-white/30">
-                                    <img src="https://i.pravatar.cc/150?img=11" alt="User"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-lg text-white">Michael Chen</h4>
-                                    <div class="flex text-yellow-400 text-sm mb-2">â˜…â˜…â˜…â˜…â˜…</div>
-                                    <p class="text-sm md:text-base text-gray-100 leading-relaxed font-medium">
-                                        "The Spiti expedition was thrilling yet so comfortable. The guides were
-                                        extremely knowledgeable!"
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Testimonial 3 -->
-                            <div
-                                class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex gap-5 text-white shadow-xl review-card shrink-0">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gray-500 overflow-hidden shrink-0 border-2 border-white/30">
-                                    <img src="https://i.pravatar.cc/150?img=9" alt="User"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-lg text-white">Emma Watson</h4>
-                                    <div class="flex text-yellow-400 text-sm mb-2">â˜…â˜…â˜…â˜…â˜…</div>
-                                    <p class="text-sm md:text-base text-gray-100 leading-relaxed font-medium">
-                                        "From the stunning views to the seamless logistics, everything was perfect.
-                                        Highly recommended for solo travelers."
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Testimonial 4 (For looping) -->
-                            <div
-                                class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 flex gap-5 text-white shadow-xl review-card shrink-0">
-                                <div
-                                    class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gray-500 overflow-hidden shrink-0 border-2 border-white/30">
-                                    <img src="https://i.pravatar.cc/150?img=12" alt="User"
-                                        class="w-full h-full object-cover">
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="font-bold text-lg text-white">David Miller</h4>
-                                    <div class="flex text-yellow-400 text-sm mb-2">â˜…â˜…â˜…â˜…â˜…</div>
-                                    <p class="text-sm md:text-base text-gray-100 leading-relaxed font-medium">
-                                        "A soul-refreshing journey through Kerala. Houseboat living was an experience I
-                                        will never forget."
-                                    </p>
-                                </div>
-                            </div>
-
+                    <!-- Card 2 -->
+                    <div class="carousel-card" data-index="1">
+                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=600&auto=format&fit=crop" alt="Kyoto">
+                        <div class="card-info">
+                            <p class="card-location">Kyoto - Japan</p>
+                            <h3 class="card-title">ANCIENT TEMPLES</h3>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="carousel-card" data-index="2">
+                        <img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?q=80&w=600&auto=format&fit=crop" alt="Santorini">
+                        <div class="card-info">
+                            <p class="card-location">Santorini - Greece</p>
+                            <h3 class="card-title">AEGEAN BEAUTY</h3>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="carousel-card" data-index="3">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600&auto=format&fit=crop" alt="Swiss Alps">
+                        <div class="card-info">
+                            <p class="card-location">Swiss Alps - Switzerland</p>
+                            <h3 class="card-title">ALPINE WONDER</h3>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Minibar (Stats) - Locks to the bottom of the screen -->
-        <div
-            class="relative z-10 w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 mt-auto py-6 border-t border-white/20">
-            <div class="flex flex-col md:flex-row items-center justify-between w-full text-white gap-6 md:gap-0">
-                <!-- Stat 1 -->
-                <div class="flex items-center gap-4 shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 28 28"
-                        class="w-10 h-10 shrink-0 text-white">
-                        <path fill="currentColor"
-                            d="M24.667.667H3.333A2.675 2.675 0 00.667 3.334v24L6 22h18.667c1.466 0 2.666-1.2 2.666-2.666v-16c0-1.467-1.2-2.667-2.666-2.666zm-8.574 12.76L14 18l-2.093-4.573-4.574-2.093 4.574-2.094L14 4.667l2.093 4.573 4.574 2.094-4.574 2.093z">
-                        </path>
-                    </svg>
-                    <div>
-                        <div class="font-bold text-xl md:text-2xl flex items-center gap-0.5"><span class="odometer"
-                                data-val="13597">0</span>+</div>
-                        <div class="font-bold text-base text-gray-200 mt-0.5">Reviews</div>
-                    </div>
+        <!-- Bottom Controls -->
+        <div class="slider-controls max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
+            <div class="slider-nav">
+                <button class="nav-btn prev" id="hero-prev">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="nav-btn next" id="hero-next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+            <div class="slider-progress">
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="hero-progress"></div>
                 </div>
-
-                <!-- Divider -->
-                <div class="hidden md:block w-px h-12 bg-white/20 shrink-0"></div>
-
-                <!-- Stat 2 -->
-                <div class="flex items-center gap-4 shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" fill="none" viewBox="0 0 32 33"
-                        class="w-14 h-14 shrink-0 text-white">
-                        <path fill="currentColor"
-                            d="M16.5 8a2.675 2.675 0 0 1-2.666-2.667c0-1.466 1.2-2.666 2.667-2.666 1.466 0 2.666 1.2 2.666 2.666C19.167 6.8 17.967 8 16.501 8zm6.667-5.333h2.667V3.2c-.133 2.933-1.067 5.2-3.067 6.8-.666.533-1.466.933-2.266 1.2v18.133h-2.667v-8h-2.667v8h-2.666V13.467c-.4.133-.667.266-.8.4C10.5 14.8 9.847 16 9.834 18v.667H7.167V18c0-2.667.947-4.787 2.814-6.387 1.466-1.2 3.853-2.28 6.52-2.28 2.666 0 3.573-.613 4.64-1.413 1.333-1.067 2.026-2.587 2.026-4.587v-.666zM5.834 21.333h4v8h-4v-8z">
-                        </path>
-                    </svg>
-                    <div>
-                        <div class="font-bold text-xl md:text-2xl flex items-center gap-0.5"><span class="odometer"
-                                data-val="80000">0</span>+</div>
-                        <div class="font-bold text-base text-gray-200 mt-0.5">Satisfied Travelers</div>
-                    </div>
-                </div>
-
-                <!-- Divider -->
-                <div class="hidden md:block w-px h-12 bg-white/20 shrink-0"></div>
-
-                <!-- Stat 3 -->
-                <div class="flex items-center gap-4 shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1.6em" height="1.6em" fill="none" viewBox="0 0 32 32"
-                        class="w-12 h-12 shrink-0 text-white">
-                        <path fill="currentColor"
-                            d="M18 7.333c1.466 0 2.666-1.2 2.666-2.666C20.666 3.2 19.466 2 18 2a2.674 2.674 0 00-2.667 2.667c0 1.466 1.2 2.666 2.667 2.666zm5.333 7.04c-1.64-.493-2.96-1.56-3.733-2.906l-1.334-2.134C17.72 8.467 16.786 8 15.813 8c-1.04 0-2.12.667-2.373 1.92-.254 1.253-4.107 20.747-4.107 20.747h2.8L14.533 20l2.8 2.667v8H20v-10L17.2 18l.8-4a9.74 9.74 0 005.333 3.12v13.547h2V12h-2v2.373zM9.906 17.507L7.08 16.96c-.72-.147-1.2-.84-1.054-1.56l1.014-5.24a2.666 2.666 0 013.12-2.107l1.546.307-1.8 9.147z">
-                        </path>
-                    </svg>
-                    <div>
-                        <div class="font-bold text-xl md:text-2xl flex items-center gap-0.5"><span class="odometer"
-                                data-val="50">0</span>+</div>
-                        <div class="font-bold text-base text-gray-200 mt-0.5">Destinations</div>
-                    </div>
-                </div>
-
-                <!-- Divider -->
-                <div class="hidden md:block w-px h-12 bg-white/20 shrink-0"></div>
-
-                <!-- Stat 4 -->
-                <div class="flex items-center gap-4 shrink-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 27 24"
-                        class="w-10 h-10 shrink-0 text-white">
-                        <path fill="currentColor"
-                            d="M10.833 17.333V16h-9.32l-.014 5.333A2.657 2.657 0 004.166 24h18.667a2.657 2.657 0 002.666-2.667V16h-9.333v1.333h-5.333zm13.333-12h-5.347V2.667L16.153 0h-5.334L8.153 2.667v2.666h-5.32A2.675 2.675 0 00.166 8v4a2.657 2.657 0 002.667 2.667h8V12h5.333v2.667h8c1.467 0 2.667-1.2 2.667-2.667V8c0-1.467-1.2-2.667-2.667-2.667zm-8 0h-5.333V2.667h5.333v2.666z">
-                        </path>
-                    </svg>
-                    <div>
-                        <div class="font-bold text-xl md:text-2xl flex items-center gap-0.5"><span class="odometer"
-                                data-val="9">0</span>&nbsp;Years+</div>
-                        <div class="font-bold text-base text-gray-200 mt-0.5">Experience</div>
-                    </div>
-                </div>
+                <span class="slide-counter" id="hero-counter">1</span>
             </div>
         </div>
     </section>

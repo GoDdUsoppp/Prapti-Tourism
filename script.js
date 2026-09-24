@@ -286,3 +286,210 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update3DCarousel);
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Hero Slider Logic
+    const backgrounds = document.querySelectorAll('.bg-item');
+    const infoItems = document.querySelectorAll('.slider-info-inner');
+    const track = document.getElementById('hero-carousel-track');
+    const prevBtn = document.getElementById('hero-prev');
+    const nextBtn = document.getElementById('hero-next');
+    const progressBar = document.getElementById('hero-progress');
+    const counter = document.getElementById('hero-counter');
+    const heroSection = document.querySelector('.hero-slider-section');
+    const overlay = document.querySelector('.hero-overlay');
+    const contentContainer = document.querySelector('.slider-content-container');
+
+    let isAnimating = false;
+    let timerTimeout;
+    const SLIDE_DURATION = 3500; 
+    const TRANSITION_DURATION = 800; 
+
+    function updateBackgroundAndText(newActiveCard) {
+        if (!newActiveCard) return;
+        const index = parseInt(newActiveCard.getAttribute('data-index'));
+        
+        backgrounds.forEach((bg, i) => {
+            if (i === index) bg.classList.add('active');
+            else bg.classList.remove('active');
+        });
+
+        infoItems.forEach((info, i) => {
+            if (i === index) info.classList.add('active');
+            else info.classList.remove('active');
+        });
+        
+        if (counter) counter.textContent = index + 1;
+    }
+
+    function nextSlide() {
+        if (isAnimating || !track || track.children.length === 0) return;
+        isAnimating = true;
+        clearTimeout(timerTimeout);
+
+        const firstCard = track.children[0];
+        
+        // Instantly update text and background to the card that is about to expand
+        updateBackgroundAndText(firstCard);
+
+        if (heroSection && overlay && contentContainer) {
+            const rect = firstCard.getBoundingClientRect();
+            const heroRect = heroSection.getBoundingClientRect();
+            
+            // Clone the entire card so it visually matches before expanding
+            const clone = firstCard.cloneNode(true);
+            clone.classList.remove('active');
+            
+            clone.style.position = 'absolute';
+            clone.style.top = (rect.top - heroRect.top) + 'px';
+            clone.style.left = (rect.left - heroRect.left) + 'px';
+            clone.style.width = rect.width + 'px';
+            clone.style.height = rect.height + 'px';
+            clone.style.margin = '0';
+            // zIndex 1 places it ABOVE the overlay but BELOW the text and other cards (zIndex 2)
+            clone.style.zIndex = '1'; 
+            clone.style.transition = 'all ' + TRANSITION_DURATION + 'ms cubic-bezier(0.25, 1, 0.5, 1)';
+            clone.style.overflow = 'hidden';
+            
+            // Upgrade the clone's image to high-res so it doesn't look terrible when expanded
+            const cloneImg = clone.querySelector('img');
+            if (cloneImg) {
+                cloneImg.src = cloneImg.src.replace('w=600', 'w=2000');
+                cloneImg.style.width = '100%';
+                cloneImg.style.height = '100%';
+                cloneImg.style.objectFit = 'cover';
+            }
+            
+            // Fade out the text inside the clone as it expands
+            const cloneInfo = clone.querySelector('.card-info');
+            if (cloneInfo) {
+                cloneInfo.style.transition = 'opacity 0.4s ease';
+            }
+            
+            // Insert AFTER overlay, BEFORE slider-content
+            heroSection.insertBefore(clone, contentContainer);
+            
+            // Force reflow
+            void clone.offsetWidth;
+            
+            // Expand clone to cover hero section
+            clone.style.top = '0';
+            clone.style.left = '0';
+            clone.style.width = '100%';
+            clone.style.height = '100%';
+            clone.style.borderRadius = '0';
+            
+            if (cloneInfo) cloneInfo.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Fade out the bright clone to reveal the darkened background and overlay underneath
+                clone.style.transition = 'opacity 0.5s ease';
+                clone.style.opacity = '0';
+                
+                setTimeout(() => {
+                    clone.remove();
+                }, 500);
+            }, TRANSITION_DURATION);
+        }
+
+        // Instantly hide the original card's visual contents completely
+        // We only leave the empty container to animate its width down to 0.
+        const originalChildren = firstCard.children;
+        for(let i=0; i<originalChildren.length; i++) {
+            originalChildren[i].style.opacity = '0';
+            originalChildren[i].style.transition = 'none';
+        }
+        
+        firstCard.classList.add('active');
+
+        setTimeout(() => {
+            track.appendChild(firstCard);
+            firstCard.classList.remove('active');
+            
+            // Restore visibility of contents for when it cycles back around
+            for(let i=0; i<originalChildren.length; i++) {
+                originalChildren[i].style.opacity = '';
+                originalChildren[i].style.transition = '';
+            }
+            
+            isAnimating = false;
+            startAutoPlay();
+        }, TRANSITION_DURATION);
+    }
+
+    function prevSlide() {
+        if (isAnimating || !track || track.children.length === 0) return;
+        isAnimating = true;
+        clearTimeout(timerTimeout);
+
+        const lastCard = track.children[track.children.length - 1];
+        
+        lastCard.classList.add('active');
+        track.insertBefore(lastCard, track.children[0]);
+        
+        void track.offsetWidth;
+        
+        lastCard.classList.remove('active');
+        
+        updateBackgroundAndText(lastCard);
+
+        setTimeout(() => {
+            isAnimating = false;
+            startAutoPlay();
+        }, TRANSITION_DURATION);
+    }
+
+    function resetProgress() {
+        if (progressBar) {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            void progressBar.offsetWidth;
+            progressBar.style.transition = 'width ' + SLIDE_DURATION + 'ms linear';
+            progressBar.style.width = '100%';
+        }
+    }
+
+    function startAutoPlay() {
+        resetProgress();
+        clearTimeout(timerTimeout);
+        timerTimeout = setTimeout(() => {
+            nextSlide();
+        }, SLIDE_DURATION);
+    }
+
+    function stopAutoPlay() {
+        clearTimeout(timerTimeout);
+        if (progressBar) {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+        }
+    }
+
+    if (prevBtn && nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            nextSlide();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            prevSlide();
+        });
+
+        if (track && track.children.length > 0) {
+            const initialCard = track.children[0];
+            if (initialCard.classList.contains('active')) {
+                // The first card is already the background. Move it to the back of the queue
+                // so the slider starts with the *next* image.
+                track.appendChild(initialCard);
+                initialCard.classList.remove('active');
+                
+                // Ensure the background and text match this initial card
+                updateBackgroundAndText(initialCard);
+            } else {
+                updateBackgroundAndText(track.children[0]);
+            }
+        }
+        startAutoPlay();
+    }
+});
