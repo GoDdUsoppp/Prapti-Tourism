@@ -10,19 +10,19 @@ document.addEventListener("DOMContentLoaded", () => {
         setInterval(() => {
             // Slide up out of view
             cityElement.style.transform = "translateY(-100%)";
-            
+
             setTimeout(() => {
                 // Instantly move to bottom (hidden)
                 cityElement.style.transition = "none";
                 cityElement.style.transform = "translateY(100%)";
-                
+
                 // Change text
                 currentIndex = (currentIndex + 1) % cities.length;
                 cityElement.textContent = cities[currentIndex];
-                
+
                 // Force reflow
                 void cityElement.offsetWidth;
-                
+
                 // Slide up to center
                 cityElement.style.transition = "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)";
                 cityElement.style.transform = "translateY(0)";
@@ -33,12 +33,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Vertical Ticker Logic
     const ticker = document.getElementById("review-ticker");
     const wrapper = document.getElementById("ticker-wrapper");
-    
+
     if (ticker && wrapper) {
         const updateHeight = () => {
             if (ticker.children.length >= 3) {
                 // gap-5 is 20px
-                const gap = 20; 
+                const gap = 20;
                 const h1 = ticker.children[0].offsetHeight;
                 const h2 = ticker.children[1].offsetHeight;
                 const h3 = ticker.children[2].offsetHeight;
@@ -55,19 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
             const firstCard = ticker.children[0];
             const gap = 20; // gap-5 is 20px
             const cardHeight = firstCard.offsetHeight + gap;
-            
+
             // Slide up
             ticker.style.transition = "transform 0.5s ease-in-out";
             ticker.style.transform = `translateY(-${cardHeight}px)`;
-            
+
             setTimeout(() => {
                 // Move first element to the end to loop
                 ticker.appendChild(firstCard);
-                
+
                 // Instantly reset transform
                 ticker.style.transition = "none";
                 ticker.style.transform = "translateY(0)";
-                
+
                 // Update wrapper height for the new set of 3 cards
                 updateHeight();
             }, 500); // Wait for transition to finish
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const odometers = document.querySelectorAll('.odometer');
         odometers.forEach(el => {
             const val = el.getAttribute('data-val');
-            if(val) el.innerHTML = val;
+            if (val) el.innerHTML = val;
         });
     }, 500); // Slight delay for dramatic effect on load
 
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let activeCarousel = carouselDomestic;
 
     if (pillDomestic && pillInternational && carouselDomestic && carouselInternational) {
-        
+
         const activeStyles = ['bg-blue-600', 'text-white', 'shadow-md'];
         const inactiveStyles = ['text-gray-600', 'hover:text-gray-900', 'bg-transparent'];
 
@@ -102,10 +102,10 @@ document.addEventListener("DOMContentLoaded", () => {
             carouselDomestic.classList.remove('hidden');
             carouselInternational.classList.add('hidden');
             activeCarousel = carouselDomestic;
-            
+
             pillDomestic.classList.remove(...inactiveStyles);
             pillDomestic.classList.add(...activeStyles);
-            
+
             pillInternational.classList.remove(...activeStyles);
             pillInternational.classList.add(...inactiveStyles);
         });
@@ -114,15 +114,15 @@ document.addEventListener("DOMContentLoaded", () => {
             carouselInternational.classList.remove('hidden');
             carouselDomestic.classList.add('hidden');
             activeCarousel = carouselInternational;
-            
+
             pillInternational.classList.remove(...inactiveStyles);
             pillInternational.classList.add(...activeStyles);
-            
+
             pillDomestic.classList.remove(...activeStyles);
             pillDomestic.classList.add(...inactiveStyles);
         });
 
-        if(btnLeft && btnRight) {
+        if (btnLeft && btnRight) {
             btnRight.addEventListener('click', () => {
                 if (activeCarousel && activeCarousel.firstElementChild) {
                     const cardWidth = activeCarousel.firstElementChild.offsetWidth;
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     carousel.scrollLeft += copyWidth;
                     void carousel.offsetWidth; // Force reflow
                     carousel.style.scrollSnapType = '';
-                } 
+                }
                 // If scrolled into the third copy, jump back to the middle copy
                 else if (carousel.scrollLeft >= copyWidth * 2) {
                     carousel.style.scrollSnapType = 'none';
@@ -219,46 +219,46 @@ document.addEventListener('DOMContentLoaded', () => {
             const trackRect = track.getBoundingClientRect();
             const maxScroll = trackRect.height - window.innerHeight;
             let scrollY = -trackRect.top;
-            
+
             if (scrollY < 0) scrollY = 0;
             if (scrollY > maxScroll) scrollY = maxScroll;
-            
+
             // If the track is completely out of view, we don't need to do expensive calculations
             if (-trackRect.top > trackRect.height || trackRect.top > window.innerHeight) {
                 return;
             }
-            
+
             // To make the first card start on the left and the last card stop on the right,
             // we constrain the progress range. An offset of ~2.4 cards pushes them closer to the screen edges
             // without pushing them completely off.
-            const edgeOffset = 2.4; 
+            const edgeOffset = 2.4;
             const startProgress = edgeOffset;
             const endProgress = Math.max(startProgress, (cards.length - 1) - edgeOffset);
-            
+
             // Progress scales between startProgress and endProgress
-            const progress = startProgress + (scrollY / maxScroll) * (endProgress - startProgress); 
-            
+            const progress = startProgress + (scrollY / maxScroll) * (endProgress - startProgress);
+
             cards.forEach((card, i) => {
                 // How far is this card from the currently focused index?
                 const dist = i - progress;
                 const absDist = Math.abs(dist);
-                
+
                 // 20 degrees per card turns a bit slower, allowing more cards to be visible on screen
-                const rotateY = dist * -20; 
-                
+                const rotateY = dist * -20;
+
                 // Radius of -920 creates a tight gap
-                const radius = -920; 
-                
+                const radius = -920;
+
                 // Global scale 
                 const globalScale = 3.0;
-                
+
                 // Apply pure 3D transforms
                 card.style.transform = `scale(${globalScale}) rotateY(${rotateY}deg) translateZ(${radius}px)`;
-                
+
                 // 300px perspective keeps the extreme size difference while showing more cards
                 const viewport = document.getElementById('sticky-viewport');
                 if (viewport) viewport.style.perspective = '300px';
-                
+
                 // Remove the "shadow" (fading) for cards that are on screen.
                 // Cards stay fully bright (opacity 1) until they start wrapping off the edge (absDist > 2.8).
                 let opacity = 1;
@@ -266,14 +266,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     opacity = Math.max(0, 1 - (absDist - 2.8)); // Fades out completely by 3.8
                 }
                 card.style.opacity = opacity;
-                
+
                 // Completely hide cards that are far wrapped to prevent ghosting
                 if (absDist > 3.8) {
                     card.style.visibility = 'hidden';
                 } else {
                     card.style.visibility = 'visible';
                 }
-                
+
                 // Prioritize center cards
                 card.style.zIndex = Math.round(100 - absDist * 10);
             });
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         window.addEventListener('scroll', update3DCarousel, { passive: true });
         window.addEventListener('resize', update3DCarousel);
-        
+
         // Initial setup
         requestAnimationFrame(update3DCarousel);
     }
@@ -302,13 +302,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let isAnimating = false;
     let timerTimeout;
-    const SLIDE_DURATION = 3500; 
-    const TRANSITION_DURATION = 800; 
+    const SLIDE_DURATION = 3500;
+    const TRANSITION_DURATION = 800;
 
     function updateBackgroundAndText(newActiveCard) {
         if (!newActiveCard) return;
         const index = parseInt(newActiveCard.getAttribute('data-index'));
-        
+
         backgrounds.forEach((bg, i) => {
             if (i === index) bg.classList.add('active');
             else bg.classList.remove('active');
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (i === index) info.classList.add('active');
             else info.classList.remove('active');
         });
-        
+
         if (counter) counter.textContent = index + 1;
     }
 
@@ -328,18 +328,18 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(timerTimeout);
 
         const firstCard = track.children[0];
-        
+
         // Instantly update text and background to the card that is about to expand
         updateBackgroundAndText(firstCard);
 
         if (heroSection && overlay && contentContainer) {
             const rect = firstCard.getBoundingClientRect();
             const heroRect = heroSection.getBoundingClientRect();
-            
+
             // Clone the entire card so it visually matches before expanding
             const clone = firstCard.cloneNode(true);
             clone.classList.remove('active');
-            
+
             clone.style.position = 'absolute';
             clone.style.top = (rect.top - heroRect.top) + 'px';
             clone.style.left = (rect.left - heroRect.left) + 'px';
@@ -347,45 +347,45 @@ document.addEventListener('DOMContentLoaded', () => {
             clone.style.height = rect.height + 'px';
             clone.style.margin = '0';
             // zIndex 1 places it ABOVE the overlay but BELOW the text and other cards (zIndex 2)
-            clone.style.zIndex = '1'; 
+            clone.style.zIndex = '1';
             clone.style.transition = 'all ' + TRANSITION_DURATION + 'ms cubic-bezier(0.25, 1, 0.5, 1)';
             clone.style.overflow = 'hidden';
-            
+
             // Upgrade the clone's image to high-res so it doesn't look terrible when expanded
             const cloneImg = clone.querySelector('img');
             if (cloneImg) {
-                cloneImg.src = cloneImg.src.replace('w=600', 'w=2000');
+                cloneImg.src = cloneImg.src.replace('/600/800', '/2000/1200').replace('w=600', 'w=2000');
                 cloneImg.style.width = '100%';
                 cloneImg.style.height = '100%';
                 cloneImg.style.objectFit = 'cover';
             }
-            
+
             // Fade out the text inside the clone as it expands
             const cloneInfo = clone.querySelector('.card-info');
             if (cloneInfo) {
                 cloneInfo.style.transition = 'opacity 0.4s ease';
             }
-            
+
             // Insert AFTER overlay, BEFORE slider-content
             heroSection.insertBefore(clone, contentContainer);
-            
+
             // Force reflow
             void clone.offsetWidth;
-            
+
             // Expand clone to cover hero section
             clone.style.top = '0';
             clone.style.left = '0';
             clone.style.width = '100%';
             clone.style.height = '100%';
             clone.style.borderRadius = '0';
-            
+
             if (cloneInfo) cloneInfo.style.opacity = '0';
-            
+
             setTimeout(() => {
                 // Fade out the bright clone to reveal the darkened background and overlay underneath
                 clone.style.transition = 'opacity 0.5s ease';
                 clone.style.opacity = '0';
-                
+
                 setTimeout(() => {
                     clone.remove();
                 }, 500);
@@ -395,23 +395,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Instantly hide the original card's visual contents completely
         // We only leave the empty container to animate its width down to 0.
         const originalChildren = firstCard.children;
-        for(let i=0; i<originalChildren.length; i++) {
+        for (let i = 0; i < originalChildren.length; i++) {
             originalChildren[i].style.opacity = '0';
             originalChildren[i].style.transition = 'none';
         }
-        
+
         firstCard.classList.add('active');
 
         setTimeout(() => {
             track.appendChild(firstCard);
             firstCard.classList.remove('active');
-            
+
             // Restore visibility of contents for when it cycles back around
-            for(let i=0; i<originalChildren.length; i++) {
+            for (let i = 0; i < originalChildren.length; i++) {
                 originalChildren[i].style.opacity = '';
                 originalChildren[i].style.transition = '';
             }
-            
+
             isAnimating = false;
             startAutoPlay();
         }, TRANSITION_DURATION);
@@ -423,14 +423,14 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(timerTimeout);
 
         const lastCard = track.children[track.children.length - 1];
-        
+
         lastCard.classList.add('active');
         track.insertBefore(lastCard, track.children[0]);
-        
+
         void track.offsetWidth;
-        
+
         lastCard.classList.remove('active');
-        
+
         updateBackgroundAndText(lastCard);
 
         setTimeout(() => {
@@ -483,7 +483,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // so the slider starts with the *next* image.
                 track.appendChild(initialCard);
                 initialCard.classList.remove('active');
-                
+
                 // Ensure the background and text match this initial card
                 updateBackgroundAndText(initialCard);
             } else {
@@ -491,5 +491,141 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
         startAutoPlay();
+    }
+
+    // Initialize Swiper for Global Showcase
+    if (document.querySelector('.mySwiper')) {
+        window.internationalSwiper = new Swiper('.mySwiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            initialSlide: 1,
+            loopedSlides: 6, // Ensures enough slides are cloned for both sides
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 250,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            loop: true
+        });
+    }
+
+    // Services Section Animation
+    const servicesSection = document.querySelector('.services-section');
+    const servicesImage = document.querySelector('.services-image-container');
+    const serviceCards = document.querySelectorAll('.service-card');
+
+    if (servicesSection && servicesImage && serviceCards.length > 0) {
+        // Prepare cards for JS scroll animation
+        serviceCards.forEach(card => {
+            card.classList.remove('opacity-0', 'translate-y-24', 'transition-all', 'duration-500', 'ease-out');
+            // Hide them completely below the container
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(150px)'; 
+        });
+
+        const updateScroll = () => {
+            // Use the image container's bottom edge since the cards are positioned at the bottom of it
+            const rect = servicesImage.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Start animation significantly earlier (350px before the bottom of the image container enters the screen)
+            const startTrigger = windowHeight + 350; 
+            // Complete animation when the bottom of the image container is 300px above the bottom of the screen
+            const endTrigger = windowHeight - 300;
+
+            // Calculate progress based on the bottom edge
+            let progress = (startTrigger - rect.bottom) / (startTrigger - endTrigger);
+            progress = Math.max(0, Math.min(1, progress));
+
+            // Cards stagger effect based on scroll progress
+            const staggerAmount = 0.15;
+            const scaleFactor = 1 / (1 - (serviceCards.length - 1) * staggerAmount);
+
+            serviceCards.forEach((card, index) => {
+                let cardProgress = progress - (index * staggerAmount);
+                cardProgress = cardProgress * scaleFactor;
+                cardProgress = Math.max(0, Math.min(1, cardProgress));
+
+                // Smooth ease out
+                const eased = 1 - Math.pow(1 - cardProgress, 3);
+
+                card.style.opacity = eased;
+                card.style.transform = `translateY(${(1 - eased) * 150}px)`;
+            });
+        };
+
+        // CRITICAL FIX: Use capture: true because scroll events do not bubble.
+        // If a wrapper element is scrolling instead of the window, this catches it!
+        window.addEventListener('scroll', updateScroll, { capture: true, passive: true });
+        window.addEventListener('resize', updateScroll, { passive: true });
+        
+        // Trigger immediately on load to set proper initial layout
+        requestAnimationFrame(updateScroll);
+    }
+
+    // Stats Section Odometer Animation
+    const statsSection = document.querySelector('.stats-section');
+    const odometerElements = document.querySelectorAll('.odometer-stat');
+    
+    if (statsSection && odometerElements.length > 0) {
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    odometerElements.forEach(el => {
+                        const target = parseFloat(el.getAttribute('data-val'));
+                        // Check if it's a decimal number to format appropriately
+                        const format = target % 1 !== 0 ? '(,ddd).d' : '(,ddd)';
+                        
+                        const od = new Odometer({
+                            el: el,
+                            value: 0,
+                            format: format,
+                            theme: 'default'
+                        });
+                        setTimeout(() => {
+                            od.update(target);
+                        }, 100);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -100px 0px' });
+        
+        statsObserver.observe(statsSection);
+    }
+});
+
+// Smart Navbar Logic
+document.addEventListener('DOMContentLoaded', () => {
+    let lastScrollY = window.scrollY;
+    const navbar = document.getElementById('navbar');
+
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                // Scroll down -> Hide navbar
+                navbar.classList.add('-translate-y-full');
+            } else {
+                // Scroll up -> Show navbar
+                navbar.classList.remove('-translate-y-full');
+            }
+            lastScrollY = window.scrollY;
+        }, { passive: true });
     }
 });

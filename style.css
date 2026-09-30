@@ -4,6 +4,16 @@ body {
     padding: 0;
 }
 
+@keyframes drift {
+    0% { transform: translate(-10%, -10%) rotate(0deg); }
+    50% { transform: translate(10%, 5%) rotate(5deg); }
+    100% { transform: translate(-5%, 10%) rotate(-2deg); }
+}
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
+
 /* ------------------------------------- */
 /* Hero Slider Styles                    */
 /* ------------------------------------- */
@@ -172,7 +182,7 @@ body {
 .slider-carousel {
     position: absolute;
     right: 0;
-    top: 50%;
+    top: 65%;
     transform: translateY(-50%);
     width: 50%; /* Take up right half */
     overflow: hidden;

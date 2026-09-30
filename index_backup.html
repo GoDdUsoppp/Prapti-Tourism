@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prapti Tourism</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Odometer CSS and JS for number rolling effect -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+
+    <!-- Google Fonts for typography (serif and sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css?v=1790255715.86657">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#0B2038', /* Dark Navy */
+                        accent: '#00849E', /* Teal */
+                        accentHover: '#006C82',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[#FAFAFA] text-gray-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav
+        class="w-full bg-white sticky top-0 z-50 flex items-center justify-between px-8 py-4 shadow-sm">
+        <!-- Logo -->
+        <div class="flex items-center gap-2 cursor-pointer">
+            <img src="images/prapti-logo.jpg" alt="Prapti Tourism"
+                class="h-12 w-auto object-contain mix-blend-multiply scale-125 md:scale-150 origin-left">
+        </div>
+
+        <!-- Links -->
+        <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide text-primary">
+            <a href="#" class="hover:text-accent transition-colors">DESTINATIONS</a>
+            <a href="#" class="hover:text-accent transition-colors">CURATED TRIPS</a>
+            <a href="#" class="hover:text-accent transition-colors">THE JOURNAL</a>
+            <button
+                class="bg-primary text-white px-6 py-2.5 rounded hover:bg-opacity-90 transition-all font-medium tracking-wide">
+                PLAN A TRIP
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Slider Section -->
+    <section class="hero-slider-section">
+        <!-- Background Images -->
+        <div id="slider-backgrounds" class="slider-backgrounds">
+            <div class="bg-item active" style="background-image: url('https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="bg-item" style="background-image: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="bg-item" style="background-image: url('https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?q=80&w=2000&auto=format&fit=crop');"></div>
+            <div class="bg-item" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=2000&auto=format&fit=crop');"></div>
+        </div>
+
+        <div class="hero-overlay"></div>
+
+        <div class="slider-content-container max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
+            <!-- Left Side Content -->
+            <div class="slider-info" id="slider-info-container">
+                <div class="slider-info-inner active">
+                    <p class="location-label"><span class="line"></span> Sahara Desert - Morocco</p>
+                    <h1 class="slider-title">MARRAKECH<br>MERZOUGA</h1>
+                    <p class="slider-desc">The journey from the vibrant souks and palaces of Marrakech to the tranquil, starlit sands of Merzouga showcases the diverse splendor of Morocco. Camel treks and desert camps offer an unforgettable immersion into the nomadic way of life.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
+                <div class="slider-info-inner">
+                    <p class="location-label"><span class="line"></span> Kyoto - Japan</p>
+                    <h1 class="slider-title">ANCIENT<br>TEMPLES</h1>
+                    <p class="slider-desc">Discover the serene beauty of Kyoto's ancient temples and shrines, surrounded by lush gardens and traditional architecture. Experience the essence of Japanese culture in this historic city.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
+                <div class="slider-info-inner">
+                    <p class="location-label"><span class="line"></span> Santorini - Greece</p>
+                    <h1 class="slider-title">AEGEAN<br>BEAUTY</h1>
+                    <p class="slider-desc">Breathtaking sunsets, whitewashed houses, and blue-domed churches perched on cliffs overlooking the caldera. Santorini is a true gem of the Aegean Sea, offering unparalleled romance and charm.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
+                <div class="slider-info-inner">
+                    <p class="location-label"><span class="line"></span> Swiss Alps - Switzerland</p>
+                    <h1 class="slider-title">ALPINE<br>WONDER</h1>
+                    <p class="slider-desc">Majestic snow-capped peaks, pristine lakes, and charming villages. The Swiss Alps are a paradise for nature lovers and adventure seekers, offering world-class skiing and hiking.</p>
+                    <button class="discover-btn">
+                        <span class="play-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M8 5v14l11-7z"/></svg>
+                        </span>
+                        DISCOVER LOCATION
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Side Carousel -->
+            <div class="slider-carousel">
+                <div class="carousel-track" id="hero-carousel-track">
+                    <!-- Card 1 -->
+                    <div class="carousel-card active" data-index="0">
+                        <img src="https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=600&auto=format&fit=crop" alt="Morocco">
+                        <div class="card-info">
+                            <p class="card-location">Sahara Desert - Morocco</p>
+                            <h3 class="card-title">MARRAKECH</h3>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="carousel-card" data-index="1">
+                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=600&auto=format&fit=crop" alt="Kyoto">
+                        <div class="card-info">
+                            <p class="card-location">Kyoto - Japan</p>
+                            <h3 class="card-title">ANCIENT TEMPLES</h3>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="carousel-card" data-index="2">
+                        <img src="https://images.unsplash.com/photo-1502481851512-e9e2529bfbf9?q=80&w=600&auto=format&fit=crop" alt="Santorini">
+                        <div class="card-info">
+                            <p class="card-location">Santorini - Greece</p>
+                            <h3 class="card-title">AEGEAN BEAUTY</h3>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="carousel-card" data-index="3">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=600&auto=format&fit=crop" alt="Swiss Alps">
+                        <div class="card-info">
+                            <p class="card-location">Swiss Alps - Switzerland</p>
+                            <h3 class="card-title">ALPINE WONDER</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="slider-controls max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20">
+            <div class="slider-nav">
+                <button class="nav-btn prev" id="hero-prev">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="nav-btn next" id="hero-next">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+            </div>
+            <div class="slider-progress">
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="hero-progress"></div>
+                </div>
+                <span class="slide-counter" id="hero-counter">1</span>
+            </div>
+        </div>
+    </section>
+    <!-- New Carousel Section -->
+    <section class="max-w-[1800px] mx-auto pt-16 w-full flex flex-col items-center">
+        
+        <!-- Pill Navigation -->
+        <div class="bg-blue-50/50 backdrop-blur-sm rounded-full p-1.5 flex items-center mb-10 shadow-sm border border-blue-100/50">
+            <button id="pill-domestic" class="px-8 py-3 rounded-full text-[15px] font-bold transition-all duration-300 bg-blue-600 text-white shadow-md">
+                Domestic
+            </button>
+            <button id="pill-international" class="px-8 py-3 rounded-full text-[15px] font-bold transition-all duration-300 text-gray-600 hover:text-gray-900">
+                International
+            </button>
+        </div>
+    </section>
+
+    <!-- Carousel Container -->
+    <div class="relative w-full max-w-[1800px] mx-auto px-6 md:px-12 lg:px-20 pb-16">
+            
+            <!-- Left Arrow -->
+            <button id="scroll-left" class="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-700 hover:text-blue-600 hover:scale-105 transition-all hidden md:flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            
+            <!-- Right Arrow -->
+            <button id="scroll-right" class="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-xl border border-gray-100 flex items-center justify-center text-gray-700 hover:text-blue-600 hover:scale-105 transition-all hidden md:flex">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <div id="carousel-domestic" class="w-[calc(100%+2rem)] overflow-x-auto snap-x snap-mandatory flex gap-6 scrollbar-hide -mx-4 px-4 py-8 scroll-px-4" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- Domestic Cards -->
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Kashmir/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Kashmir">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Kashmir</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Gulmarg/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gulmarg">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Gulmarg</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Pahalgam/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Pahalgam">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Pahalgam</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Srinagar/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Srinagar">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Srinagar</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Sonmarg/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Sonmarg">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Sonmarg</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Vaishno%20Devi/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Vaishno Devi">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Vaishno Devi</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Amarnath/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Amarnath">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Amarnath</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Himachal%20Pradesh/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Himachal Pradesh">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Himachal Pradesh</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Shimla%20Manali/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Shimla Manali">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Shimla Manali</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Kullu/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Kullu">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Kullu</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Dharamshala/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Dharamshala">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Dharamshala</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Dalhousie/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Dalhousie">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Dalhousie</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Kasol/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Kasol">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Kasol</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Spiti%20Valley/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Spiti Valley">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Spiti Valley</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Rajasthan/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Rajasthan">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Rajasthan</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Jaipur/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Jaipur">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Jaipur</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Udaipur/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Udaipur">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Udaipur</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Jaisalmer/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Jaisalmer">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Jaisalmer</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Jodhpur/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Jodhpur">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Jodhpur</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Pushkar/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Pushkar">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Pushkar</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Bikaner/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Bikaner">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Bikaner</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Ranthambore/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Ranthambore">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Ranthambore</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Mount%20Abu/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Mount Abu">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Mount Abu</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Gujarat/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gujarat">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Gujarat</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Kutch/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Kutch">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Kutch</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Dwarka%20Somnath/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Dwarka Somnath">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Dwarka Somnath</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Gir/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Gir">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Gir</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Statue%20of%20Unity/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Statue of Unity">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Statue of Unity</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Saputara/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Saputara">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Saputara</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Goa/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Goa">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Goa</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- International Carousel Wrapper -->
+            <div id="carousel-international" class="w-[calc(100%+2rem)] overflow-x-auto snap-x snap-mandatory flex gap-6 scrollbar-hide -mx-4 px-4 py-8 scroll-px-4 hidden" style="scrollbar-width: none; -ms-overflow-style: none;">
+                <!-- International Cards -->
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Dubai/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Dubai">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Dubai</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Maldives/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Maldives">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Maldives</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Thailand/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Thailand">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Thailand</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Phuket%20Krabi/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Phuket Krabi">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Phuket Krabi</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Singapore/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Singapore">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Singapore</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1rem)] lg:w-[calc(25%-1.125rem)] bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 group cursor-pointer relative aspect-[3/4]">
+                    <img src="https://picsum.photos/seed/Australia/500/700" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Australia">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 via-40% to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <h3 class="absolute bottom-6 left-6 font-bold text-2xl text-white mb-0 drop-shadow-lg z-10">Australia</h3>
+                        
+                    <div class="absolute bottom-4 right-4 bg-blue-600 rounded-full h-12 flex items-center justify-end overflow-hidden transition-all duration-500 w-12 group-hover:w-[145px] shadow-lg z-10">
+                        <span class="text-white text-sm font-semibold whitespace-nowrap absolute right-12 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mr-2">Explore Now</span>
+                        <div class="w-12 h-12 flex-shrink-0 flex items-center justify-center text-white relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7M17 7H7M17 7V17" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+                                                            <style>
+                .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                }
+            </style>
+        </div>
+        <!-- 3D Horizontal Scroll Section -->
+    <section id="horizontal-scroll-track" class="relative w-full bg-[#050505] overflow-visible z-10" style="height: 1000vh;">
+        <!-- Sticky Viewport -->
+        <div id="sticky-viewport" class="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center" style="perspective: 1500px;">
+            
+            <!-- Header for the section -->
+            <div class="absolute top-20 left-0 w-full text-center z-20">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <div class="w-5 h-5 rounded-full border-2 border-[#b8860b]"></div>
+                    <h2 class="font-serif text-5xl text-white font-bold drop-shadow-xl tracking-wide">Start Your Adventure</h2>
+                </div>
+                <div class="w-64 h-[1px] bg-gradient-to-r from-transparent via-[#b8860b] to-transparent mx-auto"></div>
+            </div>
+
+            <!-- The 3D Carousel Container -->
+            <!-- We will translate this container horizontally using JS -->
+            <div id="cards-container" class="absolute w-full h-full left-0 top-0" style="transform-style: preserve-3d; will-change: transform;">
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kashmir/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kashmir">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kashmir</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Gulmarg/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Gulmarg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Gulmarg</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Pahalgam/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Pahalgam">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Pahalgam</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Srinagar/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Srinagar">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Srinagar</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Sonmarg/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Sonmarg">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Sonmarg</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Vaishno%20Devi/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Vaishno Devi">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Vaishno Devi</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Amarnath/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Amarnath">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Amarnath</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Himachal%20Pradesh/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Himachal Pradesh">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Himachal Pradesh</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Shimla%20Manali/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Shimla Manali">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Shimla Manali</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kullu/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kullu">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kullu</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Dharamshala/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Dharamshala">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Dharamshala</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Dalhousie/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Dalhousie">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Dalhousie</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kasol/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kasol">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kasol</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Spiti%20Valley/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Spiti Valley">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Spiti Valley</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Rajasthan/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Rajasthan">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Rajasthan</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Jaipur/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Jaipur">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Jaipur</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Udaipur/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Udaipur">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Udaipur</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Jaisalmer/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Jaisalmer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Jaisalmer</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Jodhpur/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Jodhpur">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Jodhpur</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Pushkar/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Pushkar">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Pushkar</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Bikaner/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Bikaner">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Bikaner</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Ranthambore/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Ranthambore">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Ranthambore</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Mount%20Abu/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Mount Abu">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Mount Abu</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Gujarat/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Gujarat">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Gujarat</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Kutch/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Kutch">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Kutch</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Dwarka%20Somnath/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Dwarka Somnath">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Dwarka Somnath</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Gir/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Gir">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Gir</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Statue%20of%20Unity/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Statue of Unity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Statue of Unity</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Saputara/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Saputara">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Saputara</h3>
+                </div>
+                <!-- 3D Card -->
+                <div class="card-3d absolute w-[300px] h-[400px] rounded-[1.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[2px] border-white/10 shrink-0 bg-[#111] group flex flex-col items-center justify-end pb-8 left-1/2 top-1/2 mt-[-200px] ml-[-150px]" style="transform-style: preserve-3d; will-change: transform;">
+                    <img src="https://picsum.photos/seed/Goa/500/600" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700" alt="Goa">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
+                    <h3 class="relative font-bold text-xl text-white tracking-wider z-10 drop-shadow-md">Goa</h3>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+        <!-- 3D International Showcase Section -->
+    <section class="max-w-[1800px] mx-auto py-24 w-full bg-white overflow-hidden">
+        <div class="text-center mb-12 px-6">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">Global Showcase</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">Immerse yourself in our handpicked international getaways.</p>
+        </div>
+        
+        <div class="swiper mySwiper w-full !pb-16">
+            <div class="swiper-wrapper flex items-center">
+                <!-- Card 1: Dubai -->
+                <div class="swiper-slide w-[300px] md:w-[400px] aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 group border border-gray-100">
+                    <img src="https://picsum.photos/seed/Dubai/600/800" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Dubai">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <h3 class="absolute bottom-8 left-0 w-full text-center font-bold text-3xl text-white tracking-widest drop-shadow-xl font-serif z-10">DUBAI</h3>
+                </div>
+                <!-- Card 2: Maldives -->
+                <div class="swiper-slide w-[300px] md:w-[400px] aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 group border border-gray-100">
+                    <img src="https://picsum.photos/seed/Maldives/600/800" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Maldives">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <h3 class="absolute bottom-8 left-0 w-full text-center font-bold text-3xl text-white tracking-widest drop-shadow-xl font-serif z-10">MALDIVES</h3>
+                </div>
+                <!-- Card 3: Thailand -->
+                <div class="swiper-slide w-[300px] md:w-[400px] aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 group border border-gray-100">
+                    <img src="https://picsum.photos/seed/Thailand/600/800" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Thailand">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <h3 class="absolute bottom-8 left-0 w-full text-center font-bold text-3xl text-white tracking-widest drop-shadow-xl font-serif z-10">THAILAND</h3>
+                </div>
+                <!-- Card 4: Phuket Krabi -->
+                <div class="swiper-slide w-[300px] md:w-[400px] aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 group border border-gray-100">
+                    <img src="https://picsum.photos/seed/Phuket%20Krabi/600/800" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Phuket Krabi">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <h3 class="absolute bottom-8 left-0 w-full text-center font-bold text-3xl text-white tracking-widest drop-shadow-xl font-serif z-10">PHUKET KRABI</h3>
+                </div>
+                <!-- Card 5: Singapore -->
+                <div class="swiper-slide w-[300px] md:w-[400px] aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 group border border-gray-100">
+                    <img src="https://picsum.photos/seed/Singapore/600/800" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Singapore">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <h3 class="absolute bottom-8 left-0 w-full text-center font-bold text-3xl text-white tracking-widest drop-shadow-xl font-serif z-10">SINGAPORE</h3>
+                </div>
+                <!-- Card 6: Australia -->
+                <div class="swiper-slide w-[300px] md:w-[400px] aspect-[3/4] relative rounded-[2.5rem] overflow-hidden shadow-2xl shrink-0 group border border-gray-100">
+                    <img src="https://picsum.photos/seed/Australia/600/800" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Australia">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+                    <h3 class="absolute bottom-8 left-0 w-full text-center font-bold text-3xl text-white tracking-widest drop-shadow-xl font-serif z-10">AUSTRALIA</h3>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="bg-primary text-white py-12 px-8 text-center mt-12">
+        <p class="text-gray-400 text-sm">&copy; 2026 Prapti Tourism. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
