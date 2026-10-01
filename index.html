@@ -297,7 +297,7 @@
         </div>
     </section>
     <!-- Services Section -->
-    <section id="services" id="services" class="services-section w-full px-6 md:px-12 lg:px-20 py-16 bg-gray-100 overflow-hidden">
+    <section id="services" class="services-section w-full px-6 md:px-12 lg:px-20 py-16 bg-gray-100 overflow-hidden">
         <div class="mb-12 text-center md:text-left px-4 md:px-0">
             <p class="text-xs md:text-sm font-bold tracking-widest text-accent uppercase mb-3">Our Services</p>
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-4">End-to-end travel management</h2>
@@ -306,63 +306,94 @@
         <div class="services-image-container relative w-full rounded-[2rem] overflow-hidden aspect-[4/3] md:aspect-[2.2/1] bg-gray-200 shadow-2xl">
             <!-- Background Image -->
             <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Family Travel">
-            <div class="absolute inset-0 bg-black/10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0B2038]/95 via-[#0B2038]/60 to-black/30"></div>
 
             <!-- Cards Container -->
-            <div class="absolute bottom-6 left-0 w-full px-4 md:px-8 flex flex-nowrap overflow-x-auto md:overflow-visible justify-start md:justify-between items-end gap-4 h-[85%] md:h-[75%] scrollbar-hide pb-4 md:pb-0" style="scrollbar-width: none;">
+            <div class="absolute bottom-0 left-0 w-full px-4 md:px-8 flex flex-nowrap overflow-x-auto md:overflow-visible justify-start md:justify-between items-end gap-6 h-[85%] md:h-[80%] scrollbar-hide pb-8 md:pb-12" style="scrollbar-width: none;">
                 
                 <!-- Card 1 -->
-                <div class="service-card opacity-0 translate-y-24 bg-white rounded-2xl p-5 md:p-6 flex flex-col justify-between shadow-2xl w-[260px] md:w-[19%] shrink-0 h-[90%] relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-2 border border-gray-100">
-                    <div class="relative z-10">
-                        <h3 class="text-[#f26522] font-bold text-lg md:text-xl leading-tight mb-3">Air ticketing</h3>
-                        <p class="text-xs md:text-sm text-gray-600">International and domestic flights, booked and confirmed the same day.</p>
+                <div class="service-card opacity-0 translate-y-24 backdrop-blur-xl bg-white/10 border border-white/20 rounded-[2rem] p-3 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.12)] w-[280px] md:w-[19%] shrink-0 h-full relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-4 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] cursor-pointer">
+                    <!-- Image Area -->
+                    <div class="w-full flex-1 rounded-[1.5rem] overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1540339832862-474599807836?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Air Ticketing">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <!-- Floating Icon -->
+                        <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg group-hover:bg-[#f26522] group-hover:border-transparent transition-all duration-300">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
                     </div>
-                    <!-- Curved line -->
-                    <svg class="absolute bottom-12 left-0 w-full h-16" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0,50 Q50,0 100,40 L100,50 L0,50 Z" fill="#f26522" opacity="0.1"/></svg>
-                    <svg class="absolute bottom-12 left-0 w-full h-16" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0,50 Q50,0 100,40" fill="none" stroke="#f26522" stroke-width="2"/></svg>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3125/3125713.png" class="absolute bottom-4 right-4 w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300" alt="Plane">
+                    <!-- Text Area -->
+                    <div class="px-3 pb-2 flex-none relative z-10">
+                        <h3 class="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-2 tracking-wide">Air Ticketing</h3>
+                        <p class="text-xs md:text-sm text-gray-300 font-light leading-relaxed">International and domestic flights, booked and confirmed instantly.</p>
+                    </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="service-card opacity-0 translate-y-24 bg-gradient-to-br from-[#f26522] to-[#d95316] text-white rounded-2xl p-5 md:p-6 flex flex-col justify-between shadow-2xl w-[260px] md:w-[19%] shrink-0 h-[75%] relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-2">
-                    <div class="relative z-10">
-                        <h3 class="font-bold text-lg md:text-xl leading-tight mb-3">Hotel reservations</h3>
-                        <p class="text-xs md:text-sm text-white/90">Vetted stays matched to your budget, worldwide.</p>
+                <div class="service-card opacity-0 translate-y-24 backdrop-blur-xl bg-white/10 border border-white/20 rounded-[2rem] p-3 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.12)] w-[280px] md:w-[19%] shrink-0 h-full relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-4 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] cursor-pointer">
+                    <div class="w-full flex-1 rounded-[1.5rem] overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Hotel Stays">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg group-hover:bg-[#2874f0] group-hover:border-transparent transition-all duration-300">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        </div>
                     </div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2933/2933772.png" class="absolute bottom-[-10px] right-[-10px] w-28 h-28 object-contain opacity-30 group-hover:scale-110 transition-transform duration-300" alt="Hotel">
+                    <div class="px-3 pb-2 flex-none relative z-10">
+                        <h3 class="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-2 tracking-wide">Hotel Stays</h3>
+                        <p class="text-xs md:text-sm text-gray-300 font-light leading-relaxed">Vetted premium stays matched to your budget, worldwide.</p>
+                    </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="service-card opacity-0 translate-y-24 bg-gradient-to-br from-[#2874f0] to-[#1a5bbd] text-white rounded-2xl p-5 md:p-6 flex flex-col justify-between shadow-2xl w-[260px] md:w-[19%] shrink-0 h-[60%] relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-2">
-                    <div class="relative z-10">
-                        <h3 class="font-bold text-lg md:text-xl leading-tight mb-3">Passport & visa</h3>
-                        <p class="text-xs md:text-sm text-white/90">Document preparation and application tracking.</p>
+                <div class="service-card opacity-0 translate-y-24 backdrop-blur-xl bg-white/10 border border-white/20 rounded-[2rem] p-3 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.12)] w-[280px] md:w-[19%] shrink-0 h-full relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-4 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] cursor-pointer">
+                    <div class="w-full flex-1 rounded-[1.5rem] overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Passport & Visa">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg group-hover:bg-[#10b981] group-hover:border-transparent transition-all duration-300">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
                     </div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3008/3008323.png" class="absolute bottom-[-5px] right-[-5px] w-24 h-24 object-contain opacity-30 group-hover:scale-110 transition-transform duration-300" alt="Visa">
+                    <div class="px-3 pb-2 flex-none relative z-10">
+                        <h3 class="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-2 tracking-wide">Passport & Visa</h3>
+                        <p class="text-xs md:text-sm text-gray-300 font-light leading-relaxed">Hassle-free document preparation and application tracking.</p>
+                    </div>
                 </div>
 
                 <!-- Card 4 -->
-                <div class="service-card opacity-0 translate-y-24 bg-white rounded-2xl p-5 md:p-6 flex flex-col justify-between shadow-2xl w-[260px] md:w-[19%] shrink-0 h-[70%] relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-2 border border-gray-100">
-                    <div class="relative z-10">
-                        <h3 class="text-[#2874f0] font-bold text-lg md:text-xl leading-tight mb-3">Forex exchange</h3>
-                        <p class="text-xs md:text-sm text-gray-600">Currency exchanged at fair, published rates.</p>
+                <div class="service-card opacity-0 translate-y-24 backdrop-blur-xl bg-white/10 border border-white/20 rounded-[2rem] p-3 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.12)] w-[280px] md:w-[19%] shrink-0 h-full relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-4 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] cursor-pointer">
+                    <div class="w-full flex-1 rounded-[1.5rem] overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Forex Exchange">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg group-hover:bg-[#8b5cf6] group-hover:border-transparent transition-all duration-300">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
                     </div>
-                    <!-- Curved line -->
-                    <svg class="absolute bottom-12 left-0 w-full h-12" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0,20 Q50,50 100,10 L100,50 L0,50 Z" fill="#2874f0" opacity="0.1"/></svg>
-                    <svg class="absolute bottom-12 left-0 w-full h-12" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0,20 Q50,50 100,10" fill="none" stroke="#2874f0" stroke-width="2"/></svg>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2482/2482502.png" class="absolute bottom-3 right-3 w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300" alt="Forex">
+                    <div class="px-3 pb-2 flex-none relative z-10">
+                        <h3 class="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-2 tracking-wide">Forex Exchange</h3>
+                        <p class="text-xs md:text-sm text-gray-300 font-light leading-relaxed">Currency exchanged swiftly at fair, published market rates.</p>
+                    </div>
                 </div>
 
                 <!-- Card 5 -->
-                <div class="service-card opacity-0 translate-y-24 bg-[#fff9e6] rounded-2xl p-5 md:p-6 flex flex-col justify-between shadow-2xl w-[260px] md:w-[19%] shrink-0 h-[85%] relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-2 border border-[#ffe680]">
-                    <div class="relative z-10">
-                        <h3 class="text-[#d9a400] font-bold text-lg md:text-xl leading-tight mb-3">Honeymoon planning</h3>
-                        <p class="text-xs md:text-sm text-gray-700">Private itineraries built around your preferences.</p>
+                <div class="service-card opacity-0 translate-y-24 backdrop-blur-xl bg-white/10 border border-white/20 rounded-[2rem] p-3 flex flex-col shadow-[0_8px_30px_rgb(0,0,0,0.12)] w-[280px] md:w-[19%] shrink-0 h-full relative overflow-hidden transition-all duration-500 ease-out group hover:-translate-y-4 hover:bg-white/20 hover:border-white/40 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] cursor-pointer">
+                    <div class="w-full flex-1 rounded-[1.5rem] overflow-hidden relative mb-4">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=600&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Honeymoons">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-3 right-3 w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shadow-lg group-hover:bg-[#ec4899] group-hover:border-transparent transition-all duration-300">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
                     </div>
-                    <!-- Curved line -->
-                    <svg class="absolute bottom-14 left-0 w-full h-16" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0,40 Q40,-10 100,30 L100,50 L0,50 Z" fill="#ffcc00" opacity="0.2"/></svg>
-                    <svg class="absolute bottom-14 left-0 w-full h-16" viewBox="0 0 100 50" preserveAspectRatio="none"><path d="M0,40 Q40,-10 100,30" fill="none" stroke="#ffcc00" stroke-width="2"/></svg>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3233/3233384.png" class="absolute bottom-4 right-4 w-14 h-14 object-contain group-hover:scale-110 transition-transform duration-300" alt="Honeymoon">
+                    <div class="px-3 pb-2 flex-none relative z-10">
+                        <h3 class="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-2 tracking-wide">Honeymoons</h3>
+                        <p class="text-xs md:text-sm text-gray-300 font-light leading-relaxed">Private itineraries built intimately around your preferences.</p>
+                    </div>
+                </div>
+
+            </div>
+                    <div class="px-3 pb-2 flex-1 flex flex-col justify-end relative z-10">
+                        <h3 class="text-white font-serif font-bold text-xl md:text-2xl leading-tight mb-2 tracking-wide">Honeymoons</h3>
+                        <p class="text-xs md:text-sm text-gray-300 font-light leading-relaxed">Private itineraries built intimately around your preferences.</p>
+                    </div>
                 </div>
 
             </div>
@@ -371,7 +402,7 @@
 
         <!-- 3D Horizontal Scroll Section -->
     <!-- 3D International Showcase Section -->
-    <section id="international" id="international" class="py-8 w-full bg-white overflow-hidden">
+    <section id="international" class="py-8 w-full bg-white overflow-hidden">
         <div class="text-center mb-12 px-6 flex flex-col items-center">
             <p class="text-xs md:text-sm font-bold tracking-widest text-accent uppercase mb-3">International Packages</p>
             <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-primary mb-4">Global Showcase</h2>
