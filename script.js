@@ -210,287 +210,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 3D Horizontal Scroll Logic
 document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('horizontal-scroll-track');
-    const container = document.getElementById('cards-container');
-    const cards = document.querySelectorAll('.card-3d');
+    // Navbar Scroll & Transparency Logic
+    const navbar = document.getElementById('navbar');
+    const heroVideo = document.getElementById('hero-video');
 
-    if (track && container && cards.length > 0) {
-        function update3DCarousel() {
-            const trackRect = track.getBoundingClientRect();
-            const maxScroll = trackRect.height - window.innerHeight;
-            let scrollY = -trackRect.top;
-
-            if (scrollY < 0) scrollY = 0;
-            if (scrollY > maxScroll) scrollY = maxScroll;
-
-            // If the track is completely out of view, we don't need to do expensive calculations
-            if (-trackRect.top > trackRect.height || trackRect.top > window.innerHeight) {
-                return;
+    if (navbar) {
+        const updateNavbar = () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('nav-transparent');
+            } else {
+                navbar.classList.add('nav-transparent');
+                navbar.classList.remove('nav-scrolled');
             }
+        };
 
-            // To make the first card start on the left and the last card stop on the right,
-            // we constrain the progress range. An offset of ~2.4 cards pushes them closer to the screen edges
-            // without pushing them completely off.
-            const edgeOffset = 2.4;
-            const startProgress = edgeOffset;
-            const endProgress = Math.max(startProgress, (cards.length - 1) - edgeOffset);
+        window.addEventListener('scroll', updateNavbar, { passive: true });
+        updateNavbar();
+    }
 
-            // Progress scales between startProgress and endProgress
-            const progress = startProgress + (scrollY / maxScroll) * (endProgress - startProgress);
+    // Video Autoplay Guarantee
+    if (heroVideo) {
+        heroVideo.muted = true;
+        heroVideo.defaultMuted = true;
+        heroVideo.setAttribute('playsinline', '');
+        heroVideo.setAttribute('webkit-playsinline', '');
 
-            cards.forEach((card, i) => {
-                // How far is this card from the currently focused index?
-                const dist = i - progress;
-                const absDist = Math.abs(dist);
-
-                // 20 degrees per card turns a bit slower, allowing more cards to be visible on screen
-                const rotateY = dist * -20;
-
-                // Radius of -920 creates a tight gap
-                const radius = -920;
-
-                // Global scale 
-                const globalScale = 3.0;
-
-                // Apply pure 3D transforms
-                card.style.transform = `scale(${globalScale}) rotateY(${rotateY}deg) translateZ(${radius}px)`;
-
-                // 300px perspective keeps the extreme size difference while showing more cards
-                const viewport = document.getElementById('sticky-viewport');
-                if (viewport) viewport.style.perspective = '300px';
-
-                // Remove the "shadow" (fading) for cards that are on screen.
-                // Cards stay fully bright (opacity 1) until they start wrapping off the edge (absDist > 2.8).
-                let opacity = 1;
-                if (absDist > 2.8) {
-                    opacity = Math.max(0, 1 - (absDist - 2.8)); // Fades out completely by 3.8
-                }
-                card.style.opacity = opacity;
-
-                // Completely hide cards that are far wrapped to prevent ghosting
-                if (absDist > 3.8) {
-                    card.style.visibility = 'hidden';
-                } else {
-                    card.style.visibility = 'visible';
-                }
-
-                // Prioritize center cards
-                card.style.zIndex = Math.round(100 - absDist * 10);
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                const startPlay = () => {
+                    heroVideo.play();
+                    window.removeEventListener('click', startPlay);
+                    window.removeEventListener('touchstart', startPlay);
+                    window.removeEventListener('scroll', startPlay);
+                };
+                window.addEventListener('click', startPlay, { once: true });
+                window.addEventListener('touchstart', startPlay, { once: true });
+                window.addEventListener('scroll', startPlay, { once: true });
             });
         }
-
-        window.addEventListener('scroll', update3DCarousel, { passive: true });
-        window.addEventListener('resize', update3DCarousel);
-
-        // Initial setup
-        requestAnimationFrame(update3DCarousel);
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Hero Slider Logic
-    const backgrounds = document.querySelectorAll('.bg-item');
-    const infoItems = document.querySelectorAll('.slider-info-inner');
-    const track = document.getElementById('hero-carousel-track');
-    const prevBtn = document.getElementById('hero-prev');
-    const nextBtn = document.getElementById('hero-next');
-    const progressBar = document.getElementById('hero-progress');
-    const counter = document.getElementById('hero-counter');
-    const heroSection = document.querySelector('.hero-slider-section');
-    const overlay = document.querySelector('.hero-overlay');
-    const contentContainer = document.querySelector('.slider-content-container');
-
-    let isAnimating = false;
-    let timerTimeout;
-    const SLIDE_DURATION = 3500;
-    const TRANSITION_DURATION = 800;
-
-    function updateBackgroundAndText(newActiveCard) {
-        if (!newActiveCard) return;
-        const index = parseInt(newActiveCard.getAttribute('data-index'));
-
-        backgrounds.forEach((bg, i) => {
-            if (i === index) bg.classList.add('active');
-            else bg.classList.remove('active');
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-
-        infoItems.forEach((info, i) => {
-            if (i === index) info.classList.add('active');
-            else info.classList.remove('active');
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
-
-        if (counter) counter.textContent = index + 1;
-    }
-
-    function nextSlide() {
-        if (isAnimating || !track || track.children.length === 0) return;
-        isAnimating = true;
-        clearTimeout(timerTimeout);
-
-        const firstCard = track.children[0];
-
-        // Instantly update text and background to the card that is about to expand
-        updateBackgroundAndText(firstCard);
-
-        if (heroSection && overlay && contentContainer) {
-            const rect = firstCard.getBoundingClientRect();
-            const heroRect = heroSection.getBoundingClientRect();
-
-            // Clone the entire card so it visually matches before expanding
-            const clone = firstCard.cloneNode(true);
-            clone.classList.remove('active');
-
-            clone.style.position = 'absolute';
-            clone.style.top = (rect.top - heroRect.top) + 'px';
-            clone.style.left = (rect.left - heroRect.left) + 'px';
-            clone.style.width = rect.width + 'px';
-            clone.style.height = rect.height + 'px';
-            clone.style.margin = '0';
-            // zIndex 1 places it ABOVE the overlay but BELOW the text and other cards (zIndex 2)
-            clone.style.zIndex = '1';
-            clone.style.transition = 'all ' + TRANSITION_DURATION + 'ms cubic-bezier(0.25, 1, 0.5, 1)';
-            clone.style.overflow = 'hidden';
-
-            // Upgrade the clone's image to high-res so it doesn't look terrible when expanded
-            const cloneImg = clone.querySelector('img');
-            if (cloneImg) {
-                cloneImg.src = cloneImg.src.replace('/600/800', '/2000/1200').replace('w=600', 'w=2000');
-                cloneImg.style.width = '100%';
-                cloneImg.style.height = '100%';
-                cloneImg.style.objectFit = 'cover';
-            }
-
-            // Fade out the text inside the clone as it expands
-            const cloneInfo = clone.querySelector('.card-info');
-            if (cloneInfo) {
-                cloneInfo.style.transition = 'opacity 0.4s ease';
-            }
-
-            // Insert AFTER overlay, BEFORE slider-content
-            heroSection.insertBefore(clone, contentContainer);
-
-            // Force reflow
-            void clone.offsetWidth;
-
-            // Expand clone to cover hero section
-            clone.style.top = '0';
-            clone.style.left = '0';
-            clone.style.width = '100%';
-            clone.style.height = '100%';
-            clone.style.borderRadius = '0';
-
-            if (cloneInfo) cloneInfo.style.opacity = '0';
-
-            setTimeout(() => {
-                // Fade out the bright clone to reveal the darkened background and overlay underneath
-                clone.style.transition = 'opacity 0.5s ease';
-                clone.style.opacity = '0';
-
-                setTimeout(() => {
-                    clone.remove();
-                }, 500);
-            }, TRANSITION_DURATION);
-        }
-
-        // Instantly hide the original card's visual contents completely
-        // We only leave the empty container to animate its width down to 0.
-        const originalChildren = firstCard.children;
-        for (let i = 0; i < originalChildren.length; i++) {
-            originalChildren[i].style.opacity = '0';
-            originalChildren[i].style.transition = 'none';
-        }
-
-        firstCard.classList.add('active');
-
-        setTimeout(() => {
-            track.appendChild(firstCard);
-            firstCard.classList.remove('active');
-
-            // Restore visibility of contents for when it cycles back around
-            for (let i = 0; i < originalChildren.length; i++) {
-                originalChildren[i].style.opacity = '';
-                originalChildren[i].style.transition = '';
-            }
-
-            isAnimating = false;
-            startAutoPlay();
-        }, TRANSITION_DURATION);
-    }
-
-    function prevSlide() {
-        if (isAnimating || !track || track.children.length === 0) return;
-        isAnimating = true;
-        clearTimeout(timerTimeout);
-
-        const lastCard = track.children[track.children.length - 1];
-
-        lastCard.classList.add('active');
-        track.insertBefore(lastCard, track.children[0]);
-
-        void track.offsetWidth;
-
-        lastCard.classList.remove('active');
-
-        updateBackgroundAndText(lastCard);
-
-        setTimeout(() => {
-            isAnimating = false;
-            startAutoPlay();
-        }, TRANSITION_DURATION);
-    }
-
-    function resetProgress() {
-        if (progressBar) {
-            progressBar.style.transition = 'none';
-            progressBar.style.width = '0%';
-            void progressBar.offsetWidth;
-            progressBar.style.transition = 'width ' + SLIDE_DURATION + 'ms linear';
-            progressBar.style.width = '100%';
-        }
-    }
-
-    function startAutoPlay() {
-        resetProgress();
-        clearTimeout(timerTimeout);
-        timerTimeout = setTimeout(() => {
-            nextSlide();
-        }, SLIDE_DURATION);
-    }
-
-    function stopAutoPlay() {
-        clearTimeout(timerTimeout);
-        if (progressBar) {
-            progressBar.style.transition = 'none';
-            progressBar.style.width = '0%';
-        }
-    }
-
-    if (prevBtn && nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            stopAutoPlay();
-            nextSlide();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            stopAutoPlay();
-            prevSlide();
-        });
-
-        if (track && track.children.length > 0) {
-            const initialCard = track.children[0];
-            if (initialCard.classList.contains('active')) {
-                // The first card is already the background. Move it to the back of the queue
-                // so the slider starts with the *next* image.
-                track.appendChild(initialCard);
-                initialCard.classList.remove('active');
-
-                // Ensure the background and text match this initial card
-                updateBackgroundAndText(initialCard);
-            } else {
-                updateBackgroundAndText(track.children[0]);
-            }
-        }
-        startAutoPlay();
     }
 
     // Initialize Swiper for Global Showcase
@@ -500,6 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
             grabCursor: true,
             centeredSlides: true,
             slidesPerView: 'auto',
+
             initialSlide: 1,
             loopedSlides: 6, // Ensures enough slides are cloned for both sides
             coverflowEffect: {
@@ -525,64 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Services Section Animation
-    const servicesSection = document.querySelector('.services-section');
-    const servicesImage = document.querySelector('.services-image-container');
-    const serviceCards = document.querySelectorAll('.service-card');
-
-    if (servicesSection && servicesImage && serviceCards.length > 0) {
-        // Prepare cards for JS scroll animation
-        serviceCards.forEach(card => {
-            card.classList.remove('opacity-0', 'translate-y-24', 'transition-all', 'duration-500', 'ease-out');
-            // Hide them completely below the container
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(150px)'; 
-        });
-
-        const updateScroll = () => {
-            // Use the image container's bottom edge since the cards are positioned at the bottom of it
-            const rect = servicesImage.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            // Start animation significantly earlier (350px before the bottom of the image container enters the screen)
-            const startTrigger = windowHeight + 350; 
-            // Complete animation when the bottom of the image container is 300px above the bottom of the screen
-            const endTrigger = windowHeight - 300;
-
-            // Calculate progress based on the bottom edge
-            let progress = (startTrigger - rect.bottom) / (startTrigger - endTrigger);
-            progress = Math.max(0, Math.min(1, progress));
-
-            // Cards stagger effect based on scroll progress
-            const staggerAmount = 0.15;
-            const scaleFactor = 1 / (1 - (serviceCards.length - 1) * staggerAmount);
-
-            serviceCards.forEach((card, index) => {
-                let cardProgress = progress - (index * staggerAmount);
-                cardProgress = cardProgress * scaleFactor;
-                cardProgress = Math.max(0, Math.min(1, cardProgress));
-
-                // Smooth ease out
-                const eased = 1 - Math.pow(1 - cardProgress, 3);
-
-                card.style.opacity = eased;
-                card.style.transform = `translateY(${(1 - eased) * 150}px)`;
-            });
-        };
-
-        // CRITICAL FIX: Use capture: true because scroll events do not bubble.
-        // If a wrapper element is scrolling instead of the window, this catches it!
-        window.addEventListener('scroll', updateScroll, { capture: true, passive: true });
-        window.addEventListener('resize', updateScroll, { passive: true });
-        
-        // Trigger immediately on load to set proper initial layout
-        requestAnimationFrame(updateScroll);
-    }
-
     // Stats Section Odometer Animation
     const statsSection = document.querySelector('.stats-section');
     const odometerElements = document.querySelectorAll('.odometer-stat');
-    
+
     if (statsSection && odometerElements.length > 0) {
         const statsObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -591,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const target = parseFloat(el.getAttribute('data-val'));
                         // Check if it's a decimal number to format appropriately
                         const format = target % 1 !== 0 ? '(,ddd).d' : '(,ddd)';
-                        
+
                         const od = new Odometer({
                             el: el,
                             value: 0,
@@ -606,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, { rootMargin: '0px 0px -100px 0px' });
-        
+
         statsObserver.observe(statsSection);
     }
 });
@@ -635,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href').substring(1);
             if (!targetId) return;
-            
+
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
                 e.preventDefault();
@@ -643,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const navbar = document.getElementById('navbar');
                 const navbarHeight = navbar ? navbar.offsetHeight : 0;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -651,4 +371,716 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
+
+
+// Sticky Hero Curtain Overlay & Parallax Fade Effect
+document.addEventListener('DOMContentLoaded', () => {
+    const heroSection = document.getElementById('hero');
+    const heroContent = document.querySelector('#hero .relative.z-20');
+    const heroExplore = document.querySelector('#hero a[href="#about"]') || document.querySelector('#hero a[href="#services"]');
+    const heroVideo = document.getElementById('hero-video');
+
+    if (heroSection) {
+        let isTicking = false;
+
+        const onScroll = () => {
+            const scrollY = window.scrollY;
+            const vh = window.innerHeight;
+
+            if (scrollY <= vh) {
+                const progress = Math.min(1, Math.max(0, scrollY / (vh * 0.85)));
+                
+                // Gently fade and translate hero text upward
+                if (heroContent) {
+                    heroContent.style.opacity = (1 - progress * 1.3).toFixed(3);
+                    heroContent.style.transform = `translate3d(0, ${-(progress * 55).toFixed(1)}px, 0)`;
+                }
+                
+                // Fade out explore indicator quickly
+                if (heroExplore) {
+                    heroExplore.style.opacity = (1 - progress * 2.2).toFixed(3);
+                }
+
+                // Subtle video scale and brightness dim for rich cinematic depth
+                if (heroVideo) {
+                    heroVideo.style.transform = `scale(${(1 + progress * 0.04).toFixed(3)})`;
+                    heroVideo.style.filter = `brightness(${(1 - progress * 0.35).toFixed(2)})`;
+                    if (heroVideo.paused) {
+                        heroVideo.play().catch(() => {});
+                    }
+                }
+            } else {
+                // When completely covered by the overlay content, pause video to save GPU/CPU
+                if (heroVideo && !heroVideo.paused) {
+                    heroVideo.pause();
+                }
+            }
+
+            isTicking = false;
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!isTicking) {
+                requestAnimationFrame(onScroll);
+                isTicking = true;
+            }
+        }, { passive: true });
+
+        // Initial call
+        onScroll();
+    }
+});
+
+// Destinations Carousel Controls & Live Counter with Fluid Smooth Scrolling & Dragging
+document.addEventListener('DOMContentLoaded', () => {
+    function setupCarousel(carouselId, prevBtnClass, nextBtnClass, counterSelector) {
+        const carousel = document.getElementById(carouselId);
+        const prevBtn = document.querySelector(prevBtnClass);
+        const nextBtn = document.querySelector(nextBtnClass);
+        const counter = counterSelector ? document.querySelector(counterSelector) : null;
+
+        if (!carousel) return;
+
+        const getScrollStep = () => {
+            const firstCard = carousel.querySelector('.destination-card, .review-card') || carousel.firstElementChild;
+            return firstCard ? firstCard.offsetWidth + 24 : 380;
+        };
+
+        // Custom smooth scroll animation for 100% fluid easing
+        const smoothScrollTo = (targetLeft) => {
+            const start = carousel.scrollLeft;
+            const distance = targetLeft - start;
+            const duration = 400; // ms
+            const startTime = performance.now();
+            const easeOutCubic = t => (--t) * t * t + 1;
+
+            const animate = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                carousel.scrollLeft = start + distance * easeOutCubic(progress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    updateState();
+                }
+            };
+            requestAnimationFrame(animate);
+        };
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const step = getScrollStep();
+                smoothScrollTo(carousel.scrollLeft - step);
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const step = getScrollStep();
+                smoothScrollTo(carousel.scrollLeft + step);
+            });
+        }
+
+        // Mouse Drag to Scroll
+        let isDown = false;
+        let startX = 0;
+        let scrollStart = 0;
+        let hasMoved = false;
+
+        carousel.addEventListener('mousedown', (e) => {
+            isDown = true;
+            hasMoved = false;
+            carousel.classList.add('cursor-grabbing');
+            carousel.classList.remove('cursor-grab');
+            startX = e.pageX - carousel.offsetLeft;
+            scrollStart = carousel.scrollLeft;
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (isDown) {
+                isDown = false;
+                carousel.classList.remove('cursor-grabbing');
+                carousel.classList.add('cursor-grab');
+            }
+        });
+
+        carousel.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - carousel.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            if (Math.abs(walk) > 5) hasMoved = true;
+            carousel.scrollLeft = scrollStart - walk;
+        });
+
+        // Prevent link activation when dragging
+        carousel.addEventListener('click', (e) => {
+            if (hasMoved) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+
+        const updateState = () => {
+            const step = getScrollStep();
+            const totalCards = carousel.querySelectorAll('.destination-card, .review-card').length || carousel.children.length || 6;
+            const activeIndex = Math.min(totalCards, Math.max(1, Math.round(carousel.scrollLeft / step) + 1));
+
+            if (counter) {
+                counter.textContent = String(activeIndex).padStart(2, '0');
+            }
+
+            if (prevBtn) {
+                prevBtn.disabled = carousel.scrollLeft <= 10;
+            }
+            if (nextBtn) {
+                const maxScroll = carousel.scrollWidth - carousel.clientWidth - 15;
+                nextBtn.disabled = carousel.scrollLeft >= maxScroll;
+            }
+        };
+
+        carousel.addEventListener('scroll', updateState, { passive: true });
+        window.addEventListener('resize', updateState, { passive: true });
+        setTimeout(updateState, 200);
+    }
+
+    setupCarousel('domestic-carousel', '.domestic-prev', '.domestic-next', '#domestic .carousel-counter-current');
+    setupCarousel('intl-carousel', '.intl-prev', '.intl-next', '#international .carousel-counter-current');
+    setupInfiniteReviewsCarousel();
+    
+});
+
+// Dedicated Infinite Seamless Reviews Carousel
+function setupInfiniteReviewsCarousel() {
+    const carousel = document.getElementById('reviews-carousel');
+    const prevBtn = document.querySelector('.reviews-prev');
+    const nextBtn = document.querySelector('.reviews-next');
+
+    if (!carousel) return;
+
+    // Remove any interfering scroll classes
+    carousel.classList.remove('scroll-smooth');
+
+    const originalCards = Array.from(carousel.children);
+    if (originalCards.length === 0) return;
+
+    const originalCount = originalCards.length;
+    
+    // Triple clone cards for true seamless infinite loop: [Copy 1] [Copy 2 (Active)] [Copy 3]
+    const originalHtml = carousel.innerHTML;
+    carousel.innerHTML = originalHtml + originalHtml + originalHtml;
+
+    const getCardWidth = () => {
+        const first = carousel.firstElementChild;
+        return first ? first.offsetWidth + 24 : 360;
+    };
+
+    const getSingleSetWidth = () => originalCount * getCardWidth();
+
+    // Position carousel in middle set initially
+    let isInitialized = false;
+    const centerCarousel = () => {
+        const setWidth = getSingleSetWidth();
+        if (setWidth > 0) {
+            carousel.scrollLeft = setWidth;
+            isInitialized = true;
+        }
+    };
+
+    setTimeout(centerCarousel, 120);
+    window.addEventListener('resize', () => {
+        centerCarousel();
+    }, { passive: true });
+
+    // Boundary check: if scrolled too far left or right, silently jump back to middle set
+    let isJumping = false;
+    const checkLoopBoundaries = () => {
+        if (isJumping) return;
+        const setWidth = getSingleSetWidth();
+        if (setWidth === 0) return;
+
+        // If in Copy 1, silently jump forward to Copy 2
+        if (carousel.scrollLeft < setWidth * 0.4) {
+            isJumping = true;
+            carousel.scrollLeft += setWidth;
+            setTimeout(() => { isJumping = false; }, 50);
+        }
+        // If in Copy 3, silently jump back to Copy 2
+        else if (carousel.scrollLeft >= setWidth * 1.8) {
+            isJumping = true;
+            carousel.scrollLeft -= setWidth;
+            setTimeout(() => { isJumping = false; }, 50);
+        }
+    };
+
+    let boundaryTimer;
+    carousel.addEventListener('scroll', () => {
+        clearTimeout(boundaryTimer);
+        boundaryTimer = setTimeout(checkLoopBoundaries, 120);
+    }, { passive: true });
+
+    // Smooth Next Button: scrolls to next card; seamlessly loops forever
+    if (nextBtn) {
+        nextBtn.disabled = false;
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            checkLoopBoundaries();
+            const step = getCardWidth();
+            carousel.scrollBy({ left: step, behavior: 'smooth' });
+        });
+    }
+
+    // Smooth Prev Button: scrolls to prev card; seamlessly loops forever
+    if (prevBtn) {
+        prevBtn.disabled = false;
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            checkLoopBoundaries();
+            const step = getCardWidth();
+            carousel.scrollBy({ left: -step, behavior: 'smooth' });
+        });
+    }
+
+    // Drag-to-Scroll support
+    let isDown = false;
+    let startX = 0;
+    let scrollStart = 0;
+    let hasMoved = false;
+
+    carousel.addEventListener('mousedown', (e) => {
+        isDown = true;
+        hasMoved = false;
+        carousel.classList.add('cursor-grabbing');
+        carousel.classList.remove('cursor-grab');
+        startX = e.pageX - carousel.offsetLeft;
+        scrollStart = carousel.scrollLeft;
+    });
+
+    window.addEventListener('mouseup', () => {
+        if (isDown) {
+            isDown = false;
+            carousel.classList.remove('cursor-grabbing');
+            carousel.classList.add('cursor-grab');
+            checkLoopBoundaries();
+        }
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.4;
+        if (Math.abs(walk) > 5) hasMoved = true;
+        carousel.scrollLeft = scrollStart - walk;
+    });
+
+    carousel.addEventListener('click', (e) => {
+        if (hasMoved) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+}
+
+
+// Trip Enquiry Form, Searchable Destination Dropdown & WhatsApp Inquiry Logic
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Traveller Count Stepper
+    const minusBtn = document.getElementById('traveller-minus');
+    const plusBtn = document.getElementById('traveller-plus');
+    const display = document.getElementById('traveller-count-display');
+    const hiddenInput = document.getElementById('enquiry-travellers');
+    const form = document.getElementById('trip-enquiry-form');
+    const successMsg = document.getElementById('enquiry-success-msg');
+    const submitBtn = document.getElementById('enquiry-submit-btn');
+
+    let count = 2;
+
+    if (minusBtn && plusBtn && display && hiddenInput) {
+        minusBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (count > 1) {
+                count--;
+                display.textContent = count;
+                hiddenInput.value = count;
+            }
+        });
+
+        plusBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (count < 30) {
+                count++;
+                display.textContent = count;
+                hiddenInput.value = count;
+            }
+        });
+    }
+
+    // 2. Searchable Preferred Destination Dropdown
+    const destWrapper = document.getElementById('destination-dropdown-wrapper');
+    const destTrigger = document.getElementById('destination-trigger');
+    const destSelectedText = document.getElementById('destination-selected-text');
+    const destChevron = document.getElementById('destination-chevron');
+    const destMenu = document.getElementById('destination-menu');
+    const destSearchInput = document.getElementById('destination-search-input');
+    const destSearchClear = document.getElementById('destination-search-clear');
+    const destHiddenInput = document.getElementById('enquiry-destination');
+    const destOptions = document.querySelectorAll('.destination-option');
+    const destCategoryHeaders = document.querySelectorAll('.destination-category-header');
+    const destNoResults = document.getElementById('destination-no-results');
+    const destSearchTerm = document.getElementById('destination-search-term');
+
+    function openDestinationMenu() {
+        if (!destMenu) return;
+        closeTripMenu();
+        destMenu.classList.remove('hidden');
+        if (destChevron) destChevron.classList.add('rotate-180');
+        if (destTrigger) destTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
+        if (destSearchInput) {
+            setTimeout(() => destSearchInput.focus(), 50);
+        }
+    }
+
+    function closeDestinationMenu() {
+        if (!destMenu) return;
+        destMenu.classList.add('hidden');
+        if (destChevron) destChevron.classList.remove('rotate-180');
+        if (destTrigger) destTrigger.classList.remove('ring-2', 'ring-accent/20');
+    }
+
+    if (destTrigger && destMenu) {
+        destTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (destMenu.classList.contains('hidden')) {
+                openDestinationMenu();
+            } else {
+                closeDestinationMenu();
+            }
+        });
+
+        // Search Filter Logic
+        if (destSearchInput) {
+            destSearchInput.addEventListener('input', () => {
+                const query = destSearchInput.value.toLowerCase().trim();
+                let matchCount = 0;
+
+                if (destSearchClear) {
+                    if (query.length > 0) {
+                        destSearchClear.classList.remove('hidden');
+                    } else {
+                        destSearchClear.classList.add('hidden');
+                    }
+                }
+
+                destOptions.forEach(opt => {
+                    const val = (opt.getAttribute('data-value') || '').toLowerCase();
+                    const cat = (opt.getAttribute('data-category') || '').toLowerCase();
+                    if (!query || val.includes(query) || cat.includes(query)) {
+                        opt.classList.remove('hidden');
+                        matchCount++;
+                    } else {
+                        opt.classList.add('hidden');
+                    }
+                });
+
+                // Show/hide category headers based on whether any children are visible
+                destCategoryHeaders.forEach(header => {
+                    if (!query) {
+                        header.classList.remove('hidden');
+                    } else {
+                        let hasVisible = false;
+                        let next = header.nextElementSibling;
+                        while (next && !next.classList.contains('destination-category-header')) {
+                            if (next.classList.contains('destination-option') && !next.classList.contains('hidden')) {
+                                hasVisible = true;
+                                break;
+                            }
+                            next = next.nextElementSibling;
+                        }
+                        if (hasVisible) {
+                            header.classList.remove('hidden');
+                        } else {
+                            header.classList.add('hidden');
+                        }
+                    }
+                });
+
+                if (destNoResults) {
+                    if (matchCount === 0) {
+                        destNoResults.classList.remove('hidden');
+                        if (destSearchTerm) destSearchTerm.textContent = destSearchInput.value;
+                    } else {
+                        destNoResults.classList.add('hidden');
+                    }
+                }
+            });
+
+            // Clear search
+            if (destSearchClear) {
+                destSearchClear.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    destSearchInput.value = '';
+                    destSearchInput.dispatchEvent(new Event('input'));
+                    destSearchInput.focus();
+                });
+            }
+        }
+
+        // Option Selection
+        destOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = opt.getAttribute('data-value') || '';
+                
+                if (destHiddenInput) destHiddenInput.value = value;
+                if (destSelectedText) {
+                    destSelectedText.textContent = value;
+                    destSelectedText.classList.remove('text-gray-400');
+                    destSelectedText.classList.add('text-gray-900', 'font-medium');
+                }
+
+                destOptions.forEach(o => o.classList.remove('bg-teal-50', 'text-accent', 'font-bold'));
+                opt.classList.add('bg-teal-50', 'text-accent', 'font-bold');
+
+                if (destTrigger) {
+                    destTrigger.classList.remove('border-rose-500', 'ring-rose-500/20');
+                }
+
+                closeDestinationMenu();
+            });
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (destWrapper && !destWrapper.contains(e.target)) {
+                closeDestinationMenu();
+            }
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && destMenu && !destMenu.classList.contains('hidden')) {
+                closeDestinationMenu();
+            }
+        });
+    }
+
+    // 3. Custom Type of Trip Dropdown
+    const tripWrapper = document.getElementById('triptype-dropdown-wrapper');
+    const tripTrigger = document.getElementById('triptype-trigger');
+    const tripSelectedText = document.getElementById('triptype-selected-text');
+    const tripChevron = document.getElementById('triptype-chevron');
+    const tripMenu = document.getElementById('triptype-menu');
+    const tripHiddenInput = document.getElementById('enquiry-triptype');
+    const tripOptions = document.querySelectorAll('.triptype-option');
+
+    function openTripMenu() {
+        if (!tripMenu) return;
+        closeDestinationMenu();
+        tripMenu.classList.remove('hidden');
+        if (tripChevron) tripChevron.classList.add('rotate-180');
+        if (tripTrigger) tripTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
+    }
+
+    function closeTripMenu() {
+        if (!tripMenu) return;
+        tripMenu.classList.add('hidden');
+        if (tripChevron) tripChevron.classList.remove('rotate-180');
+        if (tripTrigger) tripTrigger.classList.remove('ring-2', 'ring-accent/20');
+    }
+
+    if (tripTrigger && tripMenu) {
+        tripTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (tripMenu.classList.contains('hidden')) {
+                openTripMenu();
+            } else {
+                closeTripMenu();
+            }
+        });
+
+        tripOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = opt.getAttribute('data-value') || '';
+                
+                if (tripHiddenInput) tripHiddenInput.value = value;
+                if (tripSelectedText) {
+                    tripSelectedText.textContent = value;
+                    tripSelectedText.classList.remove('text-gray-400');
+                    tripSelectedText.classList.add('text-gray-900', 'font-medium');
+                }
+
+                tripOptions.forEach(o => o.classList.remove('bg-teal-50', 'text-accent', 'font-bold'));
+                opt.classList.add('bg-teal-50', 'text-accent', 'font-bold');
+
+                if (tripTrigger) {
+                    tripTrigger.classList.remove('border-rose-500', 'ring-rose-500/20');
+                }
+
+                closeTripMenu();
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (tripWrapper && !tripWrapper.contains(e.target)) {
+                closeTripMenu();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && tripMenu && !tripMenu.classList.contains('hidden')) {
+                closeTripMenu();
+            }
+        });
+    }
+
+    // 4. Form Submission -> WhatsApp Redirect to +91 90999 06971
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const fullname = (document.getElementById('enquiry-fullname')?.value || '').trim();
+            const countrycode = document.getElementById('enquiry-countrycode')?.value || '+91';
+            const phone = (document.getElementById('enquiry-phone')?.value || '').trim();
+            const email = (document.getElementById('enquiry-email')?.value || '').trim() || 'Not provided';
+            const destination = (document.getElementById('enquiry-destination')?.value || '').trim();
+            const travelDate = document.getElementById('enquiry-date')?.value || 'Flexible / Undecided';
+            const travellers = document.getElementById('enquiry-travellers')?.value || '2';
+            const tripType = (document.getElementById('enquiry-triptype')?.value || '').trim();
+            const notes = (document.getElementById('enquiry-notes')?.value || '').trim() || 'None';
+
+            // Validate destination selection
+            if (!destination) {
+                if (destTrigger) {
+                    destTrigger.classList.add('border-rose-500', 'ring-2', 'ring-rose-500/20');
+                    destTrigger.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    openDestinationMenu();
+                }
+                return;
+            }
+
+            // Validate trip type selection
+            if (!tripType) {
+                if (tripTrigger) {
+                    tripTrigger.classList.add('border-rose-500', 'ring-2', 'ring-rose-500/20');
+                    tripTrigger.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    openTripMenu();
+                }
+                return;
+            }
+
+            // Build readymade message
+            const message = `Hello Prapti Tourism! 🌟\nI would like to inquire about planning a trip with the following details:\n\n👤 *Name:* ${fullname}\n📞 *Phone:* ${countrycode} ${phone}\n📧 *Email:* ${email}\n📍 *Preferred Destination:* ${destination}\n🗓 *Approx. Travel Date:* ${travelDate}\n👥 *Number of Travellers:* ${travellers}\n✈️ *Type of Trip:* ${tripType}\n📝 *Additional Requirements:* ${notes}\n\nPlease connect me with a travel specialist. Thank you!`;
+
+            const waNumber = '919099906971';
+            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+
+            if (submitBtn) {
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                    </svg>
+                    <span>Connecting to WhatsApp...</span>
+                `;
+
+                if (successMsg) {
+                    successMsg.classList.remove('hidden');
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+
+                setTimeout(() => {
+                    // Open WhatsApp in new tab
+                    window.open(waUrl, '_blank');
+
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }, 800);
+            }
+        });
+    }
+});
+
+
+
+// FAQ Accordion & Load More Interaction
+document.addEventListener('DOMContentLoaded', () => {
+    const faqContainer = document.getElementById('faq-accordion-container');
+    const loadMoreBtn = document.getElementById('faq-load-more');
+    const loadMoreText = document.getElementById('faq-load-more-text');
+    const loadMoreArrow = document.getElementById('faq-load-more-arrow');
+
+    if (faqContainer) {
+        const items = faqContainer.querySelectorAll('.faq-item');
+
+        items.forEach(item => {
+            const trigger = item.querySelector('.faq-trigger');
+            const content = item.querySelector('.faq-content');
+            const chevron = item.querySelector('.faq-chevron');
+
+            if (trigger && content) {
+                trigger.addEventListener('click', () => {
+                    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+                    // Close all other accordions for clean single-open view
+                    items.forEach(otherItem => {
+                        const otherTrigger = otherItem.querySelector('.faq-trigger');
+                        const otherContent = otherItem.querySelector('.faq-content');
+                        const otherChevron = otherItem.querySelector('.faq-chevron');
+                        if (otherTrigger && otherContent) {
+                            otherTrigger.setAttribute('aria-expanded', 'false');
+                            otherContent.style.maxHeight = null;
+                            if (otherChevron) otherChevron.classList.remove('rotate-180');
+                        }
+                    });
+
+                    // Toggle current
+                    if (!isOpen) {
+                        trigger.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        if (chevron) chevron.classList.add('rotate-180');
+                    }
+                });
+            }
+        });
+    }
+
+    if (loadMoreBtn) {
+        let isExpanded = false;
+        loadMoreBtn.addEventListener('click', () => {
+            const extendedItems = document.querySelectorAll('.faq-item[data-extended="true"]');
+            isExpanded = !isExpanded;
+
+            extendedItems.forEach(item => {
+                if (isExpanded) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                    // Collapse if it was open
+                    const trigger = item.querySelector('.faq-trigger');
+                    const content = item.querySelector('.faq-content');
+                    const chevron = item.querySelector('.faq-chevron');
+                    if (trigger && content) {
+                        trigger.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = null;
+                        if (chevron) chevron.classList.remove('rotate-180');
+                    }
+                }
+            });
+
+            if (loadMoreText) {
+                loadMoreText.textContent = isExpanded ? 'Show less' : 'Load more';
+            }
+            if (loadMoreArrow) {
+                loadMoreArrow.innerHTML = isExpanded ? '&uarr;' : '&darr;';
+            }
+        });
+    }
 });
