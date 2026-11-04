@@ -522,6 +522,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (hasMoved) {
                 e.preventDefault();
                 e.stopPropagation();
+                // Prevent click activation when dragging
+                return;
+            }
+
+            // Click destination card to preselect in inquiry form and smooth scroll
+            const card = e.target.closest('.destination-card');
+            if (card) {
+                const dest = card.getAttribute('data-destination') || card.querySelector('h3')?.textContent?.trim() || '';
+                if (dest && typeof window.selectDestinationByName === 'function') {
+                    window.selectDestinationByName(dest);
+                }
             }
         }, true);
 
@@ -532,6 +543,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (counter) {
                 counter.textContent = String(activeIndex).padStart(2, '0');
+                const totalEl = counter.parentElement ? counter.parentElement.querySelector('.carousel-counter-total, span:last-child') : null;
+                if (totalEl && totalCards > 0) {
+                    totalEl.textContent = String(totalCards).padStart(2, '0');
+                }
             }
 
             if (prevBtn) {
@@ -853,6 +868,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeDestinationMenu();
             });
         });
+
+        // Global helper for destination cards to preselect destination and scroll to inquiry form
+        window.selectDestinationByName = function(destinationName) {
+            if (!destinationName) return;
+            const target = destinationName.trim().toLowerCase();
+            let matchedOption = null;
+
+            const allOptions = document.querySelectorAll('.destination-option');
+            allOptions.forEach(opt => {
+                const val = (opt.getAttribute('data-value') || '').trim().toLowerCase();
+                if (val === target) {
+                    matchedOption = opt;
+                } else if (!matchedOption && (val.includes(target) || target.includes(val))) {
+                    matchedOption = opt;
+                }
+            });
+
+            if (matchedOption) {
+                matchedOption.click();
+            } else if (destHiddenInput && destSelectedText) {
+                destHiddenInput.value = destinationName;
+                destSelectedText.textContent = destinationName;
+                destSelectedText.classList.remove('text-gray-400');
+                destSelectedText.classList.add('text-gray-900', 'font-medium');
+            }
+
+            const enquiryEl = document.getElementById('enquiry');
+            if (enquiryEl) {
+                enquiryEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
 
         // Close on outside click
         document.addEventListener('click', (e) => {

@@ -173,3 +173,16 @@ html, body {
     background: #00849E;
 }
 
+/* Destination Cards - Luxurious Travel Elevation & Feathered Shadow Depth */
+.destination-card {
+    box-shadow: 0 14px 34px -4px rgba(11, 32, 56, 0.18), 0 6px 14px -3px rgba(11, 32, 56, 0.1) !important;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: transform, box-shadow;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 26px 50px -10px rgba(11, 32, 56, 0.3), 0 12px 22px -6px rgba(11, 32, 56, 0.15) !important;
+}
+
+
