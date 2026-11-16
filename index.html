@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prapti Tourism | Travel Agency in Surat | Domestic & International Tour Packages</title>
-    <meta name="description" content="Prapti Tourism is a Surat-based travel agency offering personalized domestic and international holiday tour packages, hotel bookings, flight assistance, and customized family and honeymoon trips.">
-    <meta name="keywords" content="Travel Agency Services in Surat, Customized Tour Packages from Surat, Domestic & International Holiday Packages, Hotel Booking Assistance Surat, Flight Booking Assistance Surat, Tourist Visa Assistance Surat, Airport Transfer Services, Honeymoon Packages from Surat, Family Tour Packages from Surat, Group Tour Packages Surat, Personalized Travel Planning, Travel Enquiry Surat">
+    <meta name="description"
+        content="Prapti Tourism is a Surat-based travel agency offering personalized domestic and international holiday tour packages, hotel bookings, flight assistance, and customized family and honeymoon trips.">
+    <meta name="keywords"
+        content="Travel Agency Services in Surat, Customized Tour Packages from Surat, Domestic & International Holiday Packages, Hotel Booking Assistance Surat, Flight Booking Assistance Surat, Tourist Visa Assistance Surat, Airport Transfer Services, Honeymoon Packages from Surat, Family Tour Packages from Surat, Group Tour Packages Surat, Personalized Travel Planning, Travel Enquiry Surat">
     <link rel="canonical" href="https://www.praptitourism.com/">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,6 +26,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css?v=1793610999">
+    <link rel="stylesheet" href="style.css?v=1794825500">
     <script>
         tailwind.config = {
             theme: {
@@ -48,53 +51,68 @@
     <!-- Navbar -->
     <nav id="navbar"
         class="w-full fixed top-0 left-0 z-50 flex items-center justify-between px-6 sm:px-10 lg:px-16 py-5 transition-all duration-300 nav-transparent">
+        class="w-full fixed top-0 left-0 z-50 flex items-center justify-between px-4 sm:px-8 lg:px-14 xl:px-16 py-3.5
+        sm:py-4 lg:py-5 transition-all duration-300 nav-transparent">
         <!-- Logo -->
         <a href="#" class="flex items-center gap-2 cursor-pointer z-10">
             <img id="nav-logo" src="images/prapti-logo-transparent.png" alt="Prapti Tourism"
                 class="h-11 sm:h-12 w-auto object-contain transition-all duration-300">
-        </a>
-
-        <!-- Desktop Links -->
-        <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wider">
-            <a href="#about" class="nav-link transition-colors">ABOUT US</a>
-            <a href="#domestic" class="nav-link transition-colors">DOMESTIC</a>
-            <a href="#international" class="nav-link transition-colors">INTERNATIONAL</a>
-            <a href="#services" class="nav-link transition-colors">SERVICES</a>
-            <a href="#reviews" class="nav-link transition-colors">REVIEWS</a>
-            <a href="#faq" class="nav-link transition-colors">FAQ</a>
-            <a href="#enquiry" class="nav-btn px-6 py-2.5 rounded font-semibold tracking-wide transition-all shadow-sm">
-                PLAN A TRIP
+            <a href="#" class="flex items-center gap-2 cursor-pointer z-10 shrink-0" aria-label="Prapti Tourism Home">
+                <img src="images/prapti-logo-white-teal.png" alt="Prapti Tourism" class="logo-light nav-logo-img">
+                <img src="images/prapti-logo-transparent.png" alt="Prapti Tourism"
+                    class="logo-dark nav-logo-img hidden">
             </a>
-        </div>
 
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden flex items-center">
-            <button id="mobile-menu-btn" class="focus:outline-none p-2 transition-colors" aria-label="Toggle Menu">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-            </button>
-        </div>
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wider">
+                <div
+                    class="hidden md:flex items-center gap-3.5 lg:gap-6 xl:gap-8 text-xs lg:text-sm font-semibold tracking-wider shrink-0">
+                    <a href="#about" class="nav-link transition-colors">ABOUT US</a>
+                    <a href="#domestic" class="nav-link transition-colors">DOMESTIC</a>
+                    <a href="#international" class="nav-link transition-colors">INTERNATIONAL</a>
+                    <a href="#services" class="nav-link transition-colors">SERVICES</a>
+                    <a href="#reviews" class="nav-link transition-colors">REVIEWS</a>
+                    <a href="#faq" class="nav-link transition-colors">FAQ</a>
+                    <a href="#enquiry"
+                        class="nav-btn px-6 py-2.5 rounded font-semibold tracking-wide transition-all shadow-sm">
+                        <a href="#enquiry"
+                            class="nav-btn px-4 lg:px-6 py-2 lg:py-2.5 rounded font-semibold text-xs lg:text-sm tracking-wide transition-all shadow-sm shrink-0">
+                            PLAN A TRIP
+                        </a>
+                </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu"
-            class="hidden md:hidden absolute top-full left-0 w-full bg-[#0B2038]/95 backdrop-blur-lg border-b border-white/10 px-6 py-6 flex flex-col gap-4 text-white shadow-xl">
-            <a href="#about" class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">ABOUT
-                US</a>
-            <a href="#domestic"
-                class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">DOMESTIC</a>
-            <a href="#international"
-                class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">INTERNATIONAL</a>
-            <a href="#services"
-                class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">SERVICES</a>
-            <a href="#reviews"
-                class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">REVIEWS</a>
-            <a href="#faq" class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">FAQ</a>
-            <a href="#enquiry"
-                class="w-full text-center bg-white text-gray-900 py-3 rounded font-semibold tracking-wide mt-2 shadow">
-                PLAN A TRIP
-            </a>
-        </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="focus:outline-none p-2 transition-colors"
+                        aria-label="Toggle Menu">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Dropdown -->
+                <div id="mobile-menu"
+                    class="hidden md:hidden absolute top-full left-0 w-full bg-[#0B2038]/95 backdrop-blur-lg border-b border-white/10 px-6 py-6 flex flex-col gap-4 text-white shadow-xl">
+                    <a href="#about"
+                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">ABOUT
+                        US</a>
+                    <a href="#domestic"
+                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">DOMESTIC</a>
+                    <a href="#international"
+                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">INTERNATIONAL</a>
+                    <a href="#services"
+                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">SERVICES</a>
+                    <a href="#reviews"
+                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">REVIEWS</a>
+                    <a href="#faq"
+                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">FAQ</a>
+                    <a href="#enquiry"
+                        class="w-full text-center bg-white text-gray-900 py-3 rounded font-semibold tracking-wide mt-2 shadow">
+                        PLAN A TRIP
+                    </a>
+                </div>
     </nav>
 
     <!-- Fullscreen Hero Video Section -->
@@ -118,7 +136,8 @@
         <div class="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-20 pt-12 md:pt-16">
             <div class="max-w-4xl lg:max-w-5xl">
                 <!-- Eyebrow Tagline -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs sm:text-sm font-medium tracking-wider uppercase mb-5 drop-shadow">
+                <div
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 text-white text-xs sm:text-sm font-medium tracking-wider uppercase mb-5 drop-shadow">
                     <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
                     <span>PRAPTI TOURISM | SURAT, GUJARAT</span>
                 </div>
@@ -128,12 +147,16 @@
                     Explore the World, <span class="text-teal-300">Your Way.</span>
                 </h1>
 
-                <p class="text-lg sm:text-xl md:text-2xl font-medium text-teal-100/95 tracking-wide mb-5 sm:mb-6 drop-shadow">
+                <p
+                    class="text-lg sm:text-xl md:text-2xl font-medium text-teal-100/95 tracking-wide mb-5 sm:mb-6 drop-shadow">
                     Domestic &amp; International Tour Packages from Surat
                 </p>
 
-                <p class="text-white/90 text-base sm:text-lg font-normal leading-relaxed max-w-2xl mb-8 sm:mb-10 drop-shadow">
-                    Turn your travel dreams into memorable journeys with Prapti Tourism. Explore family vacations, honeymoon escapes, group tours and customized holidays with thoughtfully planned itineraries tailored to your preferences and budget.
+                <p
+                    class="text-white/90 text-base sm:text-lg font-normal leading-relaxed max-w-2xl mb-8 sm:mb-10 drop-shadow">
+                    Turn your travel dreams into memorable journeys with Prapti Tourism. Explore family vacations,
+                    honeymoon escapes, group tours and customized holidays with thoughtfully planned itineraries
+                    tailored to your preferences and budget.
                 </p>
 
                 <div class="flex items-center gap-4">
@@ -169,7 +192,7 @@
         class="relative z-10 bg-white shadow-[0_-25px_60px_-10px_rgba(0,0,0,0.5),0_-10px_25px_-5px_rgba(0,0,0,0.3)]">
 
         <!-- About Us Section (Just Above Stats Section) -->
-                <!-- About Us Section (Just Above Stats Section) -->
+        <!-- About Us Section (Just Above Stats Section) -->
         <section id="about" aria-labelledby="about-title"
             class="relative w-full py-20 sm:py-28 lg:py-32 px-6 sm:px-12 lg:px-20 bg-white">
             <div class="max-w-7xl mx-auto">
@@ -242,10 +265,15 @@
                         <!-- Paragraphs -->
                         <div class="mt-6 max-w-xl space-y-4 text-base sm:text-lg leading-relaxed text-gray-600">
                             <p>
-                                Prapti Tourism is a Surat-based travel agency offering domestic and international tour packages for families, couples, groups and individual travellers. We help you explore destinations with personalized holiday planning that suits your budget, interests and travel preferences.
+                                Prapti Tourism is a Surat-based travel agency offering domestic and international tour
+                                packages for families, couples, groups and individual travellers. We help you explore
+                                destinations with personalized holiday planning that suits your budget, interests and
+                                travel preferences.
                             </p>
                             <p>
-                                From choosing the right destination and hotels to planning sightseeing, transfers and travel itineraries, we focus on making every journey comfortable, convenient and memorable.
+                                From choosing the right destination and hotels to planning sightseeing, transfers and
+                                travel itineraries, we focus on making every journey comfortable, convenient and
+                                memorable.
                             </p>
                         </div>
 
@@ -263,8 +291,10 @@
                                             <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
                                         </svg>
                                     </span>
-                                    <h3 class="font-sans text-base font-semibold text-primary">Personalized Travel Planning</h3>
-                                    <p class="mt-1.5 text-sm leading-relaxed text-gray-500">Holidays designed around your budget, interests and travel preferences.</p>
+                                    <h3 class="font-sans text-base font-semibold text-primary">Personalized Travel
+                                        Planning</h3>
+                                    <p class="mt-1.5 text-sm leading-relaxed text-gray-500">Holidays designed around
+                                        your budget, interests and travel preferences.</p>
                                 </div>
                             </li>
 
@@ -277,13 +307,16 @@
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"
                                             aria-hidden="true">
-                                            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                                            <path
+                                                d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
                                             <rect x="9" y="3" width="6" height="4" rx="2" />
                                             <path d="m9 14 2 2 4-4" />
                                         </svg>
                                     </span>
-                                    <h3 class="font-sans text-base font-semibold text-primary">Clear & Practical Itineraries</h3>
-                                    <p class="mt-1.5 text-sm leading-relaxed text-gray-500">Well-planned routes, comfortable stays and organized sightseeing.</p>
+                                    <h3 class="font-sans text-base font-semibold text-primary">Clear & Practical
+                                        Itineraries</h3>
+                                    <p class="mt-1.5 text-sm leading-relaxed text-gray-500">Well-planned routes,
+                                        comfortable stays and organized sightseeing.</p>
                                 </div>
                             </li>
 
@@ -300,8 +333,10 @@
                                                 d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
                                         </svg>
                                     </span>
-                                    <h3 class="font-sans text-base font-semibold text-primary">Travel Guidance & Support</h3>
-                                    <p class="mt-1.5 text-sm leading-relaxed text-gray-500">Helpful assistance with your travel questions and arrangements.</p>
+                                    <h3 class="font-sans text-base font-semibold text-primary">Travel Guidance & Support
+                                    </h3>
+                                    <p class="mt-1.5 text-sm leading-relaxed text-gray-500">Helpful assistance with your
+                                        travel questions and arrangements.</p>
                                 </div>
                             </li>
                         </ul>
@@ -325,8 +360,9 @@
 
 
         <!-- White Stats Section with Handcrafted Big Prapti "P" in the Right Background -->
-                <!-- Section 03: Why Choose Prapti Tourism (Replaces Stats Section) -->
-        <section class="why-choose-section relative w-full py-24 sm:py-32 px-6 sm:px-12 lg:px-20 bg-white overflow-hidden">
+        <!-- Section 03: Why Choose Prapti Tourism (Replaces Stats Section) -->
+        <section
+            class="why-choose-section relative w-full py-24 sm:py-32 px-6 sm:px-12 lg:px-20 bg-white overflow-hidden">
             <!-- Big Handcrafted Prapti "P" Vector Watermark in the Right Background -->
             <div
                 class="absolute -right-16 sm:-right-10 lg:right-0 xl:right-4 top-1/2 -translate-y-1/2 w-[460px] sm:w-[580px] md:w-[700px] lg:w-[820px] xl:w-[920px] pointer-events-none select-none z-0 opacity-[0.18] lg:opacity-[0.22] flex items-center justify-end">
@@ -343,14 +379,18 @@
                     <div
                         class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-100 mb-4">
                         <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                        <span class="text-xs font-bold tracking-widest text-accent uppercase">WHY CHOOSE PRAPTI TOURISM</span>
+                        <span class="text-xs font-bold tracking-widest text-accent uppercase">WHY CHOOSE PRAPTI
+                            TOURISM</span>
                     </div>
                     <h2
                         class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-primary tracking-tight leading-[1.15] mb-5">
-                        Thoughtful Travel Planning. <span class="text-accent italic font-normal">Memorable Journeys.</span>
+                        Thoughtful Travel Planning. <span class="text-accent italic font-normal">Memorable
+                            Journeys.</span>
                     </h2>
                     <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
-                        Discover a more personalized way to travel with Prapti Tourism, your travel planning partner in Surat. From domestic holidays to international adventures, we focus on comfortable stays, practical itineraries and travel experiences designed around your needs.
+                        Discover a more personalized way to travel with Prapti Tourism, your travel planning partner in
+                        Surat. From domestic holidays to international adventures, we focus on comfortable stays,
+                        practical itineraries and travel experiences designed around your needs.
                     </p>
                 </div>
 
@@ -364,12 +404,15 @@
                             <div
                                 class="w-12 h-12 rounded-2xl bg-teal-50 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
                                 <!-- Globe Icon -->
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10" />
-                                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                    <path
+                                        d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                                 </svg>
                             </div>
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Domestic & International</h3>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Domestic &
+                                International</h3>
                             <p class="text-sm text-gray-600 leading-relaxed font-sans">
                                 Explore holiday packages across India and international destinations.
                             </p>
@@ -383,12 +426,14 @@
                             <div
                                 class="w-12 h-12 rounded-2xl bg-teal-50 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
                                 <!-- Preferences / Sliders Icon -->
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M4 6h16M4 12h16M4 18h16M8 4v4m8 2v4m-6 4v4" />
                                 </svg>
                             </div>
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Personalized Holidays</h3>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Personalized Holidays
+                            </h3>
                             <p class="text-sm text-gray-600 leading-relaxed font-sans">
                                 Travel plans tailored to your interests, preferences and budget.
                             </p>
@@ -402,12 +447,14 @@
                             <div
                                 class="w-12 h-12 rounded-2xl bg-teal-50 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
                                 <!-- Calendar / Checklist Icon -->
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4" />
                                 </svg>
                             </div>
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Clear Travel Planning</h3>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Clear Travel Planning
+                            </h3>
                             <p class="text-sm text-gray-600 leading-relaxed font-sans">
                                 Practical itineraries with thoughtfully arranged travel details.
                             </p>
@@ -421,12 +468,14 @@
                             <div
                                 class="w-12 h-12 rounded-2xl bg-teal-50 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
                                 <!-- Users / Family Icon -->
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                                 </svg>
                             </div>
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Family & Group Tours</h3>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Family & Group Tours
+                            </h3>
                             <p class="text-sm text-gray-600 leading-relaxed font-sans">
                                 Comfortable holidays for families, couples, friends and groups.
                             </p>
@@ -440,12 +489,14 @@
                             <div
                                 class="w-12 h-12 rounded-2xl bg-teal-50 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
                                 <!-- Luggage / Arrangements Icon -->
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M6 9V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M4 9h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zm4 4v4m8-4v4" />
                                 </svg>
                             </div>
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Travel Arrangements</h3>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Travel Arrangements
+                            </h3>
                             <p class="text-sm text-gray-600 leading-relaxed font-sans">
                                 Assistance with hotels, transfers, sightseeing and flights.
                             </p>
@@ -459,12 +510,14 @@
                             <div
                                 class="w-12 h-12 rounded-2xl bg-teal-50 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white flex items-center justify-center mb-6 group-hover:scale-105 transition-all duration-300">
                                 <!-- Headset / Helpful Support Icon -->
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
                                 </svg>
                             </div>
-                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Helpful Travel Support</h3>
+                            <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-3">Helpful Travel
+                                Support</h3>
                             <p class="text-sm text-gray-600 leading-relaxed font-sans">
                                 Guidance with planning, arrangements and travel-related questions.
                             </p>
@@ -476,7 +529,7 @@
         </section>
 
         <!-- Domestic Destinations Showcase (Directly Below About Us) -->
-                <!-- Domestic Destinations Showcase (EXPLORE INCREDIBLE INDIA) -->
+        <!-- Domestic Destinations Showcase (EXPLORE INCREDIBLE INDIA) -->
         <section id="domestic" aria-labelledby="domestic-title"
             class="relative w-full py-20 sm:py-24 lg:py-28 pl-6 sm:pl-10 lg:pl-16 xl:pl-20 pr-0 bg-white overflow-hidden">
             <div class="w-full flex flex-col lg:flex-row items-start gap-8 lg:gap-12 xl:gap-14 mr-0 pr-0">
@@ -506,7 +559,10 @@
 
                         <!-- Subtext Paragraph -->
                         <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-sm font-sans mb-8">
-                            From the snow-covered valleys of Kashmir to the peaceful backwaters of Kerala and the royal heritage of Rajasthan, explore unforgettable domestic holidays with Prapti Tourism. Discover personalized India tour packages from Surat, designed around your interests, comfort and budget.
+                            From the snow-covered valleys of Kashmir to the peaceful backwaters of Kerala and the royal
+                            heritage of Rajasthan, explore unforgettable domestic holidays with Prapti Tourism. Discover
+                            personalized India tour packages from Surat, designed around your interests, comfort and
+                            budget.
                         </p>
                     </div>
 
@@ -555,7 +611,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Discover Srinagar's Dal Lake, Gulmarg's breathtaking mountain landscapes and Pahalgam's scenic valleys. Experience a memorable Kashmir holiday with your family, partner or friends.
+                                    Discover Srinagar's Dal Lake, Gulmarg's breathtaking mountain landscapes and
+                                    Pahalgam's scenic valleys. Experience a memorable Kashmir holiday with your family,
+                                    partner or friends.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -590,7 +648,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Explore the beautiful hill stations of Shimla, Manali, Dharamshala and Dalhousie. Enjoy scenic Himalayan landscapes, refreshing mountain escapes and unforgettable holiday experiences.
+                                    Explore the beautiful hill stations of Shimla, Manali, Dharamshala and Dalhousie.
+                                    Enjoy scenic Himalayan landscapes, refreshing mountain escapes and unforgettable
+                                    holiday experiences.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -625,7 +685,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Discover Munnar's lush tea plantations, Alleppey's peaceful backwaters and Thekkady's natural beauty. Experience relaxing houseboat stays, scenic landscapes and memorable family holidays.
+                                    Discover Munnar's lush tea plantations, Alleppey's peaceful backwaters and
+                                    Thekkady's natural beauty. Experience relaxing houseboat stays, scenic landscapes
+                                    and memorable family holidays.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -660,7 +722,8 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Experience Goa's beautiful beaches, vibrant coastal atmosphere, Portuguese-inspired heritage and relaxing seaside escapes. Perfect for couples, families and friends.
+                                    Experience Goa's beautiful beaches, vibrant coastal atmosphere, Portuguese-inspired
+                                    heritage and relaxing seaside escapes. Perfect for couples, families and friends.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -695,7 +758,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Explore Jaipur's magnificent forts, Udaipur's romantic lakes, Jaisalmer's golden desert landscapes and Jodhpur's royal heritage. Discover the timeless charm of Rajasthan.
+                                    Explore Jaipur's magnificent forts, Udaipur's romantic lakes, Jaisalmer's golden
+                                    desert landscapes and Jodhpur's royal heritage. Discover the timeless charm of
+                                    Rajasthan.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -713,7 +778,8 @@
                         <article
                             class="destination-card w-[290px] sm:w-[330px] md:w-[360px] lg:w-[calc((100%-48px)/3)] min-w-[310px] max-w-[460px] h-[540px] sm:h-[600px] lg:h-[640px] xl:h-[680px] shrink-0 relative rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
                             data-destination="Andaman Islands">
-                            <img src="images/destinations/andaman.jpg" alt="Andaman Islands Crystal Waters and White Sand"
+                            <img src="images/destinations/andaman.jpg"
+                                alt="Andaman Islands Crystal Waters and White Sand"
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 pointer-events-none"
                                 loading="lazy" decoding="async">
                             <div
@@ -730,7 +796,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Discover crystal-clear waters, white-sand beaches and tropical island beauty. Explore Port Blair, Swaraj Dweep and Shaheed Dweep for a relaxing and memorable island holiday.
+                                    Discover crystal-clear waters, white-sand beaches and tropical island beauty.
+                                    Explore Port Blair, Swaraj Dweep and Shaheed Dweep for a relaxing and memorable
+                                    island holiday.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -748,7 +816,8 @@
                         <article
                             class="destination-card w-[290px] sm:w-[330px] md:w-[360px] lg:w-[calc((100%-48px)/3)] min-w-[310px] max-w-[460px] h-[540px] sm:h-[600px] lg:h-[640px] xl:h-[680px] shrink-0 relative rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
                             data-destination="Uttarakhand">
-                            <img src="images/destinations/uttarakhand.jpg" alt="Uttarakhand Nainital and Rishikesh Hills"
+                            <img src="images/destinations/uttarakhand.jpg"
+                                alt="Uttarakhand Nainital and Rishikesh Hills"
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 pointer-events-none"
                                 loading="lazy" decoding="async">
                             <div
@@ -765,7 +834,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Discover Nainital's beautiful lakes, Mussoorie's scenic hills, Rishikesh's spiritual atmosphere and Jim Corbett's wildlife experiences. Explore nature, adventure and peaceful mountain holidays.
+                                    Discover Nainital's beautiful lakes, Mussoorie's scenic hills, Rishikesh's spiritual
+                                    atmosphere and Jim Corbett's wildlife experiences. Explore nature, adventure and
+                                    peaceful mountain holidays.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -800,7 +871,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Experience Gangtok's mountain beauty, Tsomgo Lake, Darjeeling's famous tea gardens and breathtaking Himalayan views. A wonderful destination for nature lovers and family holidays.
+                                    Experience Gangtok's mountain beauty, Tsomgo Lake, Darjeeling's famous tea gardens
+                                    and breathtaking Himalayan views. A wonderful destination for nature lovers and
+                                    family holidays.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -820,7 +893,7 @@
         </section>
 
         <!-- International Destinations Showcase (Directly Below Domestic Section) -->
-                <!-- International Destinations Showcase (EXPLORE THE WORLD) -->
+        <!-- International Destinations Showcase (EXPLORE THE WORLD) -->
         <section id="international" aria-labelledby="international-title"
             class="relative w-full py-20 sm:py-24 lg:py-28 pl-6 sm:pl-10 lg:pl-16 xl:pl-20 pr-0 bg-[#FAFAFA] overflow-hidden">
             <div class="w-full flex flex-col lg:flex-row items-start gap-8 lg:gap-12 xl:gap-14 mr-0 pr-0">
@@ -850,7 +923,10 @@
 
                         <!-- Subtext Paragraph -->
                         <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-sm font-sans mb-8">
-                            From Dubai's iconic skyline and Bali's tropical beauty to Switzerland's breathtaking Alps, explore unforgettable international tour packages from Surat with Prapti Tourism. Discover personalized holidays for families, couples, honeymooners and groups, designed around your travel dreams, comfort and budget.
+                            From Dubai's iconic skyline and Bali's tropical beauty to Switzerland's breathtaking Alps,
+                            explore unforgettable international tour packages from Surat with Prapti Tourism. Discover
+                            personalized holidays for families, couples, honeymooners and groups, designed around your
+                            travel dreams, comfort and budget.
                         </p>
                     </div>
 
@@ -899,7 +975,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Discover Dubai's spectacular skyline, Burj Khalifa, thrilling desert safaris and world-class shopping. Enjoy unforgettable city attractions, luxury experiences and exciting family holidays in the UAE.
+                                    Discover Dubai's spectacular skyline, Burj Khalifa, thrilling desert safaris and
+                                    world-class shopping. Enjoy unforgettable city attractions, luxury experiences and
+                                    exciting family holidays in the UAE.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -934,7 +1012,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Explore Bangkok's vibrant city life, Pattaya's coastal attractions and Phuket's beautiful beaches. Discover tropical islands, cultural landmarks, exciting activities and memorable holidays for families, couples and friends.
+                                    Explore Bangkok's vibrant city life, Pattaya's coastal attractions and Phuket's
+                                    beautiful beaches. Discover tropical islands, cultural landmarks, exciting
+                                    activities and memorable holidays for families, couples and friends.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -969,7 +1049,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Experience Bali's stunning beaches, lush rice terraces, beautiful waterfalls and iconic temples. Discover romantic honeymoon escapes, relaxing resorts and unforgettable tropical holiday experiences.
+                                    Experience Bali's stunning beaches, lush rice terraces, beautiful waterfalls and
+                                    iconic temples. Discover romantic honeymoon escapes, relaxing resorts and
+                                    unforgettable tropical holiday experiences.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -987,7 +1069,8 @@
                         <article
                             class="destination-card w-[290px] sm:w-[330px] md:w-[360px] lg:w-[calc((100%-48px)/3)] min-w-[310px] max-w-[460px] h-[540px] sm:h-[600px] lg:h-[640px] xl:h-[680px] shrink-0 relative rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
                             data-destination="Singapore">
-                            <img src="images/destinations/singapore.jpg" alt="Singapore Marina Bay Sands and Gardens by the Bay"
+                            <img src="images/destinations/singapore.jpg"
+                                alt="Singapore Marina Bay Sands and Gardens by the Bay"
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 pointer-events-none"
                                 loading="lazy" decoding="async">
                             <div
@@ -1004,7 +1087,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Explore Singapore's iconic Marina Bay Sands, Gardens by the Bay, Sentosa Island and exciting family attractions. Experience modern city life, world-class entertainment and unforgettable sightseeing.
+                                    Explore Singapore's iconic Marina Bay Sands, Gardens by the Bay, Sentosa Island and
+                                    exciting family attractions. Experience modern city life, world-class entertainment
+                                    and unforgettable sightseeing.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -1039,7 +1124,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Discover Vietnam's breathtaking Ha Long Bay, charming Hoi An, vibrant Hanoi and scenic landscapes. Experience fascinating culture, beautiful natural attractions and memorable international holidays.
+                                    Discover Vietnam's breathtaking Ha Long Bay, charming Hoi An, vibrant Hanoi and
+                                    scenic landscapes. Experience fascinating culture, beautiful natural attractions and
+                                    memorable international holidays.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -1057,7 +1144,8 @@
                         <article
                             class="destination-card w-[290px] sm:w-[330px] md:w-[360px] lg:w-[calc((100%-48px)/3)] min-w-[310px] max-w-[460px] h-[540px] sm:h-[600px] lg:h-[640px] xl:h-[680px] shrink-0 relative rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
                             data-destination="Maldives">
-                            <img src="images/destinations/maldives.jpg" alt="Maldives Overwater Villas and Turquoise Ocean"
+                            <img src="images/destinations/maldives.jpg"
+                                alt="Maldives Overwater Villas and Turquoise Ocean"
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 pointer-events-none"
                                 loading="lazy" decoding="async">
                             <div
@@ -1074,7 +1162,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Escape to the Maldives with crystal-clear lagoons, white-sand beaches and beautiful island resorts. Enjoy romantic honeymoon experiences, relaxing seaside stays and unforgettable tropical holidays.
+                                    Escape to the Maldives with crystal-clear lagoons, white-sand beaches and beautiful
+                                    island resorts. Enjoy romantic honeymoon experiences, relaxing seaside stays and
+                                    unforgettable tropical holidays.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -1092,7 +1182,8 @@
                         <article
                             class="destination-card w-[290px] sm:w-[330px] md:w-[360px] lg:w-[calc((100%-48px)/3)] min-w-[310px] max-w-[460px] h-[540px] sm:h-[600px] lg:h-[640px] xl:h-[680px] shrink-0 relative rounded-2xl overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
                             data-destination="Switzerland">
-                            <img src="images/destinations/switzerland.jpg" alt="Switzerland Alps, Lakes and Mountain Villages"
+                            <img src="images/destinations/switzerland.jpg"
+                                alt="Switzerland Alps, Lakes and Mountain Villages"
                                 class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108 pointer-events-none"
                                 loading="lazy" decoding="async">
                             <div
@@ -1109,7 +1200,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Discover Switzerland's majestic Alps, scenic mountain railways, beautiful lakes and charming towns. Explore Lucerne, Interlaken and breathtaking alpine landscapes for an unforgettable European holiday.
+                                    Discover Switzerland's majestic Alps, scenic mountain railways, beautiful lakes and
+                                    charming towns. Explore Lucerne, Interlaken and breathtaking alpine landscapes for
+                                    an unforgettable European holiday.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -1144,7 +1237,9 @@
                                 </h3>
                                 <p
                                     class="text-xs sm:text-sm text-white/85 leading-relaxed font-sans line-clamp-3 mb-6 drop-shadow">
-                                    Explore Kuala Lumpur's iconic Petronas Twin Towers, Langkawi's tropical beaches and Genting Highlands' exciting attractions. Discover a memorable combination of modern cities, nature and family entertainment.
+                                    Explore Kuala Lumpur's iconic Petronas Twin Towers, Langkawi's tropical beaches and
+                                    Genting Highlands' exciting attractions. Discover a memorable combination of modern
+                                    cities, nature and family entertainment.
                                 </p>
                                 <div
                                     class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -1165,7 +1260,7 @@
 
 
         <!-- Services Section: Premium Bento Grid with Different Sized Boxes -->
-                <!-- Services Section: Complete Travel Solutions -->
+        <!-- Services Section: Complete Travel Solutions -->
         <section id="services" class="w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 bg-white overflow-hidden">
             <div class="max-w-[1440px] mx-auto">
 
@@ -1181,7 +1276,10 @@
                         Complete Travel Solutions, <span class="italic text-accent">Thoughtfully Planned for You.</span>
                     </h2>
                     <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
-                        From customized holiday packages and hotel bookings to flight assistance, visa guidance and local transfers, Prapti Tourism offers personalized travel planning services in Surat. We help families, couples, groups and individual travellers plan comfortable domestic and international journeys.
+                        From customized holiday packages and hotel bookings to flight assistance, visa guidance and
+                        local transfers, Prapti Tourism offers personalized travel planning services in Surat. We help
+                        families, couples, groups and individual travellers plan comfortable domestic and international
+                        journeys.
                     </p>
                 </div>
 
@@ -1208,22 +1306,28 @@
 
                         <!-- Bottom Content -->
                         <div class="absolute inset-x-0 bottom-0 p-7 sm:p-9 z-10 flex flex-col justify-end">
-                            <p class="text-xs font-semibold tracking-widest text-accent uppercase mb-2">CUSTOMIZED TOUR PACKAGES</p>
+                            <p class="text-xs font-semibold tracking-widest text-accent uppercase mb-2">CUSTOMIZED TOUR
+                                PACKAGES</p>
                             <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-wide mb-3">
                                 Customized Holiday Packages
                             </h3>
                             <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-sans max-w-xl mb-6">
-                                Discover personalized domestic and international tour packages designed around your destination, budget, travel dates and preferences. Enjoy thoughtfully planned itineraries, sightseeing experiences and comfortable stays.
+                                Discover personalized domestic and international tour packages designed around your
+                                destination, budget, travel dates and preferences. Enjoy thoughtfully planned
+                                itineraries, sightseeing experiences and comfortable stays.
                             </p>
 
                             <!-- Feature Tags -->
                             <div class="flex flex-wrap items-center gap-2.5 mb-6">
                                 <span
-                                    class="px-3 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 text-xs font-medium">Personalized Itineraries</span>
+                                    class="px-3 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 text-xs font-medium">Personalized
+                                    Itineraries</span>
                                 <span
-                                    class="px-3 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 text-xs font-medium">Comfortable Stays</span>
+                                    class="px-3 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 text-xs font-medium">Comfortable
+                                    Stays</span>
                                 <span
-                                    class="px-3 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 text-xs font-medium">Transparent Planning</span>
+                                    class="px-3 py-1 rounded-lg bg-white/10 backdrop-blur-sm border border-white/15 text-white/90 text-xs font-medium">Transparent
+                                    Planning</span>
                             </div>
 
                             <!-- CTA Link -->
@@ -1259,7 +1363,8 @@
                         <div class="mt-5">
                             <h3 class="font-serif text-2xl font-bold text-primary mb-2">Hotel & Resort Bookings</h3>
                             <p class="text-sm text-gray-500 leading-relaxed font-sans">
-                                Find suitable hotels, resorts and holiday stays based on your destination, comfort preferences and budget.
+                                Find suitable hotels, resorts and holiday stays based on your destination, comfort
+                                preferences and budget.
                             </p>
                         </div>
                     </div>
@@ -1285,7 +1390,8 @@
                         <div class="mt-5">
                             <h3 class="font-serif text-2xl font-bold text-primary mb-2">Flight Booking Assistance</h3>
                             <p class="text-sm text-gray-500 leading-relaxed font-sans">
-                                Get assistance with domestic and international flight options, travel schedules, baggage preferences and convenient connections.
+                                Get assistance with domestic and international flight options, travel schedules, baggage
+                                preferences and convenient connections.
                             </p>
                         </div>
                     </div>
@@ -1298,8 +1404,8 @@
                                 <div
                                     class="w-12 h-12 rounded-2xl bg-teal-50/90 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white group-hover:border-accent group-hover:shadow-lg group-hover:shadow-accent/25 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-all duration-300">
                                     <!-- Passport / Documentation Icon -->
-                                    <svg class="w-6 h-6 transition-colors duration-300" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                    <svg class="w-6 h-6 transition-colors duration-300" fill="none"
+                                        stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z" />
                                     </svg>
@@ -1311,7 +1417,8 @@
                             </div>
                             <h3 class="font-serif text-2xl font-bold text-primary mb-2">Visa & Travel Documentation</h3>
                             <p class="text-sm text-gray-500 leading-relaxed font-sans">
-                                Receive guidance on tourist visa requirements, application documents and travel preparation for international holidays.
+                                Receive guidance on tourist visa requirements, application documents and travel
+                                preparation for international holidays.
                             </p>
                         </div>
                     </div>
@@ -1324,8 +1431,8 @@
                                 <div
                                     class="w-12 h-12 rounded-2xl bg-teal-50/90 text-accent border border-teal-100/60 group-hover:bg-accent group-hover:text-white group-hover:border-accent group-hover:shadow-lg group-hover:shadow-accent/25 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-all duration-300">
                                     <!-- Car / Transfer Icon -->
-                                    <svg class="w-6 h-6 transition-colors duration-300" fill="none" stroke="currentColor"
-                                        stroke-width="1.8" viewBox="0 0 24 24">
+                                    <svg class="w-6 h-6 transition-colors duration-300" fill="none"
+                                        stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2m2 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm10 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM9 17h6" />
                                     </svg>
@@ -1337,14 +1444,14 @@
                             </div>
                             <h3 class="font-serif text-2xl font-bold text-primary mb-2">Airport & Local Transfers</h3>
                             <p class="text-sm text-gray-500 leading-relaxed font-sans">
-                                Plan airport pickups, hotel transfers and local transportation arrangements for a more convenient travel experience.
+                                Plan airport pickups, hotel transfers and local transportation arrangements for a more
+                                convenient travel experience.
                             </p>
                         </div>
                     </div>
 
                     <!-- SERVICE CARD 05 – IMAGE CARD (Honeymoon & Couple Holidays, Span 6 cols) -->
-                    <div
-                        class="lg:col-span-6 relative min-h-[320px] rounded-[2rem] overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                    <div class="lg:col-span-6 relative min-h-[320px] rounded-[2rem] overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
                         onclick="if(window.selectTripTypeByName) window.selectTripTypeByName('Honeymoon / Couple');">
                         <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80"
                             alt="Honeymoon & Couple Holidays by Prapti Tourism"
@@ -1358,9 +1465,11 @@
                             ROMANCE & RETREATS
                         </span>
                         <div class="absolute inset-x-0 bottom-0 p-7 sm:p-8 z-10 flex flex-col justify-end">
-                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">Honeymoon & Couple Holidays</h3>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">Honeymoon & Couple
+                                Holidays</h3>
                             <p class="text-xs sm:text-sm text-gray-200 leading-relaxed mb-4 max-w-md font-sans">
-                                Create romantic getaways with beautiful destinations, relaxing stays and personalized experiences for two.
+                                Create romantic getaways with beautiful destinations, relaxing stays and personalized
+                                experiences for two.
                             </p>
                             <a href="#enquiry"
                                 class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -1374,8 +1483,7 @@
                     </div>
 
                     <!-- SERVICE CARD 06 – IMAGE CARD (Family & Group Tour Packages, Span 6 cols) -->
-                    <div
-                        class="lg:col-span-6 relative min-h-[320px] rounded-[2rem] overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
+                    <div class="lg:col-span-6 relative min-h-[320px] rounded-[2rem] overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer"
                         onclick="if(window.selectTripTypeByName) window.selectTripTypeByName('Family Holiday');">
                         <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80"
                             alt="Family & Group Tour Packages by Prapti Tourism"
@@ -1389,9 +1497,11 @@
                             GROUPS & FAMILIES
                         </span>
                         <div class="absolute inset-x-0 bottom-0 p-7 sm:p-8 z-10 flex flex-col justify-end">
-                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">Family & Group Tour Packages</h3>
+                            <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-2">Family & Group Tour
+                                Packages</h3>
                             <p class="text-xs sm:text-sm text-gray-200 leading-relaxed mb-4 max-w-md font-sans">
-                                Enjoy well-organized holidays with family-friendly itineraries, comfortable accommodation and sightseeing arrangements.
+                                Enjoy well-organized holidays with family-friendly itineraries, comfortable
+                                accommodation and sightseeing arrangements.
                             </p>
                             <a href="#enquiry"
                                 class="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white uppercase group-hover:text-accent transition-colors">
@@ -1439,7 +1549,8 @@
                 <!-- Editorial Subtitle in English -->
                 <p
                     class="text-white/90 text-sm sm:text-base md:text-lg leading-relaxed text-center max-w-2xl mx-auto mb-8 drop-shadow font-sans">
-                    Curating unforgettable journeys across India and the globe is our true passion. Here are genuine stories and experiences from travellers who planned their holidays with Prapti Tourism.
+                    Curating unforgettable journeys across India and the globe is our true passion. Here are genuine
+                    stories and experiences from travellers who planned their holidays with Prapti Tourism.
                 </p>
 
                 <!-- Cards Slider Container with Blue Navigation Arrows -->
@@ -1624,7 +1735,7 @@
         </section>
 
         <!-- Trip Enquiry Section (Directly Below Reviews Section) -->
-                <!-- Trip Enquiry Section (PLAN YOUR HOLIDAY) -->
+        <!-- Trip Enquiry Section (PLAN YOUR HOLIDAY) -->
         <section id="enquiry"
             class="relative w-full py-20 sm:py-28 px-6 sm:px-10 lg:px-16 xl:px-20 bg-[#061826] overflow-hidden">
             <!-- Subtle luxury radial gradient glow -->
@@ -1650,12 +1761,15 @@
                         <!-- Main Heading -->
                         <h2
                             class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.15] mb-5">
-                            Your Dream Trip <span class="italic font-normal font-serif text-teal-200">Starts Here.</span>
+                            Your Dream Trip <span class="italic font-normal font-serif text-teal-200">Starts
+                                Here.</span>
                         </h2>
 
                         <!-- Main Description -->
                         <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-lg font-sans">
-                            Share your travel plans with Prapti Tourism. Our Surat-based travel team will help you explore suitable destinations, stays and holiday packages based on your preferences and budget.
+                            Share your travel plans with Prapti Tourism. Our Surat-based travel team will help you
+                            explore suitable destinations, stays and holiday packages based on your preferences and
+                            budget.
                         </p>
 
                         <!-- Trust Section Card -->
@@ -1739,7 +1853,7 @@
                     <div class="lg:col-span-7">
                         <div
                             class="bg-white rounded-3xl sm:rounded-[2rem] p-7 sm:p-10 shadow-2xl border border-gray-100">
-                            
+
                             <div class="mb-6 pb-4 border-b border-gray-100">
                                 <h3 class="font-serif text-2xl font-bold text-gray-900 tracking-tight">
                                     Get Your Custom Holiday Quote
@@ -1806,7 +1920,8 @@
                                     <div>
                                         <label for="enquiry-email"
                                             class="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
-                                            Email Address <span class="text-xs text-gray-400 font-normal">(Optional)</span>
+                                            Email Address <span
+                                                class="text-xs text-gray-400 font-normal">(Optional)</span>
                                         </label>
                                         <input type="email" id="enquiry-email" name="email"
                                             placeholder="you@example.com"
@@ -1820,8 +1935,7 @@
                                             Departure City<span class="text-rose-500 font-bold">*</span>
                                         </label>
                                         <input type="text" id="enquiry-departure" name="departure_city" required
-                                            value="Surat"
-                                            placeholder="e.g. Surat, Ahmedabad, Mumbai"
+                                            value="Surat" placeholder="e.g. Surat, Ahmedabad, Mumbai"
                                             class="w-full px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200/90 text-gray-900 text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all bg-white font-medium">
                                     </div>
                                 </div>
@@ -1842,7 +1956,8 @@
                                             <button type="button" id="destination-trigger"
                                                 class="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200/90 text-sm bg-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left cursor-pointer group">
                                                 <span id="destination-selected-text"
-                                                    class="text-gray-400 truncate">Select or search destination...</span>
+                                                    class="text-gray-400 truncate">Select or search
+                                                    destination...</span>
                                                 <svg class="w-4 h-4 text-gray-400 group-hover:text-accent transition-transform duration-200 shrink-0 ml-2"
                                                     id="destination-chevron" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -1896,41 +2011,60 @@
                                                         <span class="h-[1px] flex-grow bg-teal-100"></span>
                                                     </div>
 
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Kashmir" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Kashmir" data-category="Domestic">
                                                         <span class="font-medium">Kashmir</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Himachal Pradesh" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Himachal Pradesh" data-category="Domestic">
                                                         <span class="font-medium">Himachal Pradesh</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Kerala" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Kerala" data-category="Domestic">
                                                         <span class="font-medium">Kerala</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Goa" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Goa" data-category="Domestic">
                                                         <span class="font-medium">Goa</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Rajasthan" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Rajasthan" data-category="Domestic">
                                                         <span class="font-medium">Rajasthan</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Andaman Islands" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Andaman Islands" data-category="Domestic">
                                                         <span class="font-medium">Andaman Islands</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Uttarakhand" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Uttarakhand" data-category="Domestic">
                                                         <span class="font-medium">Uttarakhand</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Sikkim & Darjeeling" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Sikkim & Darjeeling" data-category="Domestic">
                                                         <span class="font-medium">Sikkim & Darjeeling</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Other Domestic Destination" data-category="Domestic">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Other Domestic Destination"
+                                                        data-category="Domestic">
                                                         <span class="font-medium">Other Domestic Destination</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">Domestic</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">Domestic</span>
                                                     </div>
 
                                                     <!-- International Category -->
@@ -1940,49 +2074,71 @@
                                                         <span class="h-[1px] flex-grow bg-teal-100"></span>
                                                     </div>
 
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Dubai, UAE" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Dubai, UAE" data-category="International">
                                                         <span class="font-medium">Dubai, UAE</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Thailand" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Thailand" data-category="International">
                                                         <span class="font-medium">Thailand</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Bali, Indonesia" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Bali, Indonesia" data-category="International">
                                                         <span class="font-medium">Bali, Indonesia</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Singapore" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Singapore" data-category="International">
                                                         <span class="font-medium">Singapore</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Vietnam" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Vietnam" data-category="International">
                                                         <span class="font-medium">Vietnam</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Maldives" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Maldives" data-category="International">
                                                         <span class="font-medium">Maldives</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Switzerland" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Switzerland" data-category="International">
                                                         <span class="font-medium">Switzerland</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Malaysia" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Malaysia" data-category="International">
                                                         <span class="font-medium">Malaysia</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
-                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Other International Destination" data-category="International">
+                                                    <div class="destination-option flex items-center justify-between px-3.5 py-2 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Other International Destination"
+                                                        data-category="International">
                                                         <span class="font-medium">Other International Destination</span>
-                                                        <span class="text-[10px] text-gray-400 font-medium">International</span>
+                                                        <span
+                                                            class="text-[10px] text-gray-400 font-medium">International</span>
                                                     </div>
                                                 </div>
 
                                                 <!-- No Results State -->
                                                 <div id="destination-no-results"
                                                     class="hidden py-8 px-4 text-center text-xs sm:text-sm text-gray-500">
-                                                    <p class="font-semibold text-gray-700">No destination found matching "<span id="destination-search-term"></span>"</p>
-                                                    <p class="text-xs text-gray-400 mt-1">Select <strong>"Not Sure / Need Recommendation"</strong> and our team will guide you!</p>
+                                                    <p class="font-semibold text-gray-700">No destination found matching
+                                                        "<span id="destination-search-term"></span>"</p>
+                                                    <p class="text-xs text-gray-400 mt-1">Select <strong>"Not Sure /
+                                                            Need Recommendation"</strong> and our team will guide you!
+                                                    </p>
                                                 </div>
 
                                             </div>
@@ -1992,7 +2148,8 @@
                                     <!-- 6. Travel Date / Flexible Month – Required -->
                                     <div class="relative z-30">
                                         <div class="flex items-center justify-between mb-1.5">
-                                            <label for="traveldate-trigger" class="block text-xs sm:text-sm font-semibold text-gray-900">
+                                            <label for="traveldate-trigger"
+                                                class="block text-xs sm:text-sm font-semibold text-gray-900">
                                                 Travel Date / Month<span class="text-rose-500 font-bold">*</span>
                                             </label>
                                             <button type="button" id="toggle-date-mode"
@@ -2000,15 +2157,17 @@
                                                 Switch to Exact Date
                                             </button>
                                         </div>
-                                        
+
                                         <!-- Flexible Month Select (Default) -->
                                         <div id="wrapper-flexible-month" class="relative">
                                             <div class="relative" id="traveldate-dropdown-wrapper">
-                                                <input type="hidden" id="enquiry-date" name="travel_date" required value="">
+                                                <input type="hidden" id="enquiry-date" name="travel_date" required
+                                                    value="">
 
                                                 <button type="button" id="traveldate-trigger"
                                                     class="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200/90 text-sm bg-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left cursor-pointer group">
-                                                    <span id="traveldate-selected-text" class="text-gray-400 truncate">Select Travel Month...</span>
+                                                    <span id="traveldate-selected-text"
+                                                        class="text-gray-400 truncate">Select Travel Month...</span>
                                                     <svg class="w-4 h-4 text-gray-400 group-hover:text-accent transition-transform duration-200 shrink-0 ml-2"
                                                         id="traveldate-chevron" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
@@ -2022,32 +2181,50 @@
                                                     class="hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden transition-all duration-200 max-h-[300px] flex flex-col">
                                                     <div id="traveldate-options-list"
                                                         class="overflow-y-auto max-h-[290px] p-2 space-y-1 text-sm custom-destination-scroll">
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="November 2026">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ November 2026</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="November 2026">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ November
+                                                                2026</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="December 2026">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ December 2026</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="December 2026">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ December
+                                                                2026</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="January 2027">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ January 2027</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="January 2027">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ January
+                                                                2027</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="February 2027">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ February 2027</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="February 2027">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ February
+                                                                2027</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="March 2027">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ March 2027</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="March 2027">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ March
+                                                                2027</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="April 2027">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ April 2027</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="April 2027">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ April
+                                                                2027</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="May 2027">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ May 2027</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="May 2027">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ May
+                                                                2027</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="June 2027 or later">
-                                                            <span class="font-medium text-xs sm:text-sm">🗓️ June 2027 or later</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="June 2027 or later">
+                                                            <span class="font-medium text-xs sm:text-sm">🗓️ June 2027
+                                                                or later</span>
                                                         </div>
-                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Flexible / Undecided">
-                                                            <span class="font-medium text-xs sm:text-sm">✨ Flexible / Undecided</span>
+                                                        <div class="traveldate-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                            data-value="Flexible / Undecided">
+                                                            <span class="font-medium text-xs sm:text-sm">✨ Flexible /
+                                                                Undecided</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2075,7 +2252,8 @@
                                                 class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-accent hover:bg-teal-50 transition-colors text-lg font-bold select-none cursor-pointer">
                                                 &minus;
                                             </button>
-                                            <div class="flex items-center gap-1.5 font-bold text-gray-900 text-sm sm:text-base">
+                                            <div
+                                                class="flex items-center gap-1.5 font-bold text-gray-900 text-sm sm:text-base">
                                                 <span id="adults-count-display">2</span>
                                                 <input type="hidden" id="enquiry-adults" name="adults" value="2">
                                             </div>
@@ -2089,7 +2267,8 @@
                                     <!-- 8. Children & Infants – Optional -->
                                     <div>
                                         <label class="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
-                                            Children & Infants <span class="text-xs text-gray-400 font-normal">(Optional)</span>
+                                            Children & Infants <span
+                                                class="text-xs text-gray-400 font-normal">(Optional)</span>
                                         </label>
                                         <div
                                             class="flex items-center justify-between rounded-xl border border-gray-200/90 bg-white px-3 py-1.5 focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/20 transition-all h-[44px]">
@@ -2097,7 +2276,8 @@
                                                 class="w-8 h-8 rounded-lg flex items-center justify-center text-gray-500 hover:text-accent hover:bg-teal-50 transition-colors text-lg font-bold select-none cursor-pointer">
                                                 &minus;
                                             </button>
-                                            <div class="flex items-center gap-1.5 font-bold text-gray-900 text-sm sm:text-base">
+                                            <div
+                                                class="flex items-center gap-1.5 font-bold text-gray-900 text-sm sm:text-base">
                                                 <span id="children-count-display">0</span>
                                                 <input type="hidden" id="enquiry-children" name="children" value="0">
                                             </div>
@@ -2113,7 +2293,8 @@
                                 <div id="conditional-children-ages" class="hidden">
                                     <label for="enquiry-children-ages"
                                         class="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
-                                        Children / Infant Ages <span class="text-xs text-gray-400 font-normal">(e.g. 6 years, 2 years)</span>
+                                        Children / Infant Ages <span class="text-xs text-gray-400 font-normal">(e.g. 6
+                                            years, 2 years)</span>
                                     </label>
                                     <input type="text" id="enquiry-children-ages" name="children_ages"
                                         placeholder="e.g. 5 yrs, 2 yrs"
@@ -2135,7 +2316,8 @@
 
                                             <button type="button" id="triptype-trigger"
                                                 class="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200/90 text-sm bg-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left cursor-pointer group">
-                                                <span id="triptype-selected-text" class="text-gray-400 truncate">Select Trip Type...</span>
+                                                <span id="triptype-selected-text" class="text-gray-400 truncate">Select
+                                                    Trip Type...</span>
                                                 <svg class="w-4 h-4 text-gray-400 group-hover:text-accent transition-transform duration-200 shrink-0 ml-2"
                                                     id="triptype-chevron" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -2149,25 +2331,38 @@
                                                 class="hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden transition-all duration-200 max-h-[320px] flex flex-col">
                                                 <div id="triptype-options-list"
                                                     class="overflow-y-auto max-h-[300px] p-2 space-y-1 text-sm custom-destination-scroll">
-                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Family Holiday">
-                                                        <span class="font-medium text-xs sm:text-sm">👨‍👩‍👧‍👦 Family Holiday</span>
+                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Family Holiday">
+                                                        <span class="font-medium text-xs sm:text-sm">👨‍👩‍👧‍👦 Family
+                                                            Holiday</span>
                                                     </div>
-                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Honeymoon / Couple">
-                                                        <span class="font-medium text-xs sm:text-sm">💍 Honeymoon / Couple</span>
+                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Honeymoon / Couple">
+                                                        <span class="font-medium text-xs sm:text-sm">💍 Honeymoon /
+                                                            Couple</span>
                                                     </div>
-                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Friends / Group Tour">
-                                                        <span class="font-medium text-xs sm:text-sm">🌴 Friends / Group Tour</span>
+                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Friends / Group Tour">
+                                                        <span class="font-medium text-xs sm:text-sm">🌴 Friends / Group
+                                                            Tour</span>
                                                     </div>
-                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Pilgrimage">
-                                                        <span class="font-medium text-xs sm:text-sm">🛕 Pilgrimage</span>
+                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Pilgrimage">
+                                                        <span class="font-medium text-xs sm:text-sm">🛕
+                                                            Pilgrimage</span>
                                                     </div>
-                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Corporate Travel">
-                                                        <span class="font-medium text-xs sm:text-sm">💼 Corporate Travel</span>
+                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Corporate Travel">
+                                                        <span class="font-medium text-xs sm:text-sm">💼 Corporate
+                                                            Travel</span>
                                                     </div>
-                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Solo Travel">
-                                                        <span class="font-medium text-xs sm:text-sm">🎒 Solo Travel</span>
+                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Solo Travel">
+                                                        <span class="font-medium text-xs sm:text-sm">🎒 Solo
+                                                            Travel</span>
                                                     </div>
-                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Other">
+                                                    <div class="triptype-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Other">
                                                         <span class="font-medium text-xs sm:text-sm">✨ Other</span>
                                                     </div>
                                                 </div>
@@ -2179,15 +2374,16 @@
                                     <div class="relative z-20">
                                         <label for="budget-trigger"
                                             class="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
-                                            Approx. Budget Per Person <span class="text-xs text-gray-400 font-normal">(Optional)</span>
+                                            Approx. Budget Per Person <span
+                                                class="text-xs text-gray-400 font-normal">(Optional)</span>
                                         </label>
                                         <div class="relative" id="budget-dropdown-wrapper">
-                                            <input type="hidden" id="enquiry-budget" name="budget"
-                                                value="Not Decided">
+                                            <input type="hidden" id="enquiry-budget" name="budget" value="Not Decided">
 
                                             <button type="button" id="budget-trigger"
                                                 class="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200/90 text-sm bg-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left cursor-pointer group">
-                                                <span id="budget-selected-text" class="text-gray-900 font-medium truncate">Not Decided</span>
+                                                <span id="budget-selected-text"
+                                                    class="text-gray-900 font-medium truncate">Not Decided</span>
                                                 <svg class="w-4 h-4 text-gray-400 group-hover:text-accent transition-transform duration-200 shrink-0 ml-2"
                                                     id="budget-chevron" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24">
@@ -2201,26 +2397,39 @@
                                                 class="hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden transition-all duration-200 max-h-[300px] flex flex-col">
                                                 <div id="budget-options-list"
                                                     class="overflow-y-auto max-h-[290px] p-2 space-y-1 text-sm custom-destination-scroll">
-                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors bg-teal-50 text-accent font-bold" data-value="Not Decided">
+                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors bg-teal-50 text-accent font-bold"
+                                                        data-value="Not Decided">
                                                         <span class="font-medium text-xs sm:text-sm">Not Decided</span>
                                                     </div>
-                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Below ₹15,000">
-                                                        <span class="font-medium text-xs sm:text-sm">Below ₹15,000</span>
+                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Below ₹15,000">
+                                                        <span class="font-medium text-xs sm:text-sm">Below
+                                                            ₹15,000</span>
                                                     </div>
-                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="₹15,000–₹30,000">
-                                                        <span class="font-medium text-xs sm:text-sm">₹15,000–₹30,000</span>
+                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="₹15,000–₹30,000">
+                                                        <span
+                                                            class="font-medium text-xs sm:text-sm">₹15,000–₹30,000</span>
                                                     </div>
-                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="₹30,000–₹50,000">
-                                                        <span class="font-medium text-xs sm:text-sm">₹30,000–₹50,000</span>
+                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="₹30,000–₹50,000">
+                                                        <span
+                                                            class="font-medium text-xs sm:text-sm">₹30,000–₹50,000</span>
                                                     </div>
-                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="₹50,000–₹1,00,000">
-                                                        <span class="font-medium text-xs sm:text-sm">₹50,000–₹1,00,000</span>
+                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="₹50,000–₹1,00,000">
+                                                        <span
+                                                            class="font-medium text-xs sm:text-sm">₹50,000–₹1,00,000</span>
                                                     </div>
-                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="₹1,00,000–₹2,00,000">
-                                                        <span class="font-medium text-xs sm:text-sm">₹1,00,000–₹2,00,000</span>
+                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="₹1,00,000–₹2,00,000">
+                                                        <span
+                                                            class="font-medium text-xs sm:text-sm">₹1,00,000–₹2,00,000</span>
                                                     </div>
-                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Above ₹2,00,000">
-                                                        <span class="font-medium text-xs sm:text-sm">Above ₹2,00,000</span>
+                                                    <div class="budget-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                        data-value="Above ₹2,00,000">
+                                                        <span class="font-medium text-xs sm:text-sm">Above
+                                                            ₹2,00,000</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2232,7 +2441,8 @@
                                 <div class="relative z-10">
                                     <label for="hotel-trigger"
                                         class="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
-                                        Hotel Preference <span class="text-xs text-gray-400 font-normal">(Optional)</span>
+                                        Hotel Preference <span
+                                            class="text-xs text-gray-400 font-normal">(Optional)</span>
                                     </label>
                                     <div class="relative" id="hotel-dropdown-wrapper">
                                         <input type="hidden" id="enquiry-hotel" name="hotel_preference"
@@ -2240,12 +2450,13 @@
 
                                         <button type="button" id="hotel-trigger"
                                             class="w-full flex items-center justify-between px-4 py-2.5 sm:py-3 rounded-xl border border-gray-200/90 text-sm bg-white focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all text-left cursor-pointer group">
-                                            <span id="hotel-selected-text" class="text-gray-900 font-medium truncate">Need Recommendation</span>
+                                            <span id="hotel-selected-text"
+                                                class="text-gray-900 font-medium truncate">Need Recommendation</span>
                                             <svg class="w-4 h-4 text-gray-400 group-hover:text-accent transition-transform duration-200 shrink-0 ml-2"
                                                 id="hotel-chevron" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2" d="M19 9l-7 7-7-7" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
                                             </svg>
                                         </button>
 
@@ -2254,20 +2465,28 @@
                                             class="hidden absolute left-0 right-0 top-full mt-2 z-50 bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden transition-all duration-200 max-h-[300px] flex flex-col">
                                             <div id="hotel-options-list"
                                                 class="overflow-y-auto max-h-[290px] p-2 space-y-1 text-sm custom-destination-scroll">
-                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors bg-teal-50 text-accent font-bold" data-value="Need Recommendation">
-                                                    <span class="font-medium text-xs sm:text-sm">Need Recommendation</span>
+                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors bg-teal-50 text-accent font-bold"
+                                                    data-value="Need Recommendation">
+                                                    <span class="font-medium text-xs sm:text-sm">Need
+                                                        Recommendation</span>
                                                 </div>
-                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="Budget / Standard">
-                                                    <span class="font-medium text-xs sm:text-sm">Budget / Standard</span>
+                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                    data-value="Budget / Standard">
+                                                    <span class="font-medium text-xs sm:text-sm">Budget /
+                                                        Standard</span>
                                                 </div>
-                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="3 Star">
+                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                    data-value="3 Star">
                                                     <span class="font-medium text-xs sm:text-sm">⭐ 3 Star</span>
                                                 </div>
-                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="4 Star">
+                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                    data-value="4 Star">
                                                     <span class="font-medium text-xs sm:text-sm">⭐⭐ 4 Star</span>
                                                 </div>
-                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors" data-value="5 Star / Luxury">
-                                                    <span class="font-medium text-xs sm:text-sm">⭐⭐⭐ 5 Star / Luxury</span>
+                                                <div class="hotel-option flex items-center px-3.5 py-2.5 rounded-xl cursor-pointer hover:bg-teal-50 hover:text-accent text-gray-800 transition-colors"
+                                                    data-value="5 Star / Luxury">
+                                                    <span class="font-medium text-xs sm:text-sm">⭐⭐⭐ 5 Star /
+                                                        Luxury</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -2278,7 +2497,8 @@
                                 <div>
                                     <label for="enquiry-notes"
                                         class="block text-xs sm:text-sm font-semibold text-gray-900 mb-1.5">
-                                        Additional Requirements <span class="text-xs text-gray-400 font-normal">(Optional)</span>
+                                        Additional Requirements <span
+                                            class="text-xs text-gray-400 font-normal">(Optional)</span>
                                     </label>
                                     <textarea id="enquiry-notes" name="notes" rows="2"
                                         placeholder="Any specific requests, meal preferences, flight requirements or questions..."
@@ -2289,8 +2509,10 @@
                                 <div class="flex items-start gap-2.5 pt-1">
                                     <input type="checkbox" id="enquiry-consent" name="consent" required checked
                                         class="mt-1 h-4 w-4 rounded border-gray-300 text-accent focus:ring-accent cursor-pointer">
-                                    <label for="enquiry-consent" class="text-xs text-gray-500 font-sans cursor-pointer select-none">
-                                        I agree to be contacted by Prapti Tourism on WhatsApp or phone regarding my travel enquiry. Your details are kept confidential.
+                                    <label for="enquiry-consent"
+                                        class="text-xs text-gray-500 font-sans cursor-pointer select-none">
+                                        I agree to be contacted by Prapti Tourism on WhatsApp or phone regarding my
+                                        travel enquiry. Your details are kept confidential.
                                     </label>
                                 </div>
 
@@ -2307,7 +2529,8 @@
 
                                     <!-- Form Footer Text -->
                                     <p class="text-[11px] sm:text-xs text-center text-gray-500 mt-3 font-sans">
-                                        No obligation to book. Your details will be used to respond to your travel enquiry.
+                                        No obligation to book. Your details will be used to respond to your travel
+                                        enquiry.
                                     </p>
                                 </div>
 
@@ -2323,7 +2546,8 @@
                                     </div>
                                     <div>
                                         <p class="font-bold">Opening WhatsApp Chat...</p>
-                                        <p class="text-xs text-green-700 mt-0.5">Your travel requirements have been prepared! Connecting with Prapti Tourism (+91 90999 06971)...</p>
+                                        <p class="text-xs text-green-700 mt-0.5">Your travel requirements have been
+                                            prepared! Connecting with Prapti Tourism (+91 90999 06971)...</p>
                                     </div>
                                 </div>
 
@@ -2336,7 +2560,7 @@
         </section>
 
         <!-- Frequently Asked Questions Section (Directly Below Form Section) -->
-                <!-- Frequently Asked Questions Section -->
+        <!-- Frequently Asked Questions Section -->
         <section id="faq"
             class="w-full py-20 sm:py-28 lg:py-32 px-6 sm:px-10 lg:px-16 xl:px-20 bg-white border-t border-gray-100">
             <div class="max-w-7xl mx-auto">
@@ -2357,10 +2581,13 @@
 
                         <div class="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed font-sans max-w-md">
                             <p>
-                                Planning your next holiday? Find answers to common questions about domestic and international tour packages from Surat, customized holidays, pricing, hotel bookings, visa assistance and travel arrangements with Prapti Tourism.
+                                Planning your next holiday? Find answers to common questions about domestic and
+                                international tour packages from Surat, customized holidays, pricing, hotel bookings,
+                                visa assistance and travel arrangements with Prapti Tourism.
                             </p>
                             <p>
-                                For any custom questions or detailed itineraries, our travel planning team in Surat is always available to help.
+                                For any custom questions or detailed itineraries, our travel planning team in Surat is
+                                always available to help.
                             </p>
                         </div>
                     </div>
@@ -2388,7 +2615,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Prapti Tourism offers domestic and international tour packages from Surat, including family holidays, honeymoon packages, group tours, pilgrimage journeys and customized vacations. We help travellers plan holidays based on their destination, budget and preferences.
+                                        Prapti Tourism offers domestic and international tour packages from Surat,
+                                        including family holidays, honeymoon packages, group tours, pilgrimage journeys
+                                        and customized vacations. We help travellers plan holidays based on their
+                                        destination, budget and preferences.
                                     </p>
                                 </div>
                             </div>
@@ -2411,7 +2641,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Yes. Prapti Tourism helps you customize your holiday itinerary based on travel dates, destinations, hotel preferences, sightseeing interests and budget. Whether you are planning a family vacation, honeymoon or group holiday, we can help create a suitable travel plan.
+                                        Yes. Prapti Tourism helps you customize your holiday itinerary based on travel
+                                        dates, destinations, hotel preferences, sightseeing interests and budget.
+                                        Whether you are planning a family vacation, honeymoon or group holiday, we can
+                                        help create a suitable travel plan.
                                     </p>
                                 </div>
                             </div>
@@ -2434,7 +2667,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Popular holiday options include Kashmir, Himachal Pradesh, Kerala, Goa, Rajasthan, Andaman Islands, Uttarakhand and Sikkim–Darjeeling. The right destination depends on your travel season, budget and preferred holiday experience.
+                                        Popular holiday options include Kashmir, Himachal Pradesh, Kerala, Goa,
+                                        Rajasthan, Andaman Islands, Uttarakhand and Sikkim–Darjeeling. The right
+                                        destination depends on your travel season, budget and preferred holiday
+                                        experience.
                                     </p>
                                 </div>
                             </div>
@@ -2457,7 +2693,9 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Explore international holiday packages for Dubai, Thailand, Bali, Singapore, Vietnam, Maldives, Switzerland and Malaysia. Prapti Tourism helps you compare destinations and plan suitable family, honeymoon and group holidays.
+                                        Explore international holiday packages for Dubai, Thailand, Bali, Singapore,
+                                        Vietnam, Maldives, Switzerland and Malaysia. Prapti Tourism helps you compare
+                                        destinations and plan suitable family, honeymoon and group holidays.
                                     </p>
                                 </div>
                             </div>
@@ -2480,7 +2718,9 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Tour package prices depend on the destination, travel dates, number of travellers, hotel category, flights, sightseeing and transportation. Share your requirements with Prapti Tourism to request a personalized holiday quotation.
+                                        Tour package prices depend on the destination, travel dates, number of
+                                        travellers, hotel category, flights, sightseeing and transportation. Share your
+                                        requirements with Prapti Tourism to request a personalized holiday quotation.
                                     </p>
                                 </div>
                             </div>
@@ -2503,7 +2743,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Package inclusions vary according to the selected itinerary. Depending on your quotation, they may include hotel accommodation, meals, airport transfers, local transportation, sightseeing and flights. All confirmed inclusions and exclusions should be reviewed before booking.
+                                        Package inclusions vary according to the selected itinerary. Depending on your
+                                        quotation, they may include hotel accommodation, meals, airport transfers, local
+                                        transportation, sightseeing and flights. All confirmed inclusions and exclusions
+                                        should be reviewed before booking.
                                     </p>
                                 </div>
                             </div>
@@ -2526,7 +2769,9 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Flights may be included or excluded depending on the selected package. Prapti Tourism can assist with suitable domestic and international flight options based on your departure city, preferred schedule and budget.
+                                        Flights may be included or excluded depending on the selected package. Prapti
+                                        Tourism can assist with suitable domestic and international flight options based
+                                        on your departure city, preferred schedule and budget.
                                     </p>
                                 </div>
                             </div>
@@ -2549,7 +2794,9 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Yes. You can share your preferred hotel category, location and accommodation requirements. Prapti Tourism can help you explore suitable hotels and resorts based on your travel preferences, budget and availability.
+                                        Yes. You can share your preferred hotel category, location and accommodation
+                                        requirements. Prapti Tourism can help you explore suitable hotels and resorts
+                                        based on your travel preferences, budget and availability.
                                     </p>
                                 </div>
                             </div>
@@ -2572,7 +2819,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Yes. We help plan honeymoon holidays, romantic getaways and family vacations with suitable destinations, accommodation, sightseeing and personalized itineraries. Travel plans can be adapted for couples, children and senior citizens.
+                                        Yes. We help plan honeymoon holidays, romantic getaways and family vacations
+                                        with suitable destinations, accommodation, sightseeing and personalized
+                                        itineraries. Travel plans can be adapted for couples, children and senior
+                                        citizens.
                                     </p>
                                 </div>
                             </div>
@@ -2595,7 +2845,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Prapti Tourism can provide guidance on tourist visa requirements and travel documentation for applicable international destinations. Visa requirements vary by destination, passport and travel purpose. Final visa approval is determined by the relevant authorities.
+                                        Prapti Tourism can provide guidance on tourist visa requirements and travel
+                                        documentation for applicable international destinations. Visa requirements vary
+                                        by destination, passport and travel purpose. Final visa approval is determined
+                                        by the relevant authorities.
                                     </p>
                                 </div>
                             </div>
@@ -2618,7 +2871,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Booking early is recommended, especially during school vacations, Diwali holidays, summer holidays and peak travel seasons. Early planning generally provides more time to compare flight schedules, hotel options and travel arrangements.
+                                        Booking early is recommended, especially during school vacations, Diwali
+                                        holidays, summer holidays and peak travel seasons. Early planning generally
+                                        provides more time to compare flight schedules, hotel options and travel
+                                        arrangements.
                                     </p>
                                 </div>
                             </div>
@@ -2641,7 +2897,10 @@
                                 <div
                                     class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out text-gray-600 text-sm sm:text-base leading-relaxed">
                                     <p class="pb-6 font-sans">
-                                        Yes. Prapti Tourism helps plan group tours, family holidays and customized travel arrangements from Surat. Share your group size, destination, travel dates and budget to explore suitable accommodation, transport and sightseeing arrangements.
+                                        Yes. Prapti Tourism helps plan group tours, family holidays and customized
+                                        travel arrangements from Surat. Share your group size, destination, travel dates
+                                        and budget to explore suitable accommodation, transport and sightseeing
+                                        arrangements.
                                     </p>
                                 </div>
                             </div>
@@ -2672,11 +2931,13 @@
                     <!-- Column 1: Brand & Slogan -->
                     <div class="sm:col-span-2 lg:col-span-4">
                         <a href="#hero" aria-label="Prapti Tourism, back to top" class="inline-block rounded-lg">
-                            <img src="prapti-logo-removebg-preview.png" alt="Prapti Tourism: Explore the World, Your Way"
+                            <img src="images/prapti-logo-transparent.png"
+                                alt="Prapti Tourism: Explore the World, Your Way"
                                 class="h-20 sm:h-24 w-auto object-contain">
                         </a>
                         <p class="mt-4 max-w-sm text-[0.92rem] leading-relaxed text-[#4b6372]">
-                            Prapti Tourism is a Surat-based travel agency offering customized domestic and international tour packages, family holidays, honeymoon trips and memorable travel experiences.
+                            Prapti Tourism is a Surat-based travel agency offering customized domestic and international
+                            tour packages, family holidays, honeymoon trips and memorable travel experiences.
                         </p>
                         <p class="mt-2 text-xs font-bold uppercase tracking-wider text-accent">
                             Explore the World, Your Way.
@@ -2830,7 +3091,8 @@
                                 <div class="text-xs">
                                     <h4 class="font-bold text-[#06283d] text-sm">Branch Office – Kamrej</h4>
                                     <p class="text-[#4b6372] leading-relaxed mt-1">
-                                        Office No. 441, 4th Floor, Kashi Plaza, Kamrej Char Rasta, Kamrej, Surat, Gujarat – 394180.
+                                        Office No. 441, 4th Floor, Kashi Plaza, Kamrej Char Rasta, Kamrej, Surat,
+                                        Gujarat – 394180.
                                     </p>
                                     <div class="mt-2 space-y-1 font-medium">
                                         <div>
