@@ -704,38 +704,175 @@ function setupInfiniteReviewsCarousel() {
 
 // Trip Enquiry Form, Searchable Destination Dropdown & WhatsApp Inquiry Logic
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Traveller Count Stepper
-    const minusBtn = document.getElementById('traveller-minus');
-    const plusBtn = document.getElementById('traveller-plus');
-    const display = document.getElementById('traveller-count-display');
-    const hiddenInput = document.getElementById('enquiry-travellers');
-    const form = document.getElementById('trip-enquiry-form');
-    const successMsg = document.getElementById('enquiry-success-msg');
-    const submitBtn = document.getElementById('enquiry-submit-btn');
 
-    let count = 2;
+    // 1. Adults & Children Steppers
+    const adultsMinus = document.getElementById('adults-minus');
+    const adultsPlus = document.getElementById('adults-plus');
+    const adultsDisplay = document.getElementById('adults-count-display');
+    const adultsHidden = document.getElementById('enquiry-adults');
 
-    if (minusBtn && plusBtn && display && hiddenInput) {
-        minusBtn.addEventListener('click', (e) => {
+    const childrenMinus = document.getElementById('children-minus');
+    const childrenPlus = document.getElementById('children-plus');
+    const childrenDisplay = document.getElementById('children-count-display');
+    const childrenHidden = document.getElementById('enquiry-children');
+    const conditionalChildrenAges = document.getElementById('conditional-children-ages');
+
+    let adultsCount = 2;
+    let childrenCount = 0;
+
+    if (adultsMinus && adultsPlus && adultsDisplay && adultsHidden) {
+        adultsMinus.addEventListener('click', (e) => {
             e.preventDefault();
-            if (count > 1) {
-                count--;
-                display.textContent = count;
-                hiddenInput.value = count;
+            if (adultsCount > 1) {
+                adultsCount--;
+                adultsDisplay.textContent = adultsCount;
+                adultsHidden.value = adultsCount;
             }
         });
-
-        plusBtn.addEventListener('click', (e) => {
+        adultsPlus.addEventListener('click', (e) => {
             e.preventDefault();
-            if (count < 30) {
-                count++;
-                display.textContent = count;
-                hiddenInput.value = count;
+            if (adultsCount < 30) {
+                adultsCount++;
+                adultsDisplay.textContent = adultsCount;
+                adultsHidden.value = adultsCount;
             }
         });
     }
 
-    // 2. Searchable Preferred Destination Dropdown
+    const updateChildrenVisibility = () => {
+        if (conditionalChildrenAges) {
+            if (childrenCount > 0) {
+                conditionalChildrenAges.classList.remove('hidden');
+            } else {
+                conditionalChildrenAges.classList.add('hidden');
+            }
+        }
+    };
+
+    if (childrenMinus && childrenPlus && childrenDisplay && childrenHidden) {
+        childrenMinus.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (childrenCount > 0) {
+                childrenCount--;
+                childrenDisplay.textContent = childrenCount;
+                childrenHidden.value = childrenCount;
+                updateChildrenVisibility();
+            }
+        });
+        childrenPlus.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (childrenCount < 15) {
+                childrenCount++;
+                childrenDisplay.textContent = childrenCount;
+                childrenHidden.value = childrenCount;
+                updateChildrenVisibility();
+            }
+        });
+    }
+
+    // --- Dropdown Management & Mutual Exclusivity ---
+    function closeAllDropdowns(except = null) {
+        if (except !== 'dest' && typeof closeDestinationMenu === 'function') closeDestinationMenu();
+        if (except !== 'trip' && typeof closeTripMenu === 'function') closeTripMenu();
+        if (except !== 'traveldate' && typeof closeTravelDateMenu === 'function') closeTravelDateMenu();
+        if (except !== 'budget' && typeof closeBudgetMenu === 'function') closeBudgetMenu();
+        if (except !== 'hotel' && typeof closeHotelMenu === 'function') closeHotelMenu();
+    }
+
+    // 2. Travel Date Mode Toggle (Flexible Month vs Exact Date)
+    const toggleDateBtn = document.getElementById('toggle-date-mode');
+    const wrapperMonth = document.getElementById('wrapper-flexible-month');
+    const wrapperExact = document.getElementById('wrapper-exact-date');
+    const travelDateHiddenInput = document.getElementById('enquiry-date');
+    const inputExact = document.getElementById('enquiry-exact-date');
+    if (inputExact) {
+        inputExact.min = new Date().toISOString().split('T')[0];
+    }
+
+    let isExactDateMode = false;
+
+    if (toggleDateBtn && wrapperMonth && wrapperExact) {
+        toggleDateBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            isExactDateMode = !isExactDateMode;
+            if (isExactDateMode) {
+                if (typeof closeTravelDateMenu === 'function') closeTravelDateMenu();
+                wrapperMonth.classList.add('hidden');
+                wrapperExact.classList.remove('hidden');
+                toggleDateBtn.textContent = 'Switch to Flexible Month';
+                if (travelDateHiddenInput) travelDateHiddenInput.removeAttribute('required');
+                if (inputExact) {
+                    inputExact.setAttribute('required', 'required');
+                    inputExact.focus();
+                }
+            } else {
+                wrapperExact.classList.add('hidden');
+                wrapperMonth.classList.remove('hidden');
+                toggleDateBtn.textContent = 'Switch to Exact Date';
+                if (inputExact) inputExact.removeAttribute('required');
+                if (travelDateHiddenInput) travelDateHiddenInput.setAttribute('required', 'required');
+            }
+        });
+    }
+
+    // 2b. Custom Travel Date Month Dropdown
+    const travelDateWrapper = document.getElementById('traveldate-dropdown-wrapper');
+    const travelDateTrigger = document.getElementById('traveldate-trigger');
+    const travelDateSelectedText = document.getElementById('traveldate-selected-text');
+    const travelDateChevron = document.getElementById('traveldate-chevron');
+    const travelDateMenu = document.getElementById('traveldate-menu');
+    const travelDateOptions = document.querySelectorAll('.traveldate-option');
+
+    function openTravelDateMenu() {
+        if (!travelDateMenu) return;
+        closeAllDropdowns('traveldate');
+        travelDateMenu.classList.remove('hidden');
+        if (travelDateChevron) travelDateChevron.classList.add('rotate-180');
+        if (travelDateTrigger) travelDateTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
+    }
+
+    function closeTravelDateMenu() {
+        if (!travelDateMenu) return;
+        travelDateMenu.classList.add('hidden');
+        if (travelDateChevron) travelDateChevron.classList.remove('rotate-180');
+        if (travelDateTrigger) travelDateTrigger.classList.remove('ring-2', 'ring-accent/20');
+    }
+
+    if (travelDateTrigger && travelDateMenu) {
+        travelDateTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (travelDateMenu.classList.contains('hidden')) {
+                openTravelDateMenu();
+            } else {
+                closeTravelDateMenu();
+            }
+        });
+
+        travelDateOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = opt.getAttribute('data-value') || '';
+                
+                if (travelDateHiddenInput) travelDateHiddenInput.value = value;
+                if (travelDateSelectedText) {
+                    travelDateSelectedText.textContent = value;
+                    travelDateSelectedText.classList.remove('text-gray-400');
+                    travelDateSelectedText.classList.add('text-gray-900', 'font-medium');
+                }
+
+                travelDateOptions.forEach(o => o.classList.remove('bg-teal-50', 'text-accent', 'font-bold'));
+                opt.classList.add('bg-teal-50', 'text-accent', 'font-bold');
+
+                if (travelDateTrigger) {
+                    travelDateTrigger.classList.remove('border-rose-500', 'ring-rose-500/20');
+                }
+
+                closeTravelDateMenu();
+            });
+        });
+    }
+
+    // 3. Searchable Preferred Destination Dropdown
     const destWrapper = document.getElementById('destination-dropdown-wrapper');
     const destTrigger = document.getElementById('destination-trigger');
     const destSelectedText = document.getElementById('destination-selected-text');
@@ -751,7 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openDestinationMenu() {
         if (!destMenu) return;
-        closeTripMenu();
+        closeAllDropdowns('dest');
         destMenu.classList.remove('hidden');
         if (destChevron) destChevron.classList.add('rotate-180');
         if (destTrigger) destTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
@@ -777,7 +914,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Search Filter Logic
         if (destSearchInput) {
             destSearchInput.addEventListener('input', () => {
                 const query = destSearchInput.value.toLowerCase().trim();
@@ -802,7 +938,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
 
-                // Show/hide category headers based on whether any children are visible
                 destCategoryHeaders.forEach(header => {
                     if (!query) {
                         header.classList.remove('hidden');
@@ -834,7 +969,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Clear search
             if (destSearchClear) {
                 destSearchClear.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -845,7 +979,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Option Selection
         destOptions.forEach(opt => {
             opt.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -899,23 +1032,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 enquiryEl.scrollIntoView({ behavior: 'smooth' });
             }
         };
-
-        // Close on outside click
-        document.addEventListener('click', (e) => {
-            if (destWrapper && !destWrapper.contains(e.target)) {
-                closeDestinationMenu();
-            }
-        });
-
-        // Close on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && destMenu && !destMenu.classList.contains('hidden')) {
-                closeDestinationMenu();
-            }
-        });
     }
 
-    // 3. Custom Type of Trip Dropdown
+    // 4. Custom Type of Trip Dropdown
     const tripWrapper = document.getElementById('triptype-dropdown-wrapper');
     const tripTrigger = document.getElementById('triptype-trigger');
     const tripSelectedText = document.getElementById('triptype-selected-text');
@@ -926,7 +1045,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openTripMenu() {
         if (!tripMenu) return;
-        closeDestinationMenu();
+        closeAllDropdowns('trip');
         tripMenu.classList.remove('hidden');
         if (tripChevron) tripChevron.classList.add('rotate-180');
         if (tripTrigger) tripTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
@@ -972,20 +1091,164 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        document.addEventListener('click', (e) => {
-            if (tripWrapper && !tripWrapper.contains(e.target)) {
-                closeTripMenu();
+        // Global helper for services cards to preselect trip type
+        window.selectTripTypeByName = function(tripTypeName) {
+            if (!tripTypeName) return;
+            const target = tripTypeName.trim().toLowerCase();
+            let matchedOption = null;
+
+            const allOptions = document.querySelectorAll('.triptype-option');
+            allOptions.forEach(opt => {
+                const val = (opt.getAttribute('data-value') || '').trim().toLowerCase();
+                if (val === target || val.includes(target) || target.includes(val)) {
+                    matchedOption = opt;
+                }
+            });
+
+            if (matchedOption) {
+                matchedOption.click();
+            } else if (tripHiddenInput && tripSelectedText) {
+                tripHiddenInput.value = tripTypeName;
+                tripSelectedText.textContent = tripTypeName;
+                tripSelectedText.classList.remove('text-gray-400');
+                tripSelectedText.classList.add('text-gray-900', 'font-medium');
+            }
+
+            const enquiryEl = document.getElementById('enquiry');
+            if (enquiryEl) {
+                enquiryEl.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+    }
+
+    // 4b. Custom Approximate Budget Per Person Dropdown
+    const budgetWrapper = document.getElementById('budget-dropdown-wrapper');
+    const budgetTrigger = document.getElementById('budget-trigger');
+    const budgetSelectedText = document.getElementById('budget-selected-text');
+    const budgetChevron = document.getElementById('budget-chevron');
+    const budgetMenu = document.getElementById('budget-menu');
+    const budgetHiddenInput = document.getElementById('enquiry-budget');
+    const budgetOptions = document.querySelectorAll('.budget-option');
+
+    function openBudgetMenu() {
+        if (!budgetMenu) return;
+        closeAllDropdowns('budget');
+        budgetMenu.classList.remove('hidden');
+        if (budgetChevron) budgetChevron.classList.add('rotate-180');
+        if (budgetTrigger) budgetTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
+    }
+
+    function closeBudgetMenu() {
+        if (!budgetMenu) return;
+        budgetMenu.classList.add('hidden');
+        if (budgetChevron) budgetChevron.classList.remove('rotate-180');
+        if (budgetTrigger) budgetTrigger.classList.remove('ring-2', 'ring-accent/20');
+    }
+
+    if (budgetTrigger && budgetMenu) {
+        budgetTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (budgetMenu.classList.contains('hidden')) {
+                openBudgetMenu();
+            } else {
+                closeBudgetMenu();
             }
         });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && tripMenu && !tripMenu.classList.contains('hidden')) {
-                closeTripMenu();
-            }
+        budgetOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = opt.getAttribute('data-value') || '';
+                
+                if (budgetHiddenInput) budgetHiddenInput.value = value;
+                if (budgetSelectedText) {
+                    budgetSelectedText.textContent = value;
+                    budgetSelectedText.classList.remove('text-gray-400');
+                    budgetSelectedText.classList.add('text-gray-900', 'font-medium');
+                }
+
+                budgetOptions.forEach(o => o.classList.remove('bg-teal-50', 'text-accent', 'font-bold'));
+                opt.classList.add('bg-teal-50', 'text-accent', 'font-bold');
+
+                closeBudgetMenu();
+            });
         });
     }
 
-    // 4. Form Submission -> WhatsApp Redirect to +91 90999 06971
+    // 4c. Custom Hotel Preference Dropdown
+    const hotelWrapper = document.getElementById('hotel-dropdown-wrapper');
+    const hotelTrigger = document.getElementById('hotel-trigger');
+    const hotelSelectedText = document.getElementById('hotel-selected-text');
+    const hotelChevron = document.getElementById('hotel-chevron');
+    const hotelMenu = document.getElementById('hotel-menu');
+    const hotelHiddenInput = document.getElementById('enquiry-hotel');
+    const hotelOptions = document.querySelectorAll('.hotel-option');
+
+    function openHotelMenu() {
+        if (!hotelMenu) return;
+        closeAllDropdowns('hotel');
+        hotelMenu.classList.remove('hidden');
+        if (hotelChevron) hotelChevron.classList.add('rotate-180');
+        if (hotelTrigger) hotelTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
+    }
+
+    function closeHotelMenu() {
+        if (!hotelMenu) return;
+        hotelMenu.classList.add('hidden');
+        if (hotelChevron) hotelChevron.classList.remove('rotate-180');
+        if (hotelTrigger) hotelTrigger.classList.remove('ring-2', 'ring-accent/20');
+    }
+
+    if (hotelTrigger && hotelMenu) {
+        hotelTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (hotelMenu.classList.contains('hidden')) {
+                openHotelMenu();
+            } else {
+                closeHotelMenu();
+            }
+        });
+
+        hotelOptions.forEach(opt => {
+            opt.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = opt.getAttribute('data-value') || '';
+                
+                if (hotelHiddenInput) hotelHiddenInput.value = value;
+                if (hotelSelectedText) {
+                    hotelSelectedText.textContent = value;
+                    hotelSelectedText.classList.remove('text-gray-400');
+                    hotelSelectedText.classList.add('text-gray-900', 'font-medium');
+                }
+
+                hotelOptions.forEach(o => o.classList.remove('bg-teal-50', 'text-accent', 'font-bold'));
+                opt.classList.add('bg-teal-50', 'text-accent', 'font-bold');
+
+                closeHotelMenu();
+            });
+        });
+    }
+
+    // Global click outside and escape handlers to close any open dropdowns
+    document.addEventListener('click', (e) => {
+        if (destWrapper && !destWrapper.contains(e.target)) closeDestinationMenu();
+        if (tripWrapper && !tripWrapper.contains(e.target)) closeTripMenu();
+        if (travelDateWrapper && !travelDateWrapper.contains(e.target)) closeTravelDateMenu();
+        if (budgetWrapper && !budgetWrapper.contains(e.target)) closeBudgetMenu();
+        if (hotelWrapper && !hotelWrapper.contains(e.target)) closeHotelMenu();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeAllDropdowns();
+        }
+    });
+
+    // 5. Form Submission -> CRM Save -> WhatsApp Redirect
+    const form = document.getElementById('trip-enquiry-form');
+    const successMsg = document.getElementById('enquiry-success-msg');
+    const submitBtn = document.getElementById('enquiry-submit-btn');
+
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -994,11 +1257,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const countrycode = document.getElementById('enquiry-countrycode')?.value || '+91';
             const phone = (document.getElementById('enquiry-phone')?.value || '').trim();
             const email = (document.getElementById('enquiry-email')?.value || '').trim() || 'Not provided';
+            const departureCity = (document.getElementById('enquiry-departure')?.value || 'Surat').trim();
             const destination = (document.getElementById('enquiry-destination')?.value || '').trim();
-            const travelDate = document.getElementById('enquiry-date')?.value || 'Flexible / Undecided';
-            const travellers = document.getElementById('enquiry-travellers')?.value || '2';
-            const tripType = (document.getElementById('enquiry-triptype')?.value || '').trim();
+            
+            let travelTiming = '';
+            if (isExactDateMode && inputExact && inputExact.value) {
+                travelTiming = inputExact.value;
+            } else if (travelDateHiddenInput && travelDateHiddenInput.value) {
+                travelTiming = travelDateHiddenInput.value;
+            } else {
+                travelTiming = '';
+            }
+
+            const adults = document.getElementById('enquiry-adults')?.value || '2';
+            const children = document.getElementById('enquiry-children')?.value || '0';
+            const childrenAges = (document.getElementById('enquiry-children-ages')?.value || '').trim();
+            const tripType = (tripHiddenInput?.value || document.getElementById('enquiry-triptype')?.value || '').trim();
+            const budget = budgetHiddenInput?.value || document.getElementById('enquiry-budget')?.value || 'Not Decided';
+            const hotel = hotelHiddenInput?.value || document.getElementById('enquiry-hotel')?.value || 'Need Recommendation';
             const notes = (document.getElementById('enquiry-notes')?.value || '').trim() || 'None';
+            const consent = document.getElementById('enquiry-consent')?.checked;
 
             // Validate destination selection
             if (!destination) {
@@ -1006,6 +1284,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     destTrigger.classList.add('border-rose-500', 'ring-2', 'ring-rose-500/20');
                     destTrigger.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     openDestinationMenu();
+                }
+                return;
+            }
+
+            // Validate travel timing selection
+            if (!travelTiming) {
+                if (!isExactDateMode && travelDateTrigger) {
+                    travelDateTrigger.classList.add('border-rose-500', 'ring-2', 'ring-rose-500/20');
+                    travelDateTrigger.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    openTravelDateMenu();
+                } else if (isExactDateMode && inputExact) {
+                    inputExact.focus();
                 }
                 return;
             }
@@ -1020,11 +1310,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Build readymade message
-            const message = `Hello Prapti Tourism! 🌟\nI would like to inquire about planning a trip with the following details:\n\n👤 *Name:* ${fullname}\n📞 *Phone:* ${countrycode} ${phone}\n📧 *Email:* ${email}\n📍 *Preferred Destination:* ${destination}\n🗓 *Approx. Travel Date:* ${travelDate}\n👥 *Number of Travellers:* ${travellers}\n✈️ *Type of Trip:* ${tripType}\n📝 *Additional Requirements:* ${notes}\n\nPlease connect me with a travel specialist. Thank you!`;
+            // Validate consent
+            if (!consent) {
+                alert('Please accept the customer communication consent to proceed.');
+                return;
+            }
+
+            // Save to CRM / local storage database
+            const enquiryRecord = {
+                id: 'ENQ-' + Date.now(),
+                timestamp: new Date().toISOString(),
+                fullname,
+                phone: countrycode + ' ' + phone,
+                email,
+                departureCity,
+                destination,
+                travelTiming,
+                adults,
+                children,
+                childrenAges: parseInt(children, 10) > 0 ? childrenAges : 'N/A',
+                tripType,
+                budget,
+                hotel,
+                notes
+            };
+
+            try {
+                const existing = JSON.parse(localStorage.getItem('prapti_enquiries') || '[]');
+                existing.unshift(enquiryRecord);
+                localStorage.setItem('prapti_enquiries', JSON.stringify(existing));
+                console.log('Enquiry saved to local CRM:', enquiryRecord);
+            } catch (err) {
+                console.warn('Could not save to localStorage:', err);
+            }
+
+            // Build readymade WhatsApp message
+            let message = 'Hello Prapti Tourism! 🌟\n' +
+                'I would like to inquire about planning a holiday with the following details:\n\n' +
+                '*Name:* ' + fullname + '\n' +
+                '*WhatsApp:* ' + countrycode + ' ' + phone + '\n' +
+                '*Email:* ' + email + '\n' +
+                '*Departure City:* ' + departureCity + '\n' +
+                '*Preferred Destination:* ' + destination + '\n' +
+                '*Travel Timing:* ' + travelTiming + '\n' +
+                '*Adults (12+):* ' + adults + '\n';
+
+            if (parseInt(children, 10) > 0) {
+                message += '*Children / Infants:* ' + children + (childrenAges ? ' (Ages: ' + childrenAges + ')' : '') + '\n';
+            }
+
+            message += '*Type of Trip:* ' + tripType + '\n' +
+                '*Budget Per Person:* ' + budget + '\n' +
+                '*Hotel Preference:* ' + hotel + '\n' +
+                '*Additional Requirements:* ' + notes + '\n\n' +
+                'Please share suitable tour options and packages. Thank you!';
 
             const waNumber = '919099906971';
-            const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
+            const waUrl = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(message);
 
             if (submitBtn) {
                 const originalText = submitBtn.innerHTML;
@@ -1043,9 +1385,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 setTimeout(() => {
-                    // Open WhatsApp in new tab
                     window.open(waUrl, '_blank');
-
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
                 }, 800);
@@ -1056,7 +1396,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// FAQ Accordion & Load More Interaction
+// FAQ Accordion & Load More Interaction (12 FAQs)
 document.addEventListener('DOMContentLoaded', () => {
     const faqContainer = document.getElementById('faq-accordion-container');
     const loadMoreBtn = document.getElementById('faq-load-more');
@@ -1122,7 +1462,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (loadMoreText) {
-                loadMoreText.textContent = isExpanded ? 'Show less' : 'Load more';
+                loadMoreText.textContent = isExpanded ? 'Show less questions' : 'View all 12 questions';
             }
             if (loadMoreArrow) {
                 loadMoreArrow.innerHTML = isExpanded ? '&uarr;' : '&darr;';
