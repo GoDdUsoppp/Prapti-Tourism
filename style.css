@@ -67,184 +67,217 @@ body {
 }
 
 
-    /* Logo Styling & Transparent/Scrolled Switching */
+/* Logo Styling & Transparent/Scrolled Switching */
+.nav-logo-img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    image-rendering: -webkit-optimize-contrast;
+    transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
     .nav-logo-img {
-        height: 48px;
-        width: auto;
-        object-fit: contain;
-        image-rendering: -webkit-optimize-contrast;
-        transition: all 0.3s ease;
+        height: 52px;
     }
+}
 
-    @media (min-width: 640px) {
-        .nav-logo-img {
-            height: 52px;
-        }
-    }
-
-    @media (min-width: 768px) {
         .nav-logo-img {
             height: 54px;
         }
     }
 
-    @media (min-width: 1024px) {
-        .nav-logo-img {
-            height: 60px;
-        }
-    }
 
-    #navbar.nav-transparent .logo-light {
-        display: block !important;
-        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
-    }
-
-    #navbar.nav-transparent .logo-dark {
-        display: none !important;
-    }
-
-    /* Scrolled Navbar (when user scrolls down) */
-    #navbar.nav-scrolled {
-        background-color: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        padding-top: 0.85rem;
-        padding-bottom: 0.85rem;
-    }
-
-    #navbar.nav-scrolled .logo-light {
-        display: none !important;
-    }
-
-    #navbar.nav-scrolled .logo-dark {
-        display: block !important;
-        filter: none;
-    }
-
-    #navbar.nav-scrolled .nav-link {
-        color: #0B2038;
-        letter-spacing: 0.08em;
-        font-weight: 600;
-    }
-
-    #navbar.nav-scrolled .nav-link:hover {
-        color: #00849E;
-    }
-
-    #navbar.nav-scrolled .nav-btn {
-        background-color: #0B2038;
-        color: #ffffff;
-    }
-
-    #navbar.nav-scrolled .nav-btn:hover {
-        background-color: #00849E;
-        transform: translateY(-1px);
-    }
-
-    #navbar.nav-scrolled #mobile-menu-btn {
-        color: #0B2038;
-    }
-
-
-        #navbar.nav-scrolled .nav-logo-img {
-            height: 42px;
-        }
-
-        @media (min-width: 768px) {
-            #navbar.nav-scrolled .nav-logo-img {
-                height: 46px;
+        @media (min-width: 1024px) {
+            .nav-logo-img {
+                height: 58px;
             }
         }
 
-        /* ------------------------------------- */
-        /* Hero Video & Sticky Curtain Overlay   */
-        /* ------------------------------------- */
 
-        html,
-        body {
-            overflow-x: clip;
-        }
+            @media (min-width: 1280px) {
+                .nav-logo-img {
+                    height: 62px;
+                }
+            }
 
-        #hero {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            min-height: 600px;
-            width: 100%;
-            z-index: 0;
-            will-change: transform, opacity;
-        }
 
-        #hero video {
-            pointer-events: none;
-            will-change: transform, filter;
-        }
+            #navbar.nav-transparent .logo-light {
+                display: block !important;
+                filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
+            }
 
-        /* Rest of the website overlays over the sticky hero */
-        #main-content {
-            position: relative;
-            z-index: 10;
-            background-color: #ffffff;
-            box-shadow: 0 -25px 60px -10px rgba(0, 0, 0, 0.5), 0 -10px 25px -5px rgba(0, 0, 0, 0.3);
-        }
 
-        #hero h1 {
-            text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
-            line-height: 1.16;
-            letter-spacing: -0.015em;
-        }
+            #navbar.nav-transparent .logo-dark {
+                display: none !important;
+            }
 
-        #hero p {
-            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-        }
+            /* Scrolled Navbar (when user scrolls down) */
+            #navbar.nav-scrolled {
+                background-color: rgba(255, 255, 255, 0.96);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+                padding-top: 0.85rem;
+                padding-bottom: 0.85rem;
+            }
 
-        /* Odometer typography alignment in stats section */
-        .odometer.odometer-auto-theme,
-        .odometer.odometer-theme-default {
-            font-family: inherit;
-            line-height: 1;
-        }
+            #navbar.nav-scrolled .logo-light {
+                display: none !important;
+            }
 
-        /* Hide scrollbar for carousels */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
 
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+            #navbar.nav-scrolled .logo-dark {
+                display: block !important;
+                filter: none;
+            }
 
-        /* Custom scrollbar for Searchable Destination Dropdown */
-        .custom-destination-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
 
-        .custom-destination-scroll::-webkit-scrollbar-track {
-            background: #f1f5f9;
-            border-radius: 9999px;
-        }
+            #navbar.nav-scrolled .nav-link {
+                color: #0B2038;
+                letter-spacing: 0.08em;
+                font-weight: 600;
+            }
 
-        .custom-destination-scroll::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 9999px;
-        }
 
-        .custom-destination-scroll::-webkit-scrollbar-thumb:hover {
-            background: #00849E;
-        }
+            #navbar.nav-scrolled .nav-link:hover {
+                color: #00849E;
+            }
 
-        /* Destination Cards - Luxurious Travel Elevation & Feathered Shadow Depth */
-        .destination-card {
-            box-shadow: 0 14px 34px -4px rgba(11, 32, 56, 0.18), 0 6px 14px -3px rgba(11, 32, 56, 0.1) !important;
-            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            will-change: transform, box-shadow;
-        }
+                #navbar.nav-scrolled .nav-btn {
+                    background-color: #0B2038;
+                    color: #ffffff;
+                }
 
-        .destination-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 26px 50px -10px rgba(11, 32, 56, 0.3), 0 12px 22px -6px rgba(11, 32, 56, 0.15) !important;
-        }
+                #navbar.nav-scrolled .nav-btn:hover {
+                    background-color: #00849E;
+                    transform: translateY(-1px);
+                }
+
+                #navbar.nav-scrolled #mobile-menu-btn {
+                    color: #0B2038;
+                }
+
+                #navbar.nav-scrolled .nav-logo-img {
+                    height: 42px;
+                }
+
+                @media (min-width: 768px) {
+                    #navbar.nav-scrolled .nav-logo-img {
+                        height: 46px;
+                    }
+                }
+
+
+                    @media (min-width: 1280px) {
+                        #navbar.nav-scrolled .nav-logo-img {
+                            height: 50px;
+                        }
+                    }
+
+                    #navbar.nav-scrolled #mobile-menu-btn {
+                        color: #0B2038;
+                    }
+
+
+                    #navbar.nav-scrolled .nav-logo-img {
+                        height: 42px;
+                    }
+
+                    @media (min-width: 768px) {
+                        #navbar.nav-scrolled .nav-logo-img {
+                            height: 46px;
+                        }
+                    }
+
+                    /* ------------------------------------- */
+                    /* Hero Video & Sticky Curtain Overlay   */
+                    /* ------------------------------------- */
+
+                    html,
+                    body {
+                        overflow-x: clip;
+                    }
+
+                    #hero {
+                        position: -webkit-sticky;
+                        position: sticky;
+                        top: 0;
+                        height: 100vh;
+                        min-height: 600px;
+                        width: 100%;
+                        z-index: 0;
+                        will-change: transform, opacity;
+                    }
+
+                    #hero video {
+                        pointer-events: none;
+                        will-change: transform, filter;
+                    }
+
+                    /* Rest of the website overlays over the sticky hero */
+                    #main-content {
+                        position: relative;
+                        z-index: 10;
+                        background-color: #ffffff;
+                        box-shadow: 0 -25px 60px -10px rgba(0, 0, 0, 0.5), 0 -10px 25px -5px rgba(0, 0, 0, 0.3);
+                    }
+
+                    #hero h1 {
+                        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+                        line-height: 1.16;
+                        letter-spacing: -0.015em;
+                    }
+
+                    #hero p {
+                        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+                    }
+
+                    /* Odometer typography alignment in stats section */
+                    .odometer.odometer-auto-theme,
+                    .odometer.odometer-theme-default {
+                        font-family: inherit;
+                        line-height: 1;
+                    }
+
+                    /* Hide scrollbar for carousels */
+                    .no-scrollbar::-webkit-scrollbar {
+                        display: none;
+                    }
+
+                    .no-scrollbar {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+
+                    /* Custom scrollbar for Searchable Destination Dropdown */
+                    .custom-destination-scroll::-webkit-scrollbar {
+                        width: 6px;
+                    }
+
+                    .custom-destination-scroll::-webkit-scrollbar-track {
+                        background: #f1f5f9;
+                        border-radius: 9999px;
+                    }
+
+                    .custom-destination-scroll::-webkit-scrollbar-thumb {
+                        background: #cbd5e1;
+                        border-radius: 9999px;
+                    }
+
+                    .custom-destination-scroll::-webkit-scrollbar-thumb:hover {
+                        background: #00849E;
+                    }
+
+                    /* Destination Cards - Luxurious Travel Elevation & Feathered Shadow Depth */
+                    .destination-card {
+                        box-shadow: 0 14px 34px -4px rgba(11, 32, 56, 0.18), 0 6px 14px -3px rgba(11, 32, 56, 0.1) !important;
+                        transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                        will-change: transform, box-shadow;
+                    }
+
+                    .destination-card:hover {
+                        transform: translateY(-5px) !important;
+                        box-shadow: 0 26px 50px -10px rgba(11, 32, 56, 0.3), 0 12px 22px -6px rgba(11, 32, 56, 0.15) !important;
+                    }

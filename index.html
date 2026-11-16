@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css?v=1793610999">
     <link rel="stylesheet" href="style.css?v=1794825500">
+    <link rel="stylesheet" href="style.css?v=1794825900">
     <script>
         tailwind.config = {
             theme: {
@@ -61,12 +62,19 @@
                 <img src="images/prapti-logo-white-teal.png" alt="Prapti Tourism" class="logo-light nav-logo-img">
                 <img src="images/prapti-logo-transparent.png" alt="Prapti Tourism"
                     class="logo-dark nav-logo-img hidden">
-            </a>
+                class="w-full fixed top-0 left-0 z-50 flex items-center justify-between px-5 sm:px-8 md:px-10 lg:px-12
+                xl:px-16 py-3.5 sm:py-4 xl:py-5 transition-all duration-300 nav-transparent">
 
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wider">
-                <div
-                    class="hidden md:flex items-center gap-3.5 lg:gap-6 xl:gap-8 text-xs lg:text-sm font-semibold tracking-wider shrink-0">
+                <!-- Logo (Visible on all devices) -->
+                <a href="#" class="flex items-center gap-2 cursor-pointer z-10 shrink-0"
+                    aria-label="Prapti Tourism Home">
+                    <img src="images/prapti-logo-white-teal.png" alt="Prapti Tourism" class="logo-light nav-logo-img">
+                    <img src="images/prapti-logo-transparent.png" alt="Prapti Tourism"
+                        class="logo-dark nav-logo-img hidden">
+                </a>
+
+                <!-- Desktop Links & Action Button (Visible ONLY on Desktop >= 1280px / xl) -->
+                <div class="hidden xl:flex items-center gap-7 2xl:gap-8 text-sm font-semibold tracking-wider shrink-0">
                     <a href="#about" class="nav-link transition-colors">ABOUT US</a>
                     <a href="#domestic" class="nav-link transition-colors">DOMESTIC</a>
                     <a href="#international" class="nav-link transition-colors">INTERNATIONAL</a>
@@ -74,45 +82,108 @@
                     <a href="#reviews" class="nav-link transition-colors">REVIEWS</a>
                     <a href="#faq" class="nav-link transition-colors">FAQ</a>
                     <a href="#enquiry"
-                        class="nav-btn px-6 py-2.5 rounded font-semibold tracking-wide transition-all shadow-sm">
-                        <a href="#enquiry"
-                            class="nav-btn px-4 lg:px-6 py-2 lg:py-2.5 rounded font-semibold text-xs lg:text-sm tracking-wide transition-all shadow-sm shrink-0">
-                            PLAN A TRIP
-                        </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="focus:outline-none p-2 transition-colors"
-                        aria-label="Toggle Menu">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-
-                <!-- Mobile Menu Dropdown -->
-                <div id="mobile-menu"
-                    class="hidden md:hidden absolute top-full left-0 w-full bg-[#0B2038]/95 backdrop-blur-lg border-b border-white/10 px-6 py-6 flex flex-col gap-4 text-white shadow-xl">
-                    <a href="#about"
-                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">ABOUT
-                        US</a>
-                    <a href="#domestic"
-                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">DOMESTIC</a>
-                    <a href="#international"
-                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">INTERNATIONAL</a>
-                    <a href="#services"
-                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">SERVICES</a>
-                    <a href="#reviews"
-                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">REVIEWS</a>
-                    <a href="#faq"
-                        class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">FAQ</a>
-                    <a href="#enquiry"
-                        class="w-full text-center bg-white text-gray-900 py-3 rounded font-semibold tracking-wide mt-2 shadow">
+                        class="nav-btn px-6 py-2.5 rounded font-semibold text-sm tracking-wide transition-all shadow-sm shrink-0">
                         PLAN A TRIP
                     </a>
                 </div>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wider">
+                    <div
+                        class="hidden md:flex items-center gap-3.5 lg:gap-6 xl:gap-8 text-xs lg:text-sm font-semibold tracking-wider shrink-0">
+                        <a href="#about" class="nav-link transition-colors">ABOUT US</a>
+                        <a href="#domestic" class="nav-link transition-colors">DOMESTIC</a>
+                        <a href="#international" class="nav-link transition-colors">INTERNATIONAL</a>
+                        <a href="#services" class="nav-link transition-colors">SERVICES</a>
+                        <a href="#reviews" class="nav-link transition-colors">REVIEWS</a>
+                        <a href="#faq" class="nav-link transition-colors">FAQ</a>
+                        <a href="#enquiry"
+                            class="nav-btn px-6 py-2.5 rounded font-semibold tracking-wide transition-all shadow-sm">
+                            <a href="#enquiry"
+                                class="nav-btn px-4 lg:px-6 py-2 lg:py-2.5 rounded font-semibold text-xs lg:text-sm tracking-wide transition-all shadow-sm shrink-0">
+                                PLAN A TRIP
+                            </a>
+                    </div>
+                    <!-- Menu Icon / Hamburger (Visible on iPads, Phones, Tablets < 1280px / xl:hidden) -->
+                    <div class="xl:hidden flex items-center">
+                        <button type="button" id="mobile-menu-btn"
+                            class="p-2 sm:p-2.5 rounded-lg focus:outline-none transition-all duration-200 cursor-pointer flex items-center justify-center hover:bg-white/10"
+                            aria-label="Toggle Menu" aria-expanded="false">
+                            <svg id="hamburger-icon-open"
+                                class="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-200" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <svg id="hamburger-icon-close"
+                                class="w-7 h-7 sm:w-8 sm:h-8 hidden transition-transform duration-200" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden flex items-center">
+                        <button id="mobile-menu-btn" class="focus:outline-none p-2 transition-colors"
+                            aria-label="Toggle Menu">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Dropdown -->
+                    <div id="mobile-menu"
+                        class="hidden md:hidden absolute top-full left-0 w-full bg-[#0B2038]/95 backdrop-blur-lg border-b border-white/10 px-6 py-6 flex flex-col gap-4 text-white shadow-xl">
+                        <a href="#about"
+                            class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">ABOUT
+                            US</a>
+                        <a href="#domestic"
+                            class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">DOMESTIC</a>
+                        <a href="#international"
+                            class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">INTERNATIONAL</a>
+                        <a href="#services"
+                            class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">SERVICES</a>
+                        <a href="#reviews"
+                            class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">REVIEWS</a>
+                        <a href="#faq"
+                            class="text-sm font-semibold tracking-wider hover:text-accent transition-colors">FAQ</a>
+                        <a href="#enquiry"
+                            class="w-full text-center bg-white text-gray-900 py-3 rounded font-semibold tracking-wide mt-2 shadow">
+                            PLAN A TRIP
+                        </a>
+                    </div>
+                    <!-- Dropdown Menu Drawer for iPads, Phones, Tablets (< 1280px) -->
+                    <div id="mobile-menu"
+                        class="hidden xl:hidden absolute top-full left-0 w-full bg-[#0B2038]/95 backdrop-blur-xl border-b border-white/10 px-6 sm:px-10 py-6 sm:py-8 flex flex-col gap-4 text-white shadow-2xl transition-all duration-300">
+                        <a href="#about"
+                            class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">ABOUT
+                            US</a>
+                        <a href="#domestic"
+                            class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">DOMESTIC</a>
+                        <a href="#international"
+                            class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">INTERNATIONAL</a>
+                        <a href="#services"
+                            class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">SERVICES</a>
+                        <a href="#reviews"
+                            class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">REVIEWS</a>
+                        <a href="#faq"
+                            class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">FAQ</a>
+
+                        <div class="pt-2 border-t border-white/10 mt-1">
+                            <a href="#enquiry"
+                                class="mobile-nav-link w-full text-center bg-accent hover:bg-accentHover text-white py-3.5 rounded-xl font-bold tracking-wide shadow-md flex items-center justify-center gap-2 transition-colors">
+                                <span>PLAN A TRIP</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
     </nav>
 
     <!-- Fullscreen Hero Video Section -->

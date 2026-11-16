@@ -252,17 +252,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Mobile Menu Toggle
+    // Mobile / Tablet Menu Toggle (Devices < 1280px: iPads, Phones, Tablets)
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('hamburger-icon-open');
+    const iconClose = document.getElementById('hamburger-icon-close');
+
     if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = !mobileMenu.classList.contains('hidden');
+            if (isOpen) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                if (iconOpen) iconOpen.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            } else {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                if (iconOpen) iconOpen.classList.add('hidden');
+                if (iconClose) iconClose.classList.remove('hidden');
+            }
         });
+
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                if (iconOpen) iconOpen.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
             });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                if (iconOpen) iconOpen.classList.remove('hidden');
+                if (iconClose) iconClose.classList.add('hidden');
+            }
         });
     }
 
