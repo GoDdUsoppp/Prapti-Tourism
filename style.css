@@ -67,7 +67,42 @@ body {
 }
 
 
-/* Logo Styling & Transparent/Scrolled Switching */
+/* Scrolled Navbar (when user scrolls down) */
+#navbar.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+
+#navbar.nav-scrolled .nav-link {
+    color: #0B2038;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+#navbar.nav-scrolled .nav-link:hover {
+    color: #00849E;
+}
+
+#navbar.nav-scrolled .nav-btn {
+    background-color: #0B2038;
+    color: #ffffff;
+}
+
+#navbar.nav-scrolled .nav-btn:hover {
+    background-color: #00849E;
+    transform: translateY(-1px);
+}
+
+#navbar.nav-scrolled #mobile-menu-btn {
+    color: #0B2038;
+}
+
+/* Logo Styling */
 .nav-logo-img {
     height: 48px;
     width: auto;
@@ -82,114 +117,39 @@ body {
     }
 }
 
-        .nav-logo-img {
-            height: 54px;
-        }
+@media (min-width: 1024px) {
+    .nav-logo-img {
+        height: 56px;
     }
+}
 
+@media (min-width: 1280px) {
+    .nav-logo-img {
+        height: 60px;
+    }
+}
 
-        @media (min-width: 1024px) {
-            .nav-logo-img {
-                height: 58px;
-            }
-        }
+/* Authentic brand logo contrast filter when transparent over dark video */
+#navbar.nav-transparent .nav-logo-img {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+}
 
+#navbar.nav-scrolled .nav-logo-img {
+    filter: none;
+    height: 44px;
+}
 
-            @media (min-width: 1280px) {
-                .nav-logo-img {
-                    height: 62px;
-                }
-            }
+@media (min-width: 768px) {
+    #navbar.nav-scrolled .nav-logo-img {
+        height: 48px;
+    }
+}
 
-
-            #navbar.nav-transparent .logo-light {
-                display: block !important;
-                filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
-            }
-
-
-            #navbar.nav-transparent .logo-dark {
-                display: none !important;
-            }
-
-            /* Scrolled Navbar (when user scrolls down) */
-            #navbar.nav-scrolled {
-                background-color: rgba(255, 255, 255, 0.96);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
-                border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-                padding-top: 0.85rem;
-                padding-bottom: 0.85rem;
-            }
-
-            #navbar.nav-scrolled .logo-light {
-                display: none !important;
-            }
-
-
-            #navbar.nav-scrolled .logo-dark {
-                display: block !important;
-                filter: none;
-            }
-
-
-            #navbar.nav-scrolled .nav-link {
-                color: #0B2038;
-                letter-spacing: 0.08em;
-                font-weight: 600;
-            }
-
-
-            #navbar.nav-scrolled .nav-link:hover {
-                color: #00849E;
-            }
-
-                #navbar.nav-scrolled .nav-btn {
-                    background-color: #0B2038;
-                    color: #ffffff;
-                }
-
-                #navbar.nav-scrolled .nav-btn:hover {
-                    background-color: #00849E;
-                    transform: translateY(-1px);
-                }
-
-                #navbar.nav-scrolled #mobile-menu-btn {
-                    color: #0B2038;
-                }
-
-                #navbar.nav-scrolled .nav-logo-img {
-                    height: 42px;
-                }
-
-                @media (min-width: 768px) {
-                    #navbar.nav-scrolled .nav-logo-img {
-                        height: 46px;
-                    }
-                }
-
-
-                    @media (min-width: 1280px) {
-                        #navbar.nav-scrolled .nav-logo-img {
-                            height: 50px;
-                        }
-                    }
-
-                    #navbar.nav-scrolled #mobile-menu-btn {
-                        color: #0B2038;
-                    }
-
-
-                    #navbar.nav-scrolled .nav-logo-img {
-                        height: 42px;
-                    }
-
-                    @media (min-width: 768px) {
-                        #navbar.nav-scrolled .nav-logo-img {
-                            height: 46px;
-                        }
-                    }
+@media (min-width: 1280px) {
+    #navbar.nav-scrolled .nav-logo-img {
+        height: 52px;
+    }
+}
 
                     /* ------------------------------------- */
                     /* Hero Video & Sticky Curtain Overlay   */
