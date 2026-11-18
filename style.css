@@ -241,3 +241,29 @@ body {
                         transform: translateY(-5px) !important;
                         box-shadow: 0 26px 50px -10px rgba(11, 32, 56, 0.3), 0 12px 22px -6px rgba(11, 32, 56, 0.15) !important;
                     }
+
+/* Footer layout safeguard for tablets (iPad Mini 768px) & mobile */
+footer {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer .grid > div {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Why Choose Section - Crystal Glassmorphism to highlight the Prapti "P" watermark */
+.why-choose-card {
+    background: rgba(255, 255, 255, 0.68) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+}
+
+.why-choose-card:hover {
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-color: #00849E !important;
+}
