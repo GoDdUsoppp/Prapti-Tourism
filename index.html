@@ -26,7 +26,8 @@
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css?v=1795353526978">
+    <link rel="stylesheet" href="style.css?v=1795100000">
+    <link rel="stylesheet" href="style.css?v=1795150000">
     <script>
         tailwind.config = {
             theme: {
@@ -51,11 +52,10 @@
     <!-- Navbar -->
     <nav id="navbar"
         class="w-full fixed top-0 left-0 z-50 flex items-center justify-between px-5 sm:px-8 md:px-10 lg:px-12 xl:px-16 py-3.5 sm:py-4 xl:py-5 transition-all duration-300 nav-transparent">
-        
+
         <!-- Logo (Visible on all devices) -->
         <a href="#" class="flex items-center gap-2 cursor-pointer z-10 shrink-0" aria-label="Prapti Tourism Home">
-            <img id="nav-logo" src="images/prapti-logo-transparent.png?v=2" alt="Prapti Tourism"
-                class="nav-logo-img">
+            <img id="nav-logo" src="images/prapti-logo-transparent.png?v=2" alt="Prapti Tourism" class="nav-logo-img">
         </a>
 
         <!-- Desktop Links & Action Button (Visible ONLY on Desktop >= 1280px / xl) -->
@@ -77,10 +77,12 @@
             <button type="button" id="mobile-menu-btn"
                 class="p-2 sm:p-2.5 rounded-lg focus:outline-none transition-all duration-200 cursor-pointer flex items-center justify-center hover:bg-white/10"
                 aria-label="Toggle Menu" aria-expanded="false">
-                <svg id="hamburger-icon-open" class="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg id="hamburger-icon-open" class="w-7 h-7 sm:w-8 sm:h-8 transition-transform duration-200"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
-                <svg id="hamburger-icon-close" class="w-7 h-7 sm:w-8 sm:h-8 hidden transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg id="hamburger-icon-close" class="w-7 h-7 sm:w-8 sm:h-8 hidden transition-transform duration-200"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
@@ -89,18 +91,28 @@
         <!-- Dropdown Menu Drawer for iPads, Phones, Tablets (< 1280px) -->
         <div id="mobile-menu"
             class="hidden xl:hidden absolute top-full left-0 w-full bg-[#0B2038]/95 backdrop-blur-xl border-b border-white/10 px-6 sm:px-10 py-6 sm:py-8 flex flex-col gap-4 text-white shadow-2xl transition-all duration-300">
-            <a href="#about" class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">ABOUT US</a>
-            <a href="#domestic" class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">DOMESTIC</a>
-            <a href="#international" class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">INTERNATIONAL</a>
-            <a href="#services" class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">SERVICES</a>
-            <a href="#reviews" class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">REVIEWS</a>
-            <a href="#faq" class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">FAQ</a>
-            
+            <a href="#about"
+                class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">ABOUT
+                US</a>
+            <a href="#domestic"
+                class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">DOMESTIC</a>
+            <a href="#international"
+                class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">INTERNATIONAL</a>
+            <a href="#services"
+                class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">SERVICES</a>
+            <a href="#reviews"
+                class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">REVIEWS</a>
+            <a href="#faq"
+                class="mobile-nav-link text-base font-semibold tracking-wider hover:text-accent transition-colors py-1">FAQ</a>
+
             <div class="pt-2 border-t border-white/10 mt-1">
                 <a href="#enquiry"
                     class="mobile-nav-link w-full text-center bg-accent hover:bg-accentHover text-white py-3.5 rounded-xl font-bold tracking-wide shadow-md flex items-center justify-center gap-2 transition-colors">
                     <span>PLAN A TRIP</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                 </a>
             </div>
         </div>
@@ -400,7 +412,9 @@
                                     d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                             </svg>
                         </div>
-                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">Domestic &
+                        <h3
+                            class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">
+                            Domestic &
                             International</h3>
                         <p class="text-sm sm:text-[15px] text-gray-600 leading-relaxed font-sans">
                             Explore holiday packages across India and international destinations.
@@ -418,7 +432,9 @@
                                     d="M4 6h16M4 12h16M4 18h16M8 4v4m8 2v4m-6 4v4" />
                             </svg>
                         </div>
-                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">Personalized Holidays
+                        <h3
+                            class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">
+                            Personalized Holidays
                         </h3>
                         <p class="text-sm sm:text-[15px] text-gray-600 leading-relaxed font-sans">
                             Travel plans tailored to your interests, preferences and budget.
@@ -436,7 +452,9 @@
                                     d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4" />
                             </svg>
                         </div>
-                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">Clear Travel Planning
+                        <h3
+                            class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">
+                            Clear Travel Planning
                         </h3>
                         <p class="text-sm sm:text-[15px] text-gray-600 leading-relaxed font-sans">
                             Practical itineraries with thoughtfully arranged travel details.
@@ -454,7 +472,9 @@
                                     d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                             </svg>
                         </div>
-                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">Family & Group Tours
+                        <h3
+                            class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">
+                            Family & Group Tours
                         </h3>
                         <p class="text-sm sm:text-[15px] text-gray-600 leading-relaxed font-sans">
                             Comfortable holidays for families, couples, friends and groups.
@@ -472,7 +492,9 @@
                                     d="M6 9V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4M4 9h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zm4 4v4m8-4v4" />
                             </svg>
                         </div>
-                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">Travel Arrangements
+                        <h3
+                            class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">
+                            Travel Arrangements
                         </h3>
                         <p class="text-sm sm:text-[15px] text-gray-600 leading-relaxed font-sans">
                             Assistance with hotels, transfers, sightseeing and flights.
@@ -490,7 +512,9 @@
                                     d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
                             </svg>
                         </div>
-                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">Helpful Travel
+                        <h3
+                            class="font-serif text-xl sm:text-2xl font-bold text-primary mb-2.5 group-hover:text-accent transition-colors duration-300">
+                            Helpful Travel
                             Support</h3>
                         <p class="text-sm sm:text-[15px] text-gray-600 leading-relaxed font-sans">
                             Guidance with planning, arrangements and travel-related questions.
@@ -1284,10 +1308,12 @@
                         <div class="relative z-10 mt-auto flex flex-col">
                             <p class="text-xs font-semibold tracking-widest text-accent uppercase mb-2">CUSTOMIZED TOUR
                                 PACKAGES</p>
-                            <h3 class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide mb-3">
+                            <h3
+                                class="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-wide mb-3">
                                 Customized Holiday Packages
                             </h3>
-                            <p class="text-sm sm:text-base text-gray-200 leading-relaxed font-sans max-w-xl mb-5 sm:mb-6">
+                            <p
+                                class="text-sm sm:text-base text-gray-200 leading-relaxed font-sans max-w-xl mb-5 sm:mb-6">
                                 Discover personalized domestic and international tour packages designed around your
                                 destination, budget, travel dates and preferences. Enjoy thoughtfully planned
                                 itineraries, sightseeing experiences and comfortable stays.
@@ -1313,7 +1339,8 @@
                                     <span>Plan Your Holiday</span>
                                     <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5"
                                         fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </a>
                             </div>
@@ -1457,7 +1484,8 @@
                                     <span>Explore Honeymoon Packages</span>
                                     <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1.5"
                                         fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </a>
                             </div>
@@ -1493,7 +1521,8 @@
                                     <span>Explore Group Holidays</span>
                                     <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1.5"
                                         fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </a>
                             </div>
@@ -2911,7 +2940,7 @@
             </div>
         </section>
 
-        <!-- Section: Prapti Tourism WhatsApp Channel (Between FAQ and Footer) -->
+<!-- Section: Prapti Tourism WhatsApp Channel (Between FAQ and Footer) -->
         <style id="wa-channel-critical-css">
         .wa-channel-section {
             --bg: #06283d;
@@ -3010,6 +3039,36 @@
             width: 100% !important;
             min-height: 640px !important;
         }
+        .wa-channel-section .stamp {
+            position: absolute !important;
+            top: 50% !important;
+            left: 50% !important;
+            transform: translate(-50%, -50%) !important;
+            width: min(520px, 95vw) !important;
+            max-width: 520px !important;
+            aspect-ratio: 1 !important;
+            pointer-events: none !important;
+            z-index: 1 !important;
+        }
+        .wa-channel-section .stamp svg {
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+            animation: wa-spin 60s linear infinite !important;
+            transform-origin: center center !important;
+        }
+        .wa-channel-section .stamp circle {
+            fill: none !important;
+            stroke: rgba(141, 211, 232, 0.22) !important;
+            stroke-width: 1.2 !important;
+        }
+        .wa-channel-section .stamp text {
+            fill: #8dd3e8 !important;
+            font: 600 16px var(--board, "Barlow Condensed", sans-serif) !important;
+            letter-spacing: 0.22em !important;
+            text-transform: uppercase !important;
+            opacity: 0.55 !important;
+        }
         .wa-channel-section .phone {
             position: relative !important;
             width: min(100%, 320px) !important;
@@ -3021,7 +3080,7 @@
             box-shadow: 0 0 0 1.5px rgba(238, 248, 251, 0.12), 0 35px 65px -15px rgba(1, 10, 17, 0.85), 0 0 80px -10px rgba(77, 185, 219, 0.3) !important;
             overflow: hidden !important;
             margin: 0 auto !important;
-            z-index: 2;
+            z-index: 2 !important;
         }
         .wa-channel-section .screen {
             position: absolute !important;
@@ -3039,14 +3098,16 @@
             min-height: 0 !important;
             display: flex !important;
             flex-direction: column !important;
-            justify-content: flex-start !important;
+            justify-content: flex-end !important;
             gap: 10px !important;
             padding: 12px 10px !important;
             overflow-y: auto !important;
             scrollbar-width: none !important;
             background-image: radial-gradient(rgba(141, 211, 232, 0.08) 1.2px, transparent 1.4px) !important;
             background-size: 14px 14px !important;
+            transition: opacity 0.6s ease !important;
         }
+        .wa-channel-section .feed.out { opacity: 0 !important; }
         .wa-channel-section .feed::-webkit-scrollbar { display: none; }
         .wa-channel-section .post {
             flex: none !important;
@@ -3054,16 +3115,22 @@
             border-radius: 4px 14px 14px 14px !important;
             background: #123247 !important;
             color: #e6f3f8 !important;
+            opacity: 0;
+            transform: translateY(18px) scale(0.96);
+            transform-origin: left bottom;
+            transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.2, 0.9, 0.25, 1.15) !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.25) !important;
+        }
+        .wa-channel-section .post.in {
             opacity: 1 !important;
             transform: none !important;
             display: block !important;
             visibility: visible !important;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.25) !important;
         }
         .wa-channel-section .post video {
             display: block !important;
             width: 100% !important;
-            height: 140px !important;
+            height: 135px !important;
             object-fit: cover !important;
             border-radius: 8px !important;
             background: #000 !important;
@@ -3082,9 +3149,14 @@
             transform: rotate(-5deg) !important;
             z-index: 10 !important;
         }
+        @keyframes wa-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
         @media (max-width: 960px) {
             .wa-channel-section .wa-grid { grid-template-columns: minmax(0, 1fr) !important; }
             .wa-channel-section .visual { min-height: 0 !important; margin-top: 24px !important; }
+            .wa-channel-section .stamp { width: min(420px, 92vw) !important; }
             .wa-channel-section .qr-card { position: relative !important; left: auto !important; bottom: auto !important; margin-top: -38px !important; transform: rotate(-3deg) !important; }
         }
         </style>
@@ -3099,11 +3171,12 @@
                     </svg>
                 </div>
 
-                <div class="wa-grid" aria-labelledby="ch-title">
+                <div class="wa-grid grid" aria-labelledby="ch-title">
                     <div class="copy">
                         <p class="pill"><i></i>Follow along &middot; Free</p>
                         <h2 id="ch-title">Your next trip idea, <em>straight to WhatsApp.</em></h2>
-                        <p class="lede">Follow the Prapti Tourism channel for destination ideas, new tours and travel tips. No forms and no sign-ups. Tap the button, or scan the code with your phone.</p>
+                        <p class="lede">Follow the Prapti Tourism channel for destination ideas, new tours and travel
+                            tips. No forms and no sign-ups. Tap the button, or scan the code with your phone.</p>
 
                         <ul class="finds" id="finds">
                             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.6"/></svg><span>Destination ideas</span></li>
@@ -3114,7 +3187,13 @@
 
                         <div class="actions">
                             <a class="cta" id="join" href="https://whatsapp.com/channel/praptitourism" target="_blank" rel="noopener noreferrer">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 20.8l1.3-4.4A8.9 8.9 0 1 1 8 19.6z"/><path d="M9 8.4c-.3.3-.6.8-.5 1.4.3 1.4 1.5 3 3 4 1.2.8 2.4 1.2 3.1.9.5-.2.9-.8.9-1.1l-1.6-1-.9.7c-.9-.4-1.9-1.3-2.4-2.3l.7-.9-.9-1.8c-.3-.1-1.1 0-1.4.1z" fill="currentColor" stroke="none"/></svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3.2 20.8l1.3-4.4A8.9 8.9 0 1 1 8 19.6z" />
+                                    <path
+                                        d="M9 8.4c-.3.3-.6.8-.5 1.4.3 1.4 1.5 3 3 4 1.2.8 2.4 1.2 3.1.9.5-.2.9-.8.9-1.1l-1.6-1-.9.7c-.9-.4-1.9-1.3-2.4-2.3l.7-.9-.9-1.8c-.3-.1-1.1 0-1.4.1z"
+                                        fill="currentColor" stroke="none" />
+                                </svg>
                                 Join WhatsApp Channel
                             </a>
                             <button type="button" class="linkbtn" id="copy">Copy channel link</button>
@@ -3123,60 +3202,50 @@
                     </div>
 
                     <div class="visual">
-                        <div class="stamp" aria-hidden="true">
-                            <svg viewBox="0 0 400 400">
-                                <defs><path id="ring" d="M200 200 m-150 0 a150 150 0 1 1 300 0 a150 150 0 1 1 -300 0"/></defs>
-                                <circle cx="200" cy="200" r="178"/><circle cx="200" cy="200" r="124"/>
-                                <text><textPath href="#ring" textLength="930" lengthAdjust="spacing">PRAPTI TOURISM &#183; EXPLORE THE WORLD, YOUR WAY &#183; PRAPTI TOURISM &#183; EXPLORE THE WORLD, YOUR WAY &#183;</textPath></text>
+                        <!-- Rotating Stamp Centered Behind Phone -->
+                        <div class="stamp" aria-hidden="true" style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; width: min(520px, 95vw) !important; max-width: 520px !important; aspect-ratio: 1 !important; pointer-events: none !important; z-index: 1 !important;">
+                            <svg viewBox="0 0 400 400" style="width: 100%; height: 100%; display: block; animation: wa-spin 60s linear infinite; transform-origin: center center;">
+                                <defs>
+                                    <path id="ring" d="M200 200 m-150 0 a150 150 0 1 1 300 0 a150 150 0 1 1 -300 0" />
+                                </defs>
+                                <circle cx="200" cy="200" r="178" />
+                                <circle cx="200" cy="200" r="124" />
+                                <text>
+                                    <textPath href="#ring" textLength="930" lengthAdjust="spacing">PRAPTI TOURISM &#183;
+                                        EXPLORE THE WORLD, YOUR WAY &#183; PRAPTI TOURISM &#183; EXPLORE THE WORLD, YOUR
+                                        WAY &#183;</textPath>
+                                </text>
                             </svg>
                         </div>
 
-                        <!-- Interactive Phone Mockup -->
-                        <div class="phone" role="img" aria-label="Preview of the Prapti Tourism WhatsApp channel with video tour and updates arriving" style="position: relative !important; width: min(100%, 320px) !important; height: 620px !important; border: 10px solid #02111a !important; border-radius: 44px !important; background: #02111a !important; box-shadow: 0 0 0 1.5px rgba(238, 248, 251, 0.12), 0 35px 65px -15px rgba(1, 10, 17, 0.85), 0 0 80px -10px rgba(77, 185, 219, 0.3) !important; overflow: hidden !important;">
+                        <!-- Phone Mockup Centered on Stamp -->
+                        <div class="phone" role="img"
+                            aria-label="Preview of the Prapti Tourism WhatsApp channel with updates arriving" style="position: relative !important; width: min(100%, 320px) !important; height: 620px !important; border: 10px solid #02111a !important; border-radius: 44px !important; background: #02111a !important; box-shadow: 0 0 0 1.5px rgba(238, 248, 251, 0.12), 0 35px 65px -15px rgba(1, 10, 17, 0.85), 0 0 80px -10px rgba(77, 185, 219, 0.3) !important; overflow: hidden !important; z-index: 2 !important; margin: 0 auto !important;">
                             <div class="screen" aria-hidden="true" style="position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important; display: flex !important; flex-direction: column !important; background: #0a2535 !important; border-radius: 34px !important; overflow: hidden !important;">
                                 <div class="notch"></div>
                                 <header class="chead">
                                     <span class="back">&#8249;</span>
-                                    <span class="avatar"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 3 3 10.5l6 2.5 2.5 6L14 14l5 3.5z"/></svg></span>
+                                    <span class="avatar"><svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M21 3 3 10.5l6 2.5 2.5 6L14 14l5 3.5z" />
+                                        </svg></span>
                                     <div><b>Prapti Tourism</b><small>Channel &middot; 4.8K followers</small></div>
                                     <span class="follow">Follow</span>
                                 </header>
-                                <div class="feed" id="feed" style="flex: 1 1 auto !important; min-height: 0 !important; display: flex !important; flex-direction: column !important; justify-content: flex-start !important; gap: 10px !important; padding: 12px 10px !important; overflow-y: auto !important; scrollbar-width: none !important;">
-                                    
-                                    <!-- Post 1: Tour Video Post -->
-                                    <div class="post in" style="opacity: 1 !important; transform: none !important; display: block !important; visibility: visible !important; background: #123247 !important; color: #e6f3f8 !important; border-radius: 4px 14px 14px 14px !important; padding: 8px !important; margin-bottom: 2px !important;">
-                                        <div class="video-container" style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 8px; background: #000;">
-                                            <video autoplay muted loop playsinline preload="auto" poster="images/destinations/kashmir.jpg" style="display: block; width: 100%; height: 140px; object-fit: cover; border-radius: 8px; background: #000;">
+                                <div class="feed" id="feed" style="flex: 1 1 auto !important; min-height: 0 !important; display: flex !important; flex-direction: column !important; justify-content: flex-end !important; gap: 10px !important; padding: 12px 10px !important; overflow-y: auto !important; scrollbar-width: none !important;">
+                                    <!-- Initial placeholder post to ensure immediate visibility -->
+                                    <div class="post in" style="opacity: 1 !important; transform: none !important; display: block !important;">
+                                        <div class="video-container" style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 7px; background: #000;">
+                                            <video autoplay muted loop playsinline preload="auto" poster="images/destinations/kashmir.jpg" style="display: block; width: 100%; height: 135px; object-fit: cover; border-radius: 8px; background: #000;">
                                                 <source src="hero%20video.mp4" type="video/mp4">
                                                 <source src="hero video.mp4" type="video/mp4">
                                             </video>
-                                            <div style="position: absolute; bottom: 8px; left: 8px; padding: 3px 8px; border-radius: 999px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); font-size: 10px; color: #fff; display: flex; align-items: center; gap: 5px; font-weight: 600; box-shadow: 0 1px 4px rgba(0,0,0,0.4);">
+                                            <div style="position: absolute; bottom: 8px; left: 8px; padding: 2px 7px; border-radius: 999px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); font-size: 10px; color: #fff; display: flex; align-items: center; gap: 5px; font-weight: 600;">
                                                 <span style="width: 6px; height: 6px; border-radius: 50%; background: #25D366; display: inline-block;"></span> Tour Video
                                             </div>
                                         </div>
-                                        <p style="margin: 4px 2px 3px; font-size: 0.78rem; line-height: 1.45; color: #e6f3f8;">Discover breathtaking mountain views & customized luxury tours with Prapti Tourism! 🏔️✨</p>
-                                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px; padding: 0 2px;">
-                                            <div style="display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.08); padding: 2px 7px; border-radius: 12px; font-size: 10px; color: #a6c4d2;">
-                                                <span>❤️ 48</span>
-                                                <span>👍 62</span>
-                                                <span>🔥 27</span>
-                                            </div>
-                                            <time style="font-size: 0.62rem; color: #a6c4d2;">11:42 AM</time>
-                                        </div>
+                                        <p style="margin: 4px 2px 3px; font-size: 0.78rem; line-height: 1.45; color: #e6f3f8;">Discover picturesque landscapes & curated tours with Prapti Tourism! 🏔️✨</p>
+                                        <time style="font-size: 0.62rem; color: #a6c4d2; display: block; text-align: right;">Just now</time>
                                     </div>
-
-                                    <!-- Post 2: Travel Tip Post -->
-                                    <div class="post in" style="opacity: 1 !important; transform: none !important; display: block !important; visibility: visible !important; background: #123247 !important; color: #e6f3f8 !important; border-radius: 4px 14px 14px 14px !important; padding: 8px !important; margin-bottom: 2px !important;">
-                                        <p style="margin: 2px 2px 4px; font-size: 0.76rem; line-height: 1.45; color: #e6f3f8;">💡 <b>Travel Tip:</b> Early holiday bookings for families & couples are now open with exclusive pricing perks. Tap below to follow along!</p>
-                                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 4px; padding: 0 2px;">
-                                            <div style="display: inline-flex; align-items: center; gap: 4px; background: rgba(255,255,255,0.08); padding: 2px 7px; border-radius: 12px; font-size: 10px; color: #a6c4d2;">
-                                                <span>✈️ 35</span>
-                                                <span>🌟 19</span>
-                                            </div>
-                                            <time style="font-size: 0.62rem; color: #a6c4d2;">12:05 PM</time>
-                                        </div>
-                                    </div>
-
                                 </div>
                                 <div class="cfoot">Updates from Prapti Tourism</div>
                             </div>
@@ -3196,43 +3265,163 @@
 
         <script>
         (function () {
-          "use strict";
+            "use strict";
 
-          var CHANNEL_URL = "https://whatsapp.com/channel/praptitourism";
-          var copyBtn = document.getElementById("copy");
-          var statusEl = document.getElementById("status");
-          var statusTimer = 0;
+            var CHANNEL_URL = "https://whatsapp.com/channel/praptitourism";
+            var QR_IMAGE = "";
+            var FINDS = [
+                "Destination ideas",
+                "New tour announcements",
+                "Travel tips and checklists",
+                "Seasonal getaway suggestions"
+            ];
 
-          function say(text) {
-            if (!statusEl) return;
-            statusEl.textContent = text;
-            clearTimeout(statusTimer);
-            statusTimer = setTimeout(function () { statusEl.textContent = ""; }, 6000);
-          }
+            var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            function $(id) { return document.getElementById(id); }
 
-          if (copyBtn) {
-            copyBtn.addEventListener("click", function () {
-              if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(CHANNEL_URL).then(function () {
-                  say("Channel link copied to clipboard!");
-                }, function () {
-                  say("Press and hold the Join button to copy the link.");
+            /* ---------- what you'll find ---------- */
+            var tick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.7 2.7L16 9.6"/></svg>';
+            var findsEl = $("finds");
+            if (findsEl) {
+                findsEl.innerHTML = FINDS.map(function (t) { return "<li>" + tick + "<span></span></li>"; }).join("");
+                Array.prototype.forEach.call(findsEl.querySelectorAll("span"), function (el, i) { el.textContent = FINDS[i]; });
+            }
+
+            /* ---------- join button & clipboard ---------- */
+            var join = $("join");
+            if (join) { join.href = CHANNEL_URL; }
+
+            var statusTimer = 0;
+            function say(text) {
+                var el = $("status");
+                if (!el) return;
+                el.textContent = text;
+                clearTimeout(statusTimer);
+                statusTimer = setTimeout(function () { el.textContent = ""; }, 6000);
+            }
+
+            var copyBtn = $("copy");
+            if (copyBtn) {
+                copyBtn.addEventListener("click", function () {
+                    function fallback() {
+                        var ta = document.createElement("textarea");
+                        ta.value = CHANNEL_URL; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+                        document.body.appendChild(ta); ta.select();
+                        var ok = false; try { ok = document.execCommand("copy"); } catch (err) { }
+                        document.body.removeChild(ta);
+                        say(ok ? "Channel link copied to clipboard!" : "Press and hold the Join button to copy the link.");
+                    }
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(CHANNEL_URL).then(function () { say("Channel link copied to clipboard!"); }, fallback);
+                    } else { fallback(); }
                 });
-              } else {
-                say("Press and hold the Join button to copy the link.");
-              }
-            });
-          }
+            }
 
-          // Video autoplay safeguard
-          var vid = document.querySelector("#whatsapp-channel video");
-          if (vid) {
-            vid.muted = true;
-            vid.play().catch(function() {});
-          }
+            /* ---------- QR code ---------- */
+            var qrBox = $("qr");
+            function drawQr() {
+                if (!qrBox) return;
+                if (QR_IMAGE) {
+                    var img = document.createElement("img");
+                    img.src = QR_IMAGE; img.alt = "QR code for the Prapti Tourism WhatsApp channel";
+                    qrBox.appendChild(img);
+                    return;
+                }
+                try {
+                    if (typeof qrcode === "function") {
+                        var qr = qrcode(0, "M");
+                        qr.addData(CHANNEL_URL); qr.make();
+                        var n = qr.getModuleCount(), quiet = 4, d = "";
+                        for (var r = 0; r < n; r++) {
+                            for (var c = 0; c < n; c++) {
+                                if (qr.isDark(r, c)) d += "M" + (c + quiet) + " " + (r + quiet) + "h1v1h-1z";
+                            }
+                        }
+                        var size = n + quiet * 2;
+                        qrBox.innerHTML = '<svg viewBox="0 0 ' + size + " " + size + '" shape-rendering="crispEdges" role="img" ' +
+                            'aria-label="QR code for the Prapti Tourism WhatsApp channel"><rect width="' + size + '" height="' + size +
+                            '" fill="#ffffff"/><path d="' + d + '" fill="#06283d"/></svg>';
+                    }
+                } catch (err) {
+                    // Fallback SVG already pre-rendered
+                }
+            }
+            drawQr();
+
+            /* ---------- animated posts, arriving one by one ---------- */
+            var SCENES = {
+                video:
+                    '<div class="video-container" style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 7px; background: #000;">' +
+                    '<video autoplay muted loop playsinline preload="auto" poster="images/destinations/kashmir.jpg" style="display: block; width: 100%; height: 135px; object-fit: cover; border-radius: 8px; background: #000;">' +
+                    '<source src="hero%20video.mp4" type="video/mp4">' +
+                    '<source src="hero video.mp4" type="video/mp4">' +
+                    '</video>' +
+                    '<div style="position: absolute; bottom: 8px; left: 8px; padding: 2px 7px; border-radius: 999px; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); font-size: 10px; color: #fff; display: flex; align-items: center; gap: 5px; font-weight: 600;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #25D366; display: inline-block;"></span> Tour Video</div>' +
+                    '</div>',
+                mountains:
+                    '<svg class="art" viewBox="0 0 300 130" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f7db3"/><stop offset="1" stop-color="#f1cba0"/></linearGradient></defs>' +
+                    '<rect width="300" height="130" fill="url(#g1)"/><circle cx="232" cy="38" r="14" fill="#fff1d0" opacity=".9"/>' +
+                    '<path d="M0 92 L48 40 L88 72 L138 22 L190 78 L238 46 L300 84 L300 100 L0 100Z" fill="#5d7489"/>' +
+                    '<path d="M138 22 L156 42 L132 54 L120 46Z M48 40 L62 54 L44 62Z" fill="#fff" opacity=".7"/>' +
+                    '<rect y="98" width="300" height="32" fill="#1d4457"/><path d="M96 104 h108 v8 q-54 8 -108 0z" fill="#3b2a22"/></svg>',
+                coast:
+                    '<svg class="art" viewBox="0 0 300 130" aria-hidden="true"><defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fd3e6"/><stop offset="1" stop-color="#f6e3c0"/></linearGradient></defs>' +
+                    '<rect width="300" height="130" fill="url(#g2)"/><circle cx="76" cy="40" r="16" fill="#fff6dc"/>' +
+                    '<rect y="70" width="300" height="34" fill="#2a8b94"/><rect y="88" width="300" height="16" fill="#63c2c1" opacity=".8"/>' +
+                    '<path d="M0 104 q80 -12 160 2 q80 12 140 -4 l0 28 L0 130Z" fill="#efd9ae"/>' +
+                    '<path d="M232 118 q4 -30 1 -52 l4 0 q3 22 -1 52Z" fill="#1e4034"/><path d="M235 66 q-22 -4 -30 8 q14 -8 30 -2z M235 66 q22 -6 32 6 q-14 -6 -32 0z M235 66 q-6 -16 -22 -14 q14 2 22 14z" fill="#1e4034"/></svg>'
+            };
+            var POSTS = [
+                { art: "video", text: "Discover picturesque landscapes & curated tours with Prapti Tourism! 🏔️✨", time: "Just now" },
+                { text: "Travel tip: keep a printed copy of your bookings in your hand luggage.", time: "Just now" },
+                { art: "coast", text: "Dreaming of a beach break? Message us your dates and we'll help plan it.", time: "Just now" }
+            ];
+
+            var feed = $("feed"), step = 0, timer = 0;
+            function buildPost(p) {
+                var el = document.createElement("div");
+                el.className = "post";
+                el.innerHTML = (p.art ? SCENES[p.art] : "") + "<p></p><time></time>";
+                el.querySelector("p").textContent = p.text;
+                el.querySelector("time").textContent = p.time;
+                var vid = el.querySelector("video");
+                if (vid) {
+                    vid.muted = true;
+                    vid.play().catch(function () {});
+                }
+                return el;
+            }
+            function loop() {
+                if (!feed) return;
+                feed.innerHTML = ""; step = 0; next();
+            }
+            function next() {
+                if (!feed) return;
+                if (step < POSTS.length) {
+                    var el = buildPost(POSTS[step]);
+                    feed.appendChild(el);
+                    requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.add("in"); }); });
+                    step++;
+                    timer = setTimeout(next, 2400);
+                } else {
+                    timer = setTimeout(function () {
+                        if (feed) feed.classList.add("out");
+                        timer = setTimeout(function () { if (feed) feed.classList.remove("out"); loop(); }, 700);
+                    }, 4600);
+                }
+            }
+            if (reduced) {
+                if (feed) {
+                    POSTS.forEach(function (p) { var el = buildPost(p); el.classList.add("in"); feed.appendChild(el); });
+                }
+            } else {
+                timer = setTimeout(loop, 900);
+                document.addEventListener("visibilitychange", function () {
+                    if (document.hidden) { clearTimeout(timer); } else { loop(); }
+                });
+            }
         })();
         </script>
-
 
 
         <!-- Target Footer (Matches Provided Reference Photo) -->
@@ -3247,7 +3436,8 @@
                                 alt="Prapti Tourism: Explore the World, Your Way"
                                 class="h-14 sm:h-16 lg:h-18 w-auto object-contain">
                         </a>
-                        <p class="mt-3.5 max-w-sm text-xs sm:text-[0.88rem] lg:text-[0.92rem] leading-relaxed text-[#4b6372]">
+                        <p
+                            class="mt-3.5 max-w-sm text-xs sm:text-[0.88rem] lg:text-[0.92rem] leading-relaxed text-[#4b6372]">
                             Prapti Tourism is a Surat-based travel agency offering customized domestic and international
                             tour packages, family holidays, honeymoon trips and memorable travel experiences.
                         </p>
@@ -3351,7 +3541,8 @@
                         <div class="mt-3.5 flex flex-col gap-3 sm:gap-3.5">
 
                             <!-- 1. HEAD OFFICE – SURAT -->
-                            <div class="flex items-start gap-3 bg-white/85 p-3.5 sm:p-4 rounded-2xl border border-[#bfe7f2]/70 shadow-sm hover:shadow-md transition-shadow min-w-0">
+                            <div
+                                class="flex items-start gap-3 bg-white/85 p-3.5 sm:p-4 rounded-2xl border border-[#bfe7f2]/70 shadow-sm hover:shadow-md transition-shadow min-w-0">
                                 <div
                                     class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-red-100 text-red-500 flex items-center justify-center shrink-0 mt-0.5">
                                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -3360,7 +3551,8 @@
                                     </svg>
                                 </div>
                                 <div class="text-xs flex-1 min-w-0">
-                                    <h4 class="font-bold text-[#06283d] text-xs sm:text-sm tracking-tight">Head Office – Surat</h4>
+                                    <h4 class="font-bold text-[#06283d] text-xs sm:text-sm tracking-tight">Head Office –
+                                        Surat</h4>
                                     <p class="text-[#4b6372] text-[11px] sm:text-xs leading-relaxed mt-1">
                                         C-1 Purnima Society, Near Kotak House, Ghod Dod Road, Surat, Gujarat – 395007.
                                     </p>
@@ -3392,7 +3584,8 @@
                             </div>
 
                             <!-- 2. BRANCH OFFICE – KAMREJ -->
-                            <div class="flex items-start gap-3 bg-white/85 p-3.5 sm:p-4 rounded-2xl border border-[#bfe7f2]/70 shadow-sm hover:shadow-md transition-shadow min-w-0">
+                            <div
+                                class="flex items-start gap-3 bg-white/85 p-3.5 sm:p-4 rounded-2xl border border-[#bfe7f2]/70 shadow-sm hover:shadow-md transition-shadow min-w-0">
                                 <div
                                     class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
                                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -3401,7 +3594,8 @@
                                     </svg>
                                 </div>
                                 <div class="text-xs flex-1 min-w-0">
-                                    <h4 class="font-bold text-[#06283d] text-xs sm:text-sm tracking-tight">Branch Office – Kamrej</h4>
+                                    <h4 class="font-bold text-[#06283d] text-xs sm:text-sm tracking-tight">Branch Office
+                                        – Kamrej</h4>
                                     <p class="text-[#4b6372] text-[11px] sm:text-xs leading-relaxed mt-1">
                                         Office No. 441, 4th Floor, Kashi Plaza, Kamrej Char Rasta, Kamrej, Surat,
                                         Gujarat – 394180.
