@@ -854,6 +854,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function openTravelDateMenu() {
         if (!travelDateMenu) return;
         closeAllDropdowns('traveldate');
+        const col = travelDateWrapper ? travelDateWrapper.closest('.relative') : null;
+        const row = travelDateWrapper ? travelDateWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '50';
+        if (row) row.style.zIndex = '50';
         travelDateMenu.classList.remove('hidden');
         if (travelDateChevron) travelDateChevron.classList.add('rotate-180');
         if (travelDateTrigger) travelDateTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
@@ -861,6 +865,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeTravelDateMenu() {
         if (!travelDateMenu) return;
+        const col = travelDateWrapper ? travelDateWrapper.closest('.relative') : null;
+        const row = travelDateWrapper ? travelDateWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '';
+        if (row) row.style.zIndex = '';
         travelDateMenu.classList.add('hidden');
         if (travelDateChevron) travelDateChevron.classList.remove('rotate-180');
         if (travelDateTrigger) travelDateTrigger.classList.remove('ring-2', 'ring-accent/20');
@@ -917,6 +925,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function openDestinationMenu() {
         if (!destMenu) return;
         closeAllDropdowns('dest');
+        const col = destWrapper ? destWrapper.closest('.relative') : null;
+        const row = destWrapper ? destWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '50';
+        if (row) row.style.zIndex = '50';
         destMenu.classList.remove('hidden');
         if (destChevron) destChevron.classList.add('rotate-180');
         if (destTrigger) destTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
@@ -927,6 +939,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeDestinationMenu() {
         if (!destMenu) return;
+        const col = destWrapper ? destWrapper.closest('.relative') : null;
+        const row = destWrapper ? destWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '';
+        if (row) row.style.zIndex = '';
         destMenu.classList.add('hidden');
         if (destChevron) destChevron.classList.remove('rotate-180');
         if (destTrigger) destTrigger.classList.remove('ring-2', 'ring-accent/20');
@@ -1074,6 +1090,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function openTripMenu() {
         if (!tripMenu) return;
         closeAllDropdowns('trip');
+        const col = tripWrapper ? tripWrapper.closest('.relative') : null;
+        const row = tripWrapper ? tripWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '50';
+        if (row) row.style.zIndex = '50';
         tripMenu.classList.remove('hidden');
         if (tripChevron) tripChevron.classList.add('rotate-180');
         if (tripTrigger) tripTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
@@ -1081,6 +1101,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeTripMenu() {
         if (!tripMenu) return;
+        const col = tripWrapper ? tripWrapper.closest('.relative') : null;
+        const row = tripWrapper ? tripWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '';
+        if (row) row.style.zIndex = '';
         tripMenu.classList.add('hidden');
         if (tripChevron) tripChevron.classList.remove('rotate-180');
         if (tripTrigger) tripTrigger.classList.remove('ring-2', 'ring-accent/20');
@@ -1161,6 +1185,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function openBudgetMenu() {
         if (!budgetMenu) return;
         closeAllDropdowns('budget');
+        const col = budgetWrapper ? budgetWrapper.closest('.relative') : null;
+        const row = budgetWrapper ? budgetWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '50';
+        if (row) row.style.zIndex = '50';
         budgetMenu.classList.remove('hidden');
         if (budgetChevron) budgetChevron.classList.add('rotate-180');
         if (budgetTrigger) budgetTrigger.classList.add('border-accent', 'ring-2', 'ring-accent/20');
@@ -1168,6 +1196,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeBudgetMenu() {
         if (!budgetMenu) return;
+        const col = budgetWrapper ? budgetWrapper.closest('.relative') : null;
+        const row = budgetWrapper ? budgetWrapper.closest('.grid') : null;
+        if (col) col.style.zIndex = '';
+        if (row) row.style.zIndex = '';
         budgetMenu.classList.add('hidden');
         if (budgetChevron) budgetChevron.classList.remove('rotate-180');
         if (budgetTrigger) budgetTrigger.classList.remove('ring-2', 'ring-accent/20');
