@@ -1522,7 +1522,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (loadMoreText) {
-                loadMoreText.textContent = isExpanded ? 'Show less questions' : 'View all 12 questions';
+                loadMoreText.textContent = isExpanded ? 'Show less questions' : 'View all 10 questions';
             }
             if (loadMoreArrow) {
                 loadMoreArrow.innerHTML = isExpanded ? '&uarr;' : '&darr;';
