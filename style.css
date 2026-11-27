@@ -51,6 +51,24 @@ body {
     color: rgba(255, 255, 255, 0.8);
 }
 
+/* ------------------------------------- */
+/* Master Brand Color Variables          */
+/* ------------------------------------- */
+:root {
+    --color-primary: #1595BD;
+    /* Primary Blue: CTA backgrounds, highlights */
+    --color-deep-blue: #08769A;
+    /* Deep Blue: Premium sections, supporting headings */
+    --color-ice-blue: #EAF7FB;
+    /* Ice Blue: Light panels, cards, clean backgrounds */
+    --color-white: #FFFFFF;
+    /* White: Light background */
+    --color-charcoal: #252A30;
+    /* Charcoal: Readable body text, prices, dates */
+    --color-accent: #1595BD;
+    --color-accent-hover: #08769A;
+}
+
 #navbar.nav-transparent .nav-btn {
     background-color: #ffffff;
     color: #0B2038;
@@ -85,7 +103,7 @@ body {
 }
 
 #navbar.nav-scrolled .nav-link:hover {
-    color: #00849E;
+    color: #1595BD;
 }
 
 #navbar.nav-scrolled .nav-btn {
@@ -94,7 +112,7 @@ body {
 }
 
 #navbar.nav-scrolled .nav-btn:hover {
-    background-color: #00849E;
+    background-color: #1595BD;
     transform: translateY(-1px);
 }
 
@@ -227,7 +245,7 @@ body {
 }
 
 .custom-destination-scroll::-webkit-scrollbar-thumb:hover {
-    background: #00849E;
+    background: #1595BD;
 }
 
 /* Destination Cards - Luxurious Travel Elevation & Feathered Shadow Depth */
@@ -262,20 +280,20 @@ footer .grid>div {
    Section: Prapti WhatsApp Channel (Between FAQ and Footer)
 ------------------------------------------------------------- */
 .wa-channel-section {
-    --bg: #06283d;
-    --ink: #eef8fb;
-    --muted: #a6c4d2;
-    --line: rgba(238, 248, 251, 0.16);
-    --accent: #4db9db;
+    --bg: #08769A;
+    --ink: #FFFFFF;
+    --muted: #EAF7FB;
+    --line: rgba(234, 247, 251, 0.22);
+    --accent: #1595BD;
     --accent-soft: #8dd3e8;
-    --on-accent: #06283d;
-    --paper: #f4fafc;
-    --paper-ink: #0b2233;
-    --paper-muted: #4b6372;
-    --phone: #02111a;
-    --chat-bg: #0a2535;
-    --bubble: #123247;
-    --bubble-ink: #e6f3f8;
+    --on-accent: #FFFFFF;
+    --paper: #EAF7FB;
+    --paper-ink: #252A30;
+    --paper-muted: #5a6b78;
+    --phone: #042531;
+    --chat-bg: #06394b;
+    --bubble: #0a4f66;
+    --bubble-ink: #EAF7FB;
 
     --display: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -576,33 +594,36 @@ footer .grid>div {
 }
 
 .wa-channel-section .stamp {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(520px, 95vw);
-  max-width: 520px;
-  aspect-ratio: 1;
-  pointer-events: none;
-  z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(520px, 95vw);
+    max-width: 520px;
+    aspect-ratio: 1;
+    pointer-events: none;
+    z-index: 1;
 }
+
 .wa-channel-section .stamp svg {
-  width: 100%;
-  height: 100%;
-  animation: wa-spin 60s linear infinite;
-  transform-origin: center center;
+    width: 100%;
+    height: 100%;
+    animation: wa-spin 60s linear infinite;
+    transform-origin: center center;
 }
+
 .wa-channel-section .stamp circle {
-  fill: none;
-  stroke: rgba(141, 211, 232, 0.22);
-  stroke-width: 1.2;
+    fill: none;
+    stroke: rgba(141, 211, 232, 0.22);
+    stroke-width: 1.2;
 }
+
 .wa-channel-section .stamp text {
-  fill: #8dd3e8;
-  font: 600 16px var(--board);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  opacity: 0.55;
+    fill: #8dd3e8;
+    font: 600 16px var(--board);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.55;
 }
 
 .wa-channel-section .stamp circle {
@@ -701,7 +722,7 @@ footer .grid>div {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: linear-gradient(145deg, #1090bd, #4db9db);
+    background: linear-gradient(145deg, #1595BD, #08769A);
 }
 
 .wa-channel-section .avatar svg {
@@ -915,8 +936,8 @@ footer .grid>div {
     top: 0;
     height: 3px;
     pointer-events: none;
-    background: linear-gradient(90deg, transparent, #1090bd 20%, #1090bd 80%, transparent);
-    box-shadow: 0 0 14px 2px rgba(16, 144, 189, 0.55);
+    background: linear-gradient(90deg, transparent, #1595BD 20%, #1595BD 80%, transparent);
+    box-shadow: 0 0 14px 2px rgba(21, 149, 189, 0.55);
     opacity: 0.85;
 }
 
@@ -1096,11 +1117,11 @@ footer .grid>div {
         }
 
         .wa-channel-section .stamp {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(420px, 92vw);
-  }
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(420px, 92vw);
+        }
 
         .wa-channel-section .qr-card {
             position: relative;
