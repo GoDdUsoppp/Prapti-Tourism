@@ -187,19 +187,31 @@ body {
     width: 100%;
     z-index: 0;
     will-change: transform, opacity;
+    background-color: #000000;
 }
 
 #hero video {
     pointer-events: none;
-    will-change: transform, filter;
+    will-change: transform;
 }
 
 /* Rest of the website overlays over the sticky hero */
 #main-content {
     position: relative;
     z-index: 10;
-    background-color: #ffffff;
+    background-color: #ffffff !important;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    isolation: isolate;
     box-shadow: 0 -25px 60px -10px rgba(0, 0, 0, 0.5), 0 -10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+#about {
+    background-color: #ffffff !important;
+    position: relative;
+    z-index: 1;
 }
 
 #hero h1 {

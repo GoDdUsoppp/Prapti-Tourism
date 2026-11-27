@@ -408,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroContent = document.querySelector('#hero .relative.z-20');
     const heroExplore = document.querySelector('#hero a[href="#about"]') || document.querySelector('#hero a[href="#services"]');
     const heroVideo = document.getElementById('hero-video');
+    const heroDim = document.getElementById('hero-dim-overlay');
 
     if (heroSection) {
         let isTicking = false;
@@ -417,6 +418,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const vh = window.innerHeight;
 
             if (scrollY <= vh) {
+                // Ensure hero is visible during transition
+                if (heroSection.style.visibility !== 'visible') {
+                    heroSection.style.visibility = 'visible';
+                }
+
                 const progress = Math.min(1, Math.max(0, scrollY / (vh * 0.85)));
                 
                 // Gently fade and translate hero text upward
@@ -430,16 +436,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     heroExplore.style.opacity = (1 - progress * 2.2).toFixed(3);
                 }
 
-                // Subtle video scale and brightness dim for rich cinematic depth
-                if (heroVideo) {
-                    heroVideo.style.transform = `scale(${(1 + progress * 0.04).toFixed(3)})`;
-                    heroVideo.style.filter = `brightness(${(1 - progress * 0.35).toFixed(2)})`;
-                    if (heroVideo.paused) {
-                        heroVideo.play().catch(() => {});
-                    }
+                // Hardware-accelerated dimming via layer opacity (zero GPU shader thrashing)
+                if (heroDim) {
+                    heroDim.style.opacity = (progress * 0.5).toFixed(2);
+                }
+
+                // Subtle scale on desktop only to avoid mobile layout thrashing
+                if (heroVideo && window.innerWidth >= 768) {
+                    heroVideo.style.transform = `scale(${(1 + progress * 0.03).toFixed(3)})`;
+                }
+
+                // Resume video if it was paused
+                if (heroVideo && heroVideo.paused) {
+                    heroVideo.play().catch(() => {});
                 }
             } else {
-                // When completely covered by the overlay content, pause video to save GPU/CPU
+                // When completely covered by the overlay content:
+                // 1. Hide hero from compositor to eliminate any GPU draw calls and bleed-through
+                if (heroSection.style.visibility !== 'hidden') {
+                    heroSection.style.visibility = 'hidden';
+                }
+                // 2. Pause video to save 100% of GPU/CPU and phone battery
                 if (heroVideo && !heroVideo.paused) {
                     heroVideo.pause();
                 }

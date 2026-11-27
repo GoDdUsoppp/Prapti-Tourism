@@ -23,7 +23,7 @@
     <!-- Odometer CSS and JS for number rolling effect -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
 
     <!-- Google Fonts for typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,10 +31,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css?v=1795613392149">
-    <link rel="stylesheet" href="style.css?v=1795150000">
+    <link rel="stylesheet" href="style.css?v=1795766000000">
     <script>
         tailwind.config = {
             theme: {
@@ -131,8 +130,8 @@
     <!-- Fullscreen Hero Video Section -->
     <section id="hero" class="sticky top-0 w-full h-screen overflow-hidden flex items-center bg-black z-0">
         <!-- Background Video -->
-        <video id="hero-video" class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline
-            preload="auto">
+        <video id="hero-video" class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline webkit-playsinline
+            preload="metadata">
             <source src="hero video.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -143,6 +142,10 @@
         </div>
         <div
             class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/65 z-10 pointer-events-none">
+        </div>
+        <!-- Dynamic Hardware-Accelerated Scroll Dimming Layer (zero GPU shader cost) -->
+        <div id="hero-dim-overlay"
+            class="absolute inset-0 bg-black opacity-0 z-10 pointer-events-none transition-opacity duration-75">
         </div>
 
         <!-- Hero Content (Layout, typography and positioning inspired by reference photo) -->
@@ -1547,7 +1550,7 @@
         <!-- Traveler Reviews / Testimonials Section (Inspired by Alpine Lake Showcase) -->
                 <!-- Testimonials / Reviews Section (Original Alpine Lake Showcase Style) -->
         <section id="reviews"
-            class="relative w-full py-20 sm:py-24 lg:py-32 px-4 sm:px-8 lg:px-16 overflow-hidden flex flex-col items-center justify-center">
+            class="relative w-full py-20 sm:py-24 lg:py-32 px-4 sm:px-8 lg:px-16 overflow-hidden flex flex-col items-center justify-center bg-[#0B2038]">
 
             <!-- Stunning Alpine Lake & Adirondack Chairs Background Image -->
             <div class="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
@@ -3649,8 +3652,8 @@
             </svg>
         </a>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="script.js?v=1795614051900"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script defer src="script.js?v=1795766000000"></script>
 
 </body>
 
